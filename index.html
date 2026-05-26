@@ -19,26 +19,34 @@
   body::before{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(201,168,76,0.02) 40px,rgba(201,168,76,0.02) 41px);pointer-events:none;z-index:0;}
   body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 40% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 60%);pointer-events:none;z-index:0;}
   .app{position:relative;z-index:1;}
+
+  /* ===== HEADER ===== */
   header{background:linear-gradient(180deg,rgba(8,12,24,0.99),rgba(12,18,36,0.98));border-bottom:1px solid var(--border);padding:0 2rem;position:sticky;top:0;z-index:100;box-shadow:0 4px 40px rgba(0,0,0,0.6);}
   .header-inner{max-width:1400px;margin:0 auto;height:68px;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+
   .logo{display:flex;align-items:center;gap:0.75rem;flex-shrink:0;}
   .logo-emblem{width:44px;height:44px;flex-shrink:0;filter:drop-shadow(0 0 8px rgba(201,168,76,0.4));}
   .logo-text h1{font-family:'Bebas Neue',sans-serif;font-size:1.45rem;letter-spacing:3px;background:linear-gradient(135deg,var(--gold-bright),var(--gold),var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
   .logo-text .subtitle{font-family:'Barlow Condensed',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:3px;color:var(--red-star);text-transform:uppercase;margin-top:1px;}
-  .countdown-block{display:flex;align-items:center;gap:0.75rem;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.22);border-radius:10px;padding:0.5rem 1.25rem;flex:1;max-width:380px;justify-content:center;}
-  .countdown-label{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--silver);white-space:nowrap;}
-  .countdown-units{display:flex;gap:0.5rem;align-items:center;}
-  .countdown-unit{text-align:center;min-width:38px;}
-  .countdown-num{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;line-height:1;color:var(--gold-bright);display:block;letter-spacing:1px;}
-  .countdown-sub{font-family:'Barlow Condensed',sans-serif;font-size:0.5rem;letter-spacing:1.5px;color:var(--silver);text-transform:uppercase;}
-  .countdown-sep{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--gold-dark);line-height:1;margin-bottom:6px;}
+
+  /* COUNTDOWN INLINE */
+  .countdown-inline{display:flex;align-items:center;gap:0.5rem;flex-shrink:0;}
+  .cd-label{font-family:'Barlow Condensed',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--silver);margin-right:0.2rem;}
+  .cd-units{display:flex;align-items:baseline;gap:0.15rem;}
+  .cd-num{font-family:'Bebas Neue',sans-serif;font-size:1.45rem;color:var(--gold-bright);letter-spacing:1px;line-height:1;}
+  .cd-sub{font-family:'Barlow Condensed',sans-serif;font-size:0.48rem;letter-spacing:1px;color:var(--silver);text-transform:uppercase;margin-right:0.35rem;}
+  .cd-sep{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--gold-dark);margin:0 0.1rem;line-height:1;}
+
   .radio-badge{position:relative;display:flex;align-items:center;gap:0.4rem;background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.3);border-radius:8px;padding:0.45rem 0.9rem;cursor:pointer;transition:all 0.2s;font-family:'Barlow Condensed',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:1px;color:var(--white);flex-shrink:0;white-space:nowrap;}
   .radio-badge:hover{background:rgba(192,57,43,0.2);}
   .radio-notif{position:absolute;top:-4px;right:-4px;width:10px;height:10px;border-radius:50%;background:var(--red-accent);}
   .radio-notif::after{content:'';position:absolute;inset:0;border-radius:50%;background:var(--red-accent);animation:ripple 1.5s ease-out infinite;}
   @keyframes ripple{0%{transform:scale(1);opacity:1;}100%{transform:scale(2.5);opacity:0;}}
+
   .prize-pill{background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-light));color:var(--navy);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.85rem;letter-spacing:1px;padding:0.45rem 1.1rem;border-radius:20px;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 2px 16px rgba(201,168,76,0.35);white-space:nowrap;flex-shrink:0;}
   .prize-pill:hover{transform:translateY(-2px);}
+
+  /* TIMELINE BAR */
   .timeline-bar{background:rgba(8,12,24,0.95);border-bottom:1px solid var(--border-light);padding:0.55rem 2rem;}
   .timeline-inner{max-width:1400px;margin:0 auto;}
   .timeline-track{display:flex;align-items:center;}
@@ -52,9 +60,12 @@
   .timeline-label.done-label{color:var(--gold-dark);}
   .timeline-connector{height:1px;background:var(--border-light);flex:1;max-width:28px;}
   .timeline-connector.done-conn{background:rgba(201,168,76,0.4);}
+
   .tagline-bar{background:linear-gradient(90deg,transparent,rgba(201,168,76,0.07),transparent);border-bottom:1px solid var(--border-light);text-align:center;padding:0.4rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:5px;color:var(--gold);text-transform:uppercase;}
   .comp-banner{background:rgba(10,15,30,0.8);border-bottom:1px solid var(--border-light);text-align:center;padding:0.4rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:2px;color:var(--silver);text-transform:uppercase;}
   .comp-banner span{color:var(--gold-light);font-weight:900;}
+
+  /* LAYOUT */
   .main-layout{max-width:1400px;margin:0 auto;padding:2rem;display:grid;grid-template-columns:230px 1fr;gap:2rem;align-items:start;}
   aside{position:sticky;top:128px;display:flex;flex-direction:column;gap:0.25rem;}
   .nav-btn{display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;border-radius:6px;border:1px solid transparent;background:transparent;color:var(--silver);font-family:'Barlow Condensed',sans-serif;font-size:0.88rem;font-weight:600;letter-spacing:0.5px;cursor:pointer;transition:all 0.2s;text-align:left;width:100%;}
@@ -65,17 +76,21 @@
   .nav-btn.pulse-btn{animation:navPulse 2s ease-in-out infinite;}
   @keyframes navPulse{0%,100%{background:transparent;border-color:transparent;color:var(--silver);}50%{background:rgba(201,168,76,0.12);border-color:rgba(201,168,76,0.5);color:var(--gold-bright);}}
   .nav-btn.pulse-btn.active{animation:none;background:rgba(201,168,76,0.1);border-color:rgba(201,168,76,0.4);color:var(--gold-light);}
+
   .admin-zone{background:rgba(201,168,76,0.04);border:1px dashed rgba(201,168,76,0.25);border-radius:8px;padding:1rem;margin-top:0.75rem;}
   .admin-zone h4{font-family:'Barlow Condensed',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
   .admin-zone textarea{width:100%;min-height:70px;background:rgba(0,0,0,0.5);border:1px solid rgba(201,168,76,0.2);border-radius:5px;color:var(--white);font-family:'Barlow',sans-serif;font-size:0.7rem;padding:0.4rem;resize:vertical;margin-bottom:0.4rem;}
   .btn-import{width:100%;padding:0.45rem;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--navy);border:none;border-radius:5px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;}
+
   main{min-width:0;}
   .tab-content{display:none;animation:fadeIn 0.3s ease;}
   .tab-content.active{display:block;}
   @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
   .section-header{margin-bottom:1.5rem;}
   .section-header h2{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:4px;background:linear-gradient(135deg,var(--gold-bright),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
   .section-header p{color:var(--silver);font-size:0.83rem;margin-top:0.3rem;}
+
   .card{background:var(--navy-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;backdrop-filter:blur(12px);}
   .table-wrap{overflow-x:auto;}
   table{width:100%;border-collapse:collapse;min-width:500px;}
@@ -100,35 +115,34 @@
   .section-chasse td{background:rgba(255,255,255,0.03);color:var(--silver);border-top:1px solid rgba(255,255,255,0.06);}
   .section-milieu td{background:rgba(255,255,255,0.02);color:rgba(136,153,187,0.6);border-top:1px solid rgba(255,255,255,0.04);}
   .section-fin td{background:rgba(192,57,43,0.04);color:rgba(192,57,43,0.6);border-top:1px solid rgba(192,57,43,0.1);}
+
   .classement-placeholder{background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:10px;padding:3rem 2rem;text-align:center;}
   .classement-placeholder .big-icon{font-size:3.5rem;margin-bottom:1rem;opacity:0.6;}
   .classement-placeholder h3{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:3px;color:var(--gold-light);margin-bottom:0.5rem;}
   .classement-placeholder p{color:var(--silver);font-size:0.85rem;}
-  .groups-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(278px,1fr));gap:1rem;}
-  .group-card{background:var(--navy-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;backdrop-filter:blur(12px);transition:border-color 0.2s;}
-  .group-card:hover{border-color:rgba(201,168,76,0.35);}
-  .group-header{background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04));padding:0.6rem 1rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
-  .group-letter{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:2px;color:var(--gold-light);}
-  .group-label{font-size:0.62rem;font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--silver);}
-  .team-row{display:flex;align-items:center;gap:0.75rem;padding:0.55rem 1rem;border-bottom:1px solid rgba(255,255,255,0.03);font-size:0.83rem;}
-  .team-row:last-child{border-bottom:none;}
-  .team-flag{font-size:1.15rem;flex-shrink:0;}
-  .team-name{font-family:'Barlow Condensed',sans-serif;font-weight:600;color:var(--white);flex:1;}
-  .team-stats{display:flex;gap:0.5rem;font-size:0.68rem;font-family:'Barlow Condensed',sans-serif;color:var(--silver);}
-  .team-stat{text-align:center;min-width:18px;}
-  .team-stat.pts-stat{color:var(--gold-light);font-weight:700;}
-  .bracket-note{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:1rem 1.5rem;margin-bottom:1.5rem;font-family:'Barlow Condensed',sans-serif;font-size:0.88rem;color:var(--silver);}
-  .bracket-note strong{color:var(--gold-light);}
-  .phases-timeline{display:flex;flex-direction:column;gap:0.85rem;}
-  .phase-block{background:var(--navy-card);border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.5rem;display:flex;align-items:center;gap:1.5rem;}
-  .phase-icon{font-size:1.8rem;flex-shrink:0;width:44px;text-align:center;}
-  .phase-info h3{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--white);letter-spacing:1px;}
-  .phase-info p{font-size:0.78rem;color:var(--silver);margin-top:0.15rem;}
-  .phase-date{margin-left:auto;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;color:var(--gold);text-align:right;flex-shrink:0;}
-  .prizepool-header{display:flex;align-items:center;justify-content:space-between;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.25);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;}
-  .prizepool-total{font-family:'Bebas Neue',sans-serif;font-size:3rem;line-height:1;background:linear-gradient(135deg,var(--gold-bright),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-  .prizepool-meta{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--silver);margin-top:0.25rem;}
-  .prizepool-note{font-size:0.75rem;color:var(--silver);text-align:right;max-width:240px;}
+
+  /* JAUGE PRIZEPOOL */
+  .jauge-wrap{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.25);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;}
+  .jauge-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:1rem;}
+  .jauge-title{font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);}
+  .jauge-objectif{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;color:var(--silver);}
+  .jauge-track{position:relative;height:28px;background:rgba(255,255,255,0.06);border-radius:14px;overflow:visible;margin-bottom:0.75rem;border:1px solid rgba(255,255,255,0.08);}
+  .jauge-fill-theorique{position:absolute;top:0;left:0;height:100%;border-radius:14px;background:linear-gradient(90deg,rgba(201,168,76,0.25),rgba(201,168,76,0.15));transition:width 1s ease;}
+  .jauge-fill-reel{position:absolute;top:0;left:0;height:100%;border-radius:14px;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-bright));box-shadow:0 0 12px rgba(201,168,76,0.4);transition:width 1s ease;}
+  .jauge-marker-500{position:absolute;top:-6px;right:0;width:2px;height:calc(100% + 12px);background:var(--red-accent);border-radius:1px;}
+  .jauge-marker-500::after{content:'OBJECTIF 500\20AC';position:absolute;top:-18px;right:4px;font-family:'Barlow Condensed',sans-serif;font-size:0.55rem;font-weight:900;letter-spacing:1px;color:var(--red-accent);white-space:nowrap;}
+  .jauge-labels{display:flex;justify-content:space-between;gap:1rem;}
+  .jauge-label-item{display:flex;align-items:center;gap:0.5rem;}
+  .jauge-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+  .jauge-dot-reel{background:var(--gold);}
+  .jauge-dot-theo{background:rgba(201,168,76,0.4);border:1px solid rgba(201,168,76,0.5);}
+  .jauge-label-text{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;color:var(--silver);}
+  .jauge-label-amount{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--white);}
+  .jauge-label-amount.reel{color:var(--gold-bright);}
+  .jauge-label-amount.theo{color:var(--silver);}
+  .jauge-inscrits{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;color:var(--silver);text-align:center;margin-top:0.5rem;}
+
+  /* PRIZEPOOL CARDS */
   .prize-section-title{font-family:'Barlow Condensed',sans-serif;font-size:0.68rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);margin:1.25rem 0 0.75rem;}
   .prize-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:0.25rem;}
   .prize-card{background:var(--navy-card);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center;position:relative;overflow:hidden;backdrop-filter:blur(12px);}
@@ -144,28 +158,39 @@
   .bonus-name{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:600;color:var(--white);}
   .bonus-pct{font-size:0.68rem;color:var(--silver);margin-top:2px;}
   .bonus-amount{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--red-accent);flex-shrink:0;}
-  .participants-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;}
-  .participants-header h3{font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
-  .counter-badges{display:flex;gap:0.5rem;}
-  .counter-badge{font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:4px;letter-spacing:1px;}
-  .cb-green{background:rgba(76,175,122,0.15);color:var(--green-ok);border:1px solid rgba(76,175,122,0.3);}
-  .cb-orange{background:rgba(240,160,48,0.15);color:var(--orange-warn);border:1px solid rgba(240,160,48,0.3);}
-  .cb-silver{background:rgba(136,153,187,0.12);color:var(--silver);border:1px solid rgba(136,153,187,0.2);}
+
+  /* PARTICIPANTS */
+  .participants-links{display:flex;gap:0.75rem;margin-bottom:1.25rem;flex-wrap:wrap;}
+  .p-link-btn{display:flex;align-items:center;gap:0.4rem;padding:0.5rem 1rem;border-radius:7px;border:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:opacity 0.2s,transform 0.2s;color:var(--white);}
+  .p-link-btn:hover{opacity:0.85;transform:translateY(-1px);}
+  .p-link-fb{background:rgba(24,119,242,0.8);}
+  .p-link-pp{background:rgba(0,112,186,0.8);}
+  .p-link-mpp{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--navy);}
+
+  .p-section-title{font-family:'Barlow Condensed',sans-serif;font-size:0.68rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin:1.25rem 0 0.75rem;padding:0.35rem 0.75rem;border-radius:4px;display:inline-block;}
+  .p-section-valides{color:var(--green-ok);background:rgba(76,175,122,0.1);border-left:3px solid var(--green-ok);}
+  .p-section-incomplets{color:var(--orange-warn);background:rgba(240,160,48,0.08);border-left:3px solid var(--orange-warn);}
+  .p-section-attente{color:var(--silver);background:rgba(136,153,187,0.08);border-left:3px solid rgba(136,153,187,0.3);}
+
   .participants-table{width:100%;border-collapse:collapse;}
   .participants-table th{padding:0.6rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);text-align:left;background:rgba(0,0,0,0.3);border-bottom:1px solid var(--border);}
   .participants-table td{padding:0.65rem 1rem;font-size:0.83rem;border-bottom:1px solid rgba(255,255,255,0.03);}
   .participants-table tr:hover td{background:rgba(201,168,76,0.03);}
   .p-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.95rem;color:var(--white);}
   .p-pseudo{font-size:0.72rem;color:var(--silver);font-style:italic;margin-top:2px;}
+
   .chip{display:inline-flex;align-items:center;font-size:0.65rem;font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px;padding:0.18rem 0.5rem;border-radius:4px;}
   .chip-ok{background:rgba(76,175,122,0.15);color:var(--green-ok);border:1px solid rgba(76,175,122,0.3);}
   .chip-pending{background:rgba(240,160,48,0.12);color:var(--orange-warn);border:1px solid rgba(240,160,48,0.25);}
   .chip-none{background:rgba(136,153,187,0.08);color:rgba(136,153,187,0.5);border:1px solid rgba(136,153,187,0.15);}
+
   .trophy-wrap{display:inline-flex;gap:2px;align-items:center;margin-left:6px;vertical-align:middle;}
   .trophy-item{position:relative;cursor:default;font-size:0.9rem;display:inline-block;}
   .trophy-item .tooltip{display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(10,15,30,0.97);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;font-size:0.7rem;font-family:'Barlow Condensed',sans-serif;color:var(--gold-light);white-space:nowrap;z-index:200;letter-spacing:0.5px;box-shadow:0 4px 16px rgba(0,0,0,0.5);pointer-events:none;}
   .trophy-item .tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:rgba(201,168,76,0.3);}
   .trophy-item:hover .tooltip{display:block;}
+
+  /* PREDICTIONS */
   .predictions-intro{background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:8px;padding:0.75rem 1rem;margin-bottom:1.25rem;font-size:0.8rem;color:var(--silver);}
   .pred-section-title{font-family:'Barlow Condensed',sans-serif;font-size:0.68rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);margin:0 0 0.75rem;}
   .predictions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:0.75rem;margin-bottom:1.5rem;}
@@ -177,6 +202,33 @@
   .pred-bar{height:100%;background:linear-gradient(90deg,var(--gold-dark),var(--gold));border-radius:3px;transition:width 0.8s ease;}
   .pred-players{font-size:0.72rem;color:var(--silver);font-family:'Barlow Condensed',sans-serif;text-align:center;}
   .pred-names{font-size:0.68rem;color:rgba(136,153,187,0.7);font-style:italic;text-align:center;margin-top:2px;}
+
+  /* GROUPS */
+  .groups-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(278px,1fr));gap:1rem;}
+  .group-card{background:var(--navy-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;backdrop-filter:blur(12px);transition:border-color 0.2s;}
+  .group-card:hover{border-color:rgba(201,168,76,0.35);}
+  .group-header{background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04));padding:0.6rem 1rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
+  .group-letter{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:2px;color:var(--gold-light);}
+  .group-label{font-size:0.62rem;font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--silver);}
+  .team-row{display:flex;align-items:center;gap:0.75rem;padding:0.55rem 1rem;border-bottom:1px solid rgba(255,255,255,0.03);font-size:0.83rem;}
+  .team-row:last-child{border-bottom:none;}
+  .team-flag{font-size:1.15rem;flex-shrink:0;}
+  .team-name{font-family:'Barlow Condensed',sans-serif;font-weight:600;color:var(--white);flex:1;}
+  .team-stats{display:flex;gap:0.5rem;font-size:0.68rem;font-family:'Barlow Condensed',sans-serif;color:var(--silver);}
+  .team-stat{text-align:center;min-width:18px;}
+  .team-stat.pts-stat{color:var(--gold-light);font-weight:700;}
+
+  /* BRACKET */
+  .bracket-note{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:1rem 1.5rem;margin-bottom:1.5rem;font-family:'Barlow Condensed',sans-serif;font-size:0.88rem;color:var(--silver);}
+  .bracket-note strong{color:var(--gold-light);}
+  .phases-timeline{display:flex;flex-direction:column;gap:0.85rem;}
+  .phase-block{background:var(--navy-card);border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.5rem;display:flex;align-items:center;gap:1.5rem;}
+  .phase-icon{font-size:1.8rem;flex-shrink:0;width:44px;text-align:center;}
+  .phase-info h3{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--white);letter-spacing:1px;}
+  .phase-info p{font-size:0.78rem;color:var(--silver);margin-top:0.15rem;}
+  .phase-date{margin-left:auto;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;color:var(--gold);text-align:right;flex-shrink:0;}
+
+  /* RULES */
   .tooltip-info{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:0.75rem 1rem;font-size:0.8rem;color:var(--silver);margin-bottom:1rem;}
   .rules-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
   .rule-card{background:var(--navy-card);border:1px solid var(--border);border-radius:8px;padding:1.25rem;backdrop-filter:blur(12px);}
@@ -186,6 +238,8 @@
   .rule-row .label{color:var(--silver);}
   .rule-row .val{font-weight:600;font-family:'Barlow Condensed',sans-serif;font-size:0.88rem;}
   .val-green{color:var(--green-ok);}.val-gold{color:var(--gold-light);}.val-red{color:var(--red-accent);}.val-white{color:var(--white);}
+
+  /* RADIO */
   .news-feed{display:flex;flex-direction:column;gap:0.75rem;}
   .news-item{display:flex;gap:1rem;background:var(--navy-card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;backdrop-filter:blur(12px);}
   .news-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:5px;}
@@ -198,6 +252,8 @@
   .type-exploit{background:rgba(201,168,76,0.12);color:var(--gold-light);}
   .type-info{background:rgba(136,153,187,0.12);color:var(--silver);}
   .news-text{font-size:0.85rem;color:var(--white);font-style:italic;}
+
+  /* INSCRIPTION */
   .reg-steps{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-bottom:1.5rem;}
   .step-card{background:var(--navy-card);border:1px solid var(--border);border-radius:10px;padding:1.5rem;position:relative;overflow:hidden;transition:border-color 0.2s;backdrop-filter:blur(12px);}
   .step-card:hover{border-color:rgba(201,168,76,0.4);}
@@ -216,6 +272,8 @@
   .warning-box ul{list-style:none;display:flex;flex-direction:column;gap:0.4rem;}
   .warning-box li{font-size:0.83rem;color:var(--silver);padding-left:1.1rem;position:relative;}
   .warning-box li::before{content:'>';position:absolute;left:0;font-size:0.7rem;color:var(--red-accent);}
+
+  /* HOF */
   .hof-tribute{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.3);border-radius:10px;padding:1.5rem;margin-bottom:1.5rem;text-align:center;}
   .hof-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;}
   .hof-card{background:var(--navy-card);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center;backdrop-filter:blur(12px);transition:border-color 0.2s;}
@@ -223,10 +281,26 @@
   .hof-edition{font-family:'Barlow Condensed',sans-serif;font-size:0.68rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.75rem;}
   .hof-winner{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px;color:var(--gold-bright);}
   .hof-sub{font-size:0.72rem;color:var(--silver);margin-top:0.35rem;font-family:'Barlow Condensed',sans-serif;}
+
   #notification{position:fixed;bottom:2rem;right:2rem;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--navy);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.88rem;letter-spacing:1px;padding:0.75rem 1.5rem;border-radius:7px;box-shadow:0 4px 24px rgba(201,168,76,0.4);transform:translateY(100px);opacity:0;transition:all 0.4s ease;z-index:9999;}
   #notification.show{transform:translateY(0);opacity:1;}
-  @media(max-width:900px){.main-layout{grid-template-columns:1fr;}aside{position:static;flex-direction:row;flex-wrap:wrap;gap:0.3rem;}.nav-btn{width:auto;font-size:0.75rem;padding:0.4rem 0.65rem;}.nav-divider,.admin-zone{display:none;}.prize-grid{grid-template-columns:repeat(2,1fr);}.reg-steps,.rules-grid{grid-template-columns:1fr;}.countdown-block{max-width:none;flex:none;}.header-inner{flex-wrap:wrap;height:auto;padding:0.6rem 0;gap:0.6rem;}}
-  @media(max-width:600px){.main-layout{padding:1rem;}header{padding:0 1rem;}.prize-grid,.groups-grid,.hof-grid{grid-template-columns:1fr;}.bonus-grid{grid-template-columns:1fr;}.countdown-block{display:none;}}
+
+  @media(max-width:900px){
+    .main-layout{grid-template-columns:1fr;}
+    aside{position:static;flex-direction:row;flex-wrap:wrap;gap:0.3rem;}
+    .nav-btn{width:auto;font-size:0.75rem;padding:0.4rem 0.65rem;}
+    .nav-divider,.admin-zone{display:none;}
+    .prize-grid{grid-template-columns:repeat(2,1fr);}
+    .reg-steps,.rules-grid{grid-template-columns:1fr;}
+    .header-inner{flex-wrap:wrap;height:auto;padding:0.6rem 0;gap:0.6rem;}
+  }
+  @media(max-width:600px){
+    .main-layout{padding:1rem;}
+    header{padding:0 1rem;}
+    .prize-grid,.groups-grid,.hof-grid{grid-template-columns:1fr;}
+    .bonus-grid{grid-template-columns:1fr;}
+    .countdown-inline{display:none;}
+  }
 </style>
 </head>
 <body>
@@ -251,30 +325,35 @@
         <div class="subtitle">&#9733; Write History Before It Happens &#9733;</div>
       </div>
     </div>
-    <div class="countdown-block">
-      <span class="countdown-label">Debut dans</span>
-      <div class="countdown-units">
-        <div class="countdown-unit"><span class="countdown-num" id="cd-days">--</span><span class="countdown-sub">jours</span></div>
-        <span class="countdown-sep">:</span>
-        <div class="countdown-unit"><span class="countdown-num" id="cd-hours">--</span><span class="countdown-sub">heures</span></div>
-        <span class="countdown-sep">:</span>
-        <div class="countdown-unit"><span class="countdown-num" id="cd-mins">--</span><span class="countdown-sub">min</span></div>
-        <span class="countdown-sep">:</span>
-        <div class="countdown-unit"><span class="countdown-num" id="cd-secs">--</span><span class="countdown-sub">sec</span></div>
+
+    <!-- COUNTDOWN INLINE DANS LE HEADER -->
+    <div class="countdown-inline">
+      <span class="cd-label">Debut dans</span>
+      <div class="cd-units">
+        <span class="cd-num" id="cd-days">--</span><span class="cd-sub">j</span>
+        <span class="cd-sep">:</span>
+        <span class="cd-num" id="cd-hours">--</span><span class="cd-sub">h</span>
+        <span class="cd-sep">:</span>
+        <span class="cd-num" id="cd-mins">--</span><span class="cd-sub">m</span>
+        <span class="cd-sep">:</span>
+        <span class="cd-num" id="cd-secs">--</span><span class="cd-sub">s</span>
       </div>
     </div>
+
     <div class="radio-badge" onclick="switchTab('radio')">
       <div class="radio-notif" id="radio-notif"></div>
       &#128251; Radio Vestiaire
     </div>
-    <div class="prize-pill" onclick="switchTab('finance')">&#127942; Prizepool : 290 &#8364;</div>
+    <div class="prize-pill" onclick="switchTab('finance')">&#127942; Prizepool : 310 &#8364;</div>
   </div>
 </header>
+
 <div class="timeline-bar">
   <div class="timeline-inner"><div class="timeline-track" id="timeline-track"></div></div>
 </div>
 <div class="tagline-bar">&#9917; &nbsp; Coupe du Monde FIFA 2026 &nbsp;&middot;&nbsp; USA &middot; Canada &middot; Mexique &nbsp;&middot;&nbsp; 48 nations &middot; 104 matchs &nbsp; &#9917;</div>
 <div class="comp-banner"><span>11 JUIN &mdash; 19 JUILLET 2026</span> &nbsp;&middot;&nbsp; 12 groupes &nbsp;&middot;&nbsp; <span>Code ligue MPP : UCXYKN9P</span></div>
+
 <div class="main-layout">
   <aside>
     <button class="nav-btn pulse-btn active" onclick="switchTab('inscription')" id="nav-inscription"><span class="nav-icon">&#9989;</span> Inscription</button>
@@ -293,7 +372,10 @@
       <button class="btn-import" onclick="importMPP()">Mettre a jour</button>
     </div>
   </aside>
+
   <main>
+
+    <!-- INSCRIPTION -->
     <div class="tab-content active" id="tab-inscription">
       <div class="section-header"><h2>Rejoindre la Ligue</h2><p>3 etapes pour valider ta place. Cloture absolue le <strong style="color:var(--red-accent)">11 juin 2026 a 21h00</strong>.</p></div>
       <div class="reg-steps">
@@ -313,45 +395,71 @@
         <li>En cas de litige sur les scores : MPP fait foi.</li>
       </ul></div>
     </div>
+
+    <!-- PRIZEPOOL -->
     <div class="tab-content" id="tab-finance">
-      <div class="section-header"><h2>Prizepool</h2><p>29 participants enregistres &mdash; 3 paiements valides a ce jour.</p></div>
-      <div class="prizepool-header">
-        <div><div class="prizepool-total">290 &#8364;</div><div class="prizepool-meta">Prizepool theorique &middot; 29 participants x 10 &#8364;</div></div>
-        <div class="prizepool-note">Montant reel mis a jour au fil des paiements. Repartition definitive apres la cloture (11 juin).</div>
+      <div class="section-header"><h2>Prizepool</h2><p>31 participants enregistres &mdash; 5 paiements valides a ce jour.</p></div>
+
+      <!-- JAUGE -->
+      <div class="jauge-wrap">
+        <div class="jauge-header">
+          <div class="jauge-title">&#127942; Cagnotte en cours de constitution</div>
+          <div class="jauge-objectif">Objectif : 500 &#8364;</div>
+        </div>
+        <div class="jauge-track">
+          <div class="jauge-fill-theorique" style="width:62%"></div>
+          <div class="jauge-fill-reel" style="width:10%"></div>
+          <div class="jauge-marker-500"></div>
+        </div>
+        <div class="jauge-labels">
+          <div class="jauge-label-item">
+            <div class="jauge-dot jauge-dot-reel"></div>
+            <div><div class="jauge-label-text">Total reel collecte</div><div class="jauge-label-amount reel">50 &#8364;</div></div>
+          </div>
+          <div class="jauge-label-item">
+            <div class="jauge-dot jauge-dot-theo"></div>
+            <div><div class="jauge-label-text">Total theorique (31 inscrits)</div><div class="jauge-label-amount theo">310 &#8364;</div></div>
+          </div>
+          <div class="jauge-label-item" style="margin-left:auto">
+            <div><div class="jauge-label-text">Restant pour atteindre l'objectif</div><div class="jauge-label-amount" style="color:var(--orange-warn)">450 &#8364;</div></div>
+          </div>
+        </div>
+        <div class="jauge-inscrits">5 paiements valides sur 31 inscrits &mdash; il manque 45 joueurs pour atteindre l'objectif 500 &#8364;</div>
       </div>
+
       <div class="prize-section-title">&#127942; Podium Principal &mdash; 70%</div>
       <div class="prize-grid" style="margin-bottom:1.25rem">
-        <div class="prize-card p1"><div class="prize-place">&#129351; 1er &mdash; 50%</div><div class="prize-amount gold">102 &#8364;</div><div class="prize-pct">theorique a 29 inscrits</div></div>
-        <div class="prize-card p2"><div class="prize-place">&#129352; 2eme &mdash; 30%</div><div class="prize-amount silver">61 &#8364;</div><div class="prize-pct">theorique a 29 inscrits</div></div>
-        <div class="prize-card p3"><div class="prize-place">&#129353; 3eme &mdash; 20%</div><div class="prize-amount bronze">41 &#8364;</div><div class="prize-pct">theorique a 29 inscrits</div></div>
+        <div class="prize-card p1"><div class="prize-place">&#129351; 1er &mdash; 50%</div><div class="prize-amount gold">109 &#8364;</div><div class="prize-pct">theorique a 31 inscrits</div></div>
+        <div class="prize-card p2"><div class="prize-place">&#129352; 2eme &mdash; 30%</div><div class="prize-amount silver">65 &#8364;</div><div class="prize-pct">theorique a 31 inscrits</div></div>
+        <div class="prize-card p3"><div class="prize-place">&#129353; 3eme &mdash; 20%</div><div class="prize-amount bronze">43 &#8364;</div><div class="prize-pct">theorique a 31 inscrits</div></div>
       </div>
       <div class="prize-section-title">&#127919; Primes Annexes &mdash; 30%</div>
       <div class="bonus-grid">
-        <div class="bonus-card"><div><div class="bonus-name">Plus grand nombre de bons resultats</div><div class="bonus-pct">25% des primes annexes</div></div><div class="bonus-amount">22 &#8364;</div></div>
-        <div class="bonus-card"><div><div class="bonus-name">Plus grand nombre de scores exacts</div><div class="bonus-pct">25% des primes annexes</div></div><div class="bonus-amount">22 &#8364;</div></div>
-        <div class="bonus-card"><div><div class="bonus-name">Leader apres phase de groupes</div><div class="bonus-pct">25% des primes annexes</div></div><div class="bonus-amount">22 &#8364;</div></div>
-        <div class="bonus-card"><div><div class="bonus-name">Meilleure performance feminine</div><div class="bonus-pct">25% des primes annexes</div></div><div class="bonus-amount">22 &#8364;</div></div>
+        <div class="bonus-card"><div><div class="bonus-name">Plus grand nombre de bons resultats</div><div class="bonus-pct">25% des primes annexes</div></div><div class="bonus-amount">23 &#8364;</div></div>
+        <div class="bonus-card"><div><div class="bonus-name">Plus grand nombre de scores exacts</div><div class="bonus-pct">25% des primes annexes</div></div><div class="bonus-amount">23 &#8364;</div></div>
+        <div class="bonus-card"><div><div class="bonus-name">Leader apres phase de groupes</div><div class="bonus-pct">25% des primes annexes</div></div><div class="bonus-amount">23 &#8364;</div></div>
+        <div class="bonus-card"><div><div class="bonus-name">Meilleure performance feminine</div><div class="bonus-pct">25% des primes annexes</div></div><div class="bonus-amount">23 &#8364;</div></div>
       </div>
     </div>
+
+    <!-- PARTICIPANTS -->
     <div class="tab-content" id="tab-participants">
-      <div class="section-header"><h2>Participants</h2><p>Statut des inscriptions en temps reel.</p></div>
-      <div class="card"><div style="padding:1.5rem">
-        <div class="participants-header">
-          <h3>Participants enregistres</h3>
-          <div class="counter-badges">
-            <span class="counter-badge cb-green" id="badge-paid">3 payes</span>
-            <span class="counter-badge cb-orange" id="badge-mpp">5 sur MPP</span>
-            <span class="counter-badge cb-silver" id="badge-total">29 total</span>
-          </div>
+      <div class="section-header"><h2>Participants</h2><p>Statut des inscriptions en temps reel &mdash; 31 joueurs enregistres.</p></div>
+
+      <div class="participants-links">
+        <a href="https://www.facebook.com/groups/4028054953995753" target="_blank" class="p-link-btn p-link-fb">&#128101; Groupe Facebook</a>
+        <a href="https://www.paypal.com/ncp/payment/BBHFGXGPRNWJU" target="_blank" class="p-link-btn p-link-pp">&#128179; Payer ma mise (10&#8364;)</a>
+        <a href="https://mpp.football" target="_blank" class="p-link-btn p-link-mpp">&#128302; Rejoindre MPP &mdash; UCXYKN9P</a>
+      </div>
+
+      <div class="card">
+        <div style="padding:1.5rem">
+          <div id="participants-body"></div>
         </div>
-        <div class="table-wrap">
-          <table class="participants-table">
-            <thead><tr><th>Participant</th><th class="center">Facebook</th><th class="center">Paiement</th><th class="center">Ligue MPP</th></tr></thead>
-            <tbody id="participants-body"></tbody>
-          </table>
-        </div>
-      </div></div>
+      </div>
     </div>
+
+    <!-- CLASSEMENT -->
     <div class="tab-content" id="tab-classement">
       <div class="section-header"><h2>Classement Live</h2><p>Disponible des le coup d'envoi le 11 juin 2026 a 21h00.</p></div>
       <div class="classement-placeholder">
@@ -360,6 +468,8 @@
         <p>Le classement apparaitra ici des le premier match joue.<br>Rendez-vous le <strong style="color:var(--gold-light)">11 juin 2026 a 21h00</strong> &mdash; Mexique vs Afrique du Sud.</p>
       </div>
     </div>
+
+    <!-- MUR DES PREDICTIONS -->
     <div class="tab-content" id="tab-predictions">
       <div class="section-header"><h2>Mur des Predictions</h2><p>Les pronostics vainqueur et meilleur buteur de chaque participant.</p></div>
       <div class="predictions-intro">&#128302; Pronostics selectionnes directement sur MPP avant le 11 juin 21h. Ce mur se remplit au fil des inscriptions !</div>
@@ -368,10 +478,14 @@
       <div class="pred-section-title">&#9917; Pronostics Meilleur Buteur</div>
       <div class="predictions-grid" id="predictions-grid-buteur"></div>
     </div>
+
+    <!-- GROUPES -->
     <div class="tab-content" id="tab-groupes">
       <div class="section-header"><h2>Groupes Mondial 2026</h2><p>12 groupes de 4 equipes. Les 2 premiers + 8 meilleurs 3es se qualifient pour les 32emes.</p></div>
       <div class="groups-grid" id="groups-grid"></div>
     </div>
+
+    <!-- TABLEAU FINAL -->
     <div class="tab-content" id="tab-tableau">
       <div class="section-header"><h2>Tableau Final</h2><p>Phase a elimination directe &mdash; a partir du 29 juin 2026.</p></div>
       <div class="bracket-note">&#9917; <strong>Phase de groupes</strong> en cours (11-27 juin). Le tableau se devoile a l'issue des 72 matchs. Nouveau format 2026 : <strong>32emes de finale</strong> avant les huitiemes.</div>
@@ -384,6 +498,8 @@
         <div class="phase-block" style="border-color:rgba(201,168,76,0.5);background:rgba(201,168,76,0.06)"><div class="phase-icon">&#127942;</div><div class="phase-info"><h3>FINALE</h3><p>MetLife Stadium &mdash; New York / New Jersey</p></div><div class="phase-date" style="color:var(--gold-bright)">19 JUILLET</div></div>
       </div>
     </div>
+
+    <!-- REGLES -->
     <div class="tab-content" id="tab-regles">
       <div class="section-header"><h2>Regles du Jeu</h2><p>Bareme officiel MonPetitProno &mdash; regles en vigueur pour la Coupe du Monde 2026.</p></div>
       <div class="tooltip-info">&#128161; MPP calcule ses cotes avec une recette secrete basee sur les paris classiques + coefficient de performance. Les cotes sont fixees ~2 semaines avant chaque match.</div>
@@ -418,6 +534,8 @@
         </div>
       </div>
     </div>
+
+    <!-- HOF -->
     <div class="tab-content" id="tab-hof">
       <div class="section-header"><h2>Hall of Fame</h2><p>Les legendes depuis Euro 2016.</p></div>
       <div class="hof-tribute">
@@ -427,48 +545,54 @@
       </div>
       <div class="hof-grid" id="hof-grid"></div>
     </div>
+
+    <!-- RADIO -->
     <div class="tab-content" id="tab-radio">
       <div class="section-header"><h2>Radio Vestiaire</h2><p>Le drama, les piques et les infos du tournoi.</p></div>
       <div class="news-feed" id="news-feed"></div>
     </div>
+
   </main>
 </div>
 </div>
 <div id="notification"></div>
+
 <script>
 var LIGUE_CODE = "UCXYKN9P";
 var KICKOFF = new Date("2026-06-11T21:00:00");
 
 var participants = [
-  {prenom:"Guillaume",nom:"Brun",      palmares:"1er",  infobulle:"Vainqueur CDM 2018",              sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Guig",         mpp:false,vainqueur:"",     buteur:""},
-  {prenom:"Tarik",    nom:"TK",        palmares:"1er",  infobulle:"Vainqueur Euro 2024",             sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Lion1008",     mpp:false,vainqueur:"",     buteur:""},
-  {prenom:"Adrien",   nom:"Rocca",     palmares:"1er x2",infobulle:"Vainqueur Euro 2016 et Euro 2020",sexe:"H",facebook:false,paye:false,montant:"",  date:"",pseudo:"Pintu",        mpp:false,vainqueur:"",     buteur:""},
-  {prenom:"Ben",      nom:"Hamadache", palmares:"2eme", infobulle:"2eme CDM 2018",                   sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Ben",          mpp:false,vainqueur:"",     buteur:""},
-  {prenom:"Delphine", nom:"Modot",     palmares:"2eme", infobulle:"2eme Euro 2016",                  sexe:"F",facebook:false,paye:false,montant:"",   date:"",pseudo:"Dedel",        mpp:false,vainqueur:"",     buteur:""},
-  {prenom:"Guillaume",nom:"Modot",     palmares:"2eme", infobulle:"2eme Euro 2024",                  sexe:"H",facebook:true, paye:true, montant:"9.99",date:"25/05",pseudo:"GusModot",mpp:true, vainqueur:"Bresil",buteur:""},
-  {prenom:"Pat",      nom:"Modot",     palmares:"2eme", infobulle:"2eme Euro 2020",                  sexe:"F",facebook:true, paye:false,montant:"",   date:"",pseudo:"Patou",        mpp:false,vainqueur:"",     buteur:""},
-  {prenom:"Quentin",  nom:"Allard",    palmares:"3eme", infobulle:"3eme Euro 2024",                  sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Qwintos",      mpp:false,vainqueur:"",     buteur:""},
-  {prenom:"Steven",   nom:"Moreau",    palmares:"2eme", infobulle:"2eme CDM 2022",                   sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Gloub94",      mpp:false,vainqueur:"",     buteur:""},
-  {prenom:"Adrien",   nom:"Collet",    palmares:"3eme", infobulle:"3eme Euro 2016",                  sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Soutizz",      mpp:false,vainqueur:"",     buteur:""},
-  {prenom:"Loic",     nom:"Chouquet",  palmares:"3eme", infobulle:"3eme CDM 2022",                   sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Losogre",      mpp:true, vainqueur:"Espagne",buteur:"Yamal"},
-  {prenom:"Sylvain",  nom:"Roger",     palmares:"3eme", infobulle:"3eme Euro 2020",                  sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Sylvain",      mpp:false,vainqueur:"",     buteur:""},
-  {prenom:"Loic",     nom:"Carpentier",palmares:"3eme", infobulle:"3eme CDM 2018",                   sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Loic",         mpp:false,vainqueur:"",     buteur:""},
-  {prenom:"Ahmed",    nom:"Wk",        palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Ced",      nom:"Gourlawen", palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Clement",  nom:"Beauchesne",palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Edu",      nom:"Martins",   palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Fanny",    nom:"Tran",      palmares:"",     infobulle:"",sexe:"F",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Florian",  nom:"Dutrelot",  palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:true, montant:"9.99",date:"26/05",pseudo:"Florian8TPME",mpp:true,vainqueur:"France",buteur:""},
-  {prenom:"Olivia",   nom:"Ouakkal",   palmares:"",     infobulle:"",sexe:"F",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Philippe", nom:"Platret",   palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Remy",     nom:"de Souza",  palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Richard",  nom:"Perie",     palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Sandra",   nom:"Cath",      palmares:"",     infobulle:"",sexe:"F",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Sandy",    nom:"Bock",      palmares:"",     infobulle:"",sexe:"F",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Sebastien",nom:"Clotte",    palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:true, montant:"10",date:"26/05",pseudo:"Sobab",mpp:true,vainqueur:"France",buteur:""},
-  {prenom:"Stephane", nom:"Hebert",    palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"Prophane",mpp:true,vainqueur:"",buteur:""},
-  {prenom:"Ti",       nom:"Bordo",     palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"William",  nom:"Be",        palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""}
+  {prenom:"Guillaume",nom:"Brun",      palmares:"1er",  infobulle:"Vainqueur CDM 2018",              sexe:"H",facebook:false,paye:false,montant:"",    date:"",pseudo:"Guig",         mpp:false,vainqueur:"",      buteur:""},
+  {prenom:"Tarik",    nom:"TK",        palmares:"1er",  infobulle:"Vainqueur Euro 2024",             sexe:"H",facebook:false,paye:false,montant:"",    date:"",pseudo:"Lion1008",     mpp:false,vainqueur:"",      buteur:""},
+  {prenom:"Adrien",   nom:"Rocca",     palmares:"1er x2",infobulle:"Vainqueur Euro 2016 et Euro 2020",sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Pintu",        mpp:true, vainqueur:"Italie",  buteur:""},
+  {prenom:"Ben",      nom:"Hamadache", palmares:"2eme", infobulle:"2eme CDM 2018",                   sexe:"H",facebook:false,paye:false,montant:"",    date:"",pseudo:"Ben",          mpp:false,vainqueur:"",      buteur:""},
+  {prenom:"Delphine", nom:"Modot",     palmares:"2eme", infobulle:"2eme Euro 2016",                  sexe:"F",facebook:false,paye:false,montant:"",    date:"",pseudo:"Dedel",        mpp:false,vainqueur:"",      buteur:""},
+  {prenom:"Guillaume",nom:"Modot",     palmares:"2eme", infobulle:"2eme Euro 2024",                  sexe:"H",facebook:true, paye:true, montant:"9.99",date:"25/05",pseudo:"GusModot",mpp:true, vainqueur:"Bresil",  buteur:""},
+  {prenom:"Pat",      nom:"Modot",     palmares:"2eme", infobulle:"2eme Euro 2020",                  sexe:"F",facebook:true, paye:false,montant:"",    date:"",pseudo:"Patou75015",   mpp:true, vainqueur:"",        buteur:""},
+  {prenom:"Quentin",  nom:"Allard",    palmares:"3eme", infobulle:"3eme Euro 2024",                  sexe:"H",facebook:false,paye:false,montant:"",    date:"",pseudo:"Qwintos",      mpp:false,vainqueur:"",      buteur:""},
+  {prenom:"Steven",   nom:"Moreau",    palmares:"2eme", infobulle:"2eme CDM 2022",                   sexe:"H",facebook:true, paye:false,montant:"",    date:"",pseudo:"Gloub94",      mpp:false,vainqueur:"",      buteur:""},
+  {prenom:"Adrien",   nom:"Collet",    palmares:"3eme", infobulle:"3eme Euro 2016",                  sexe:"H",facebook:false,paye:false,montant:"",    date:"",pseudo:"Soutizz",      mpp:false,vainqueur:"",      buteur:""},
+  {prenom:"Loic",     nom:"Chouquet",  palmares:"3eme", infobulle:"3eme CDM 2022",                   sexe:"H",facebook:false,paye:false,montant:"",    date:"",pseudo:"Losogre",      mpp:true, vainqueur:"Espagne", buteur:"Yamal"},
+  {prenom:"Sylvain",  nom:"Roger",     palmares:"3eme", infobulle:"3eme Euro 2020",                  sexe:"H",facebook:false,paye:false,montant:"",    date:"",pseudo:"Sylvain",      mpp:false,vainqueur:"",      buteur:""},
+  {prenom:"Loic",     nom:"Carpentier",palmares:"3eme", infobulle:"3eme CDM 2018",                   sexe:"H",facebook:false,paye:false,montant:"",    date:"",pseudo:"Loic",         mpp:false,vainqueur:"",      buteur:""},
+  {prenom:"Ahmed",    nom:"Wk",        palmares:"",infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",          mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Ced",      nom:"Gourlawen", palmares:"",infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",          mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Clement",  nom:"Beauchesne",palmares:"",infobulle:"",sexe:"H",facebook:true, paye:true, montant:"9.99",date:"26/05",pseudo:"LeKlemant",mpp:true, vainqueur:"France",buteur:""},
+  {prenom:"Edu",      nom:"Martins",   palmares:"",infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",          mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Fanny",    nom:"Tran",      palmares:"",infobulle:"",sexe:"F",facebook:true, paye:false,montant:"",date:"",pseudo:"Bounette",  mpp:true, vainqueur:"Panama",buteur:"Messi"},
+  {prenom:"Florian",  nom:"Dutrelot",  palmares:"",infobulle:"",sexe:"H",facebook:true, paye:true, montant:"9.99",date:"26/05",pseudo:"Fiffou07",  mpp:true, vainqueur:"France",buteur:""},
+  {prenom:"Helene",   nom:"Cenier",    palmares:"",infobulle:"",sexe:"F",facebook:true, paye:false,montant:"",date:"",pseudo:"",          mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Olivia",   nom:"Ouakkal",   palmares:"",infobulle:"",sexe:"F",facebook:true, paye:false,montant:"",date:"",pseudo:"",          mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Philippe", nom:"Platret",   palmares:"",infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",          mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Remy",     nom:"de Souza",  palmares:"",infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",          mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Richard",  nom:"Perie",     palmares:"",infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",          mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Sandra",   nom:"Cath",      palmares:"",infobulle:"",sexe:"F",facebook:true, paye:false,montant:"",date:"",pseudo:"",          mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Sandy",    nom:"Bock",      palmares:"",infobulle:"",sexe:"F",facebook:true, paye:false,montant:"",date:"",pseudo:"",          mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Sebastien",nom:"Clotte",    palmares:"",infobulle:"",sexe:"H",facebook:true, paye:true, montant:"10",date:"26/05",pseudo:"Sobab",      mpp:true, vainqueur:"France",buteur:""},
+  {prenom:"Stephane", nom:"Hebert",    palmares:"",infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"Prophane",  mpp:true, vainqueur:"",buteur:""},
+  {prenom:"Thibault", nom:"Reverdito", palmares:"",infobulle:"",sexe:"H",facebook:true, paye:true, montant:"9.99",date:"26/05",pseudo:"ClutchK11", mpp:true, vainqueur:"",buteur:""},
+  {prenom:"Ti",       nom:"Bordo",     palmares:"",infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",          mpp:false,vainqueur:"",buteur:""},
+  {prenom:"William",  nom:"Be",        palmares:"",infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",          mpp:false,vainqueur:"",buteur:""}
 ];
 
 var palmaresIcons = {"1er":"&#129351;","1er x2":"&#129351;&#129351;","2eme":"&#129352;","3eme":"&#129353;"};
@@ -479,22 +603,45 @@ function buildTrophyHtml(palmares, infobulle) {
 }
 
 function renderParticipants() {
-  var body = document.getElementById('participants-body');
-  var paid = 0, mppCount = 0;
-  for (var i = 0; i < participants.length; i++) { if(participants[i].paye) paid++; if(participants[i].mpp) mppCount++; }
-  document.getElementById('badge-paid').textContent = paid + ' payes';
-  document.getElementById('badge-mpp').textContent = mppCount + ' sur MPP';
-  document.getElementById('badge-total').textContent = participants.length + ' total';
-  var html = '';
+  var valides = [], incomplets = [], attente = [];
   for (var i = 0; i < participants.length; i++) {
     var p = participants[i];
-    var fbChip = p.facebook ? '<span class="chip chip-ok">OK</span>' : '<span class="chip chip-none">-</span>';
-    var payChip = p.paye ? '<span class="chip chip-ok">Paye</span>' : '<span class="chip chip-pending">En attente</span>';
-    var mppChip = p.mpp ? '<span class="chip chip-ok">Inscrit</span>' : '<span class="chip chip-none">-</span>';
-    var trophy = buildTrophyHtml(p.palmares, p.infobulle);
-    html += '<tr><td><div style="display:flex;align-items:center;gap:4px;"><div><div class="p-name">' + p.prenom + ' ' + p.nom + '</div>' + (p.pseudo ? '<div class="p-pseudo">' + p.pseudo + '</div>' : '') + '</div>' + trophy + '</div></td><td class="center">' + fbChip + '</td><td class="center">' + payChip + '</td><td class="center">' + mppChip + '</td></tr>';
+    if (p.paye && p.mpp) valides.push(p);
+    else if (p.paye || p.mpp) incomplets.push(p);
+    else attente.push(p);
   }
-  body.innerHTML = html;
+
+  function buildRows(list) {
+    var html = '';
+    for (var i = 0; i < list.length; i++) {
+      var p = list[i];
+      var fbChip = p.facebook ? '<span class="chip chip-ok">OK</span>' : '<span class="chip chip-none">-</span>';
+      var payChip = p.paye ? '<span class="chip chip-ok">Paye</span>' : '<span class="chip chip-pending">En attente</span>';
+      var mppChip = p.mpp ? '<span class="chip chip-ok">Inscrit</span>' : '<span class="chip chip-none">-</span>';
+      var trophy = buildTrophyHtml(p.palmares, p.infobulle);
+      html += '<tr><td><div style="display:flex;align-items:center;gap:4px;"><div><div class="p-name">' + p.prenom + ' ' + p.nom + '</div>' + (p.pseudo ? '<div class="p-pseudo">' + p.pseudo + '</div>' : '') + '</div>' + trophy + '</div></td><td class="center">' + fbChip + '</td><td class="center">' + payChip + '</td><td class="center">' + mppChip + '</td></tr>';
+    }
+    return html;
+  }
+
+  var html = '';
+
+  if (valides.length > 0) {
+    html += '<div class="p-section-title p-section-valides">&#9989; Dossiers complets &mdash; ' + valides.length + ' joueurs</div>';
+    html += '<div class="table-wrap" style="margin-bottom:1.5rem"><table class="participants-table"><thead><tr><th>Participant</th><th class="center">Facebook</th><th class="center">Paiement</th><th class="center">Ligue MPP</th></tr></thead><tbody>' + buildRows(valides) + '</tbody></table></div>';
+  }
+
+  if (incomplets.length > 0) {
+    html += '<div class="p-section-title p-section-incomplets">&#9888; A completer &mdash; ' + incomplets.length + ' joueurs</div>';
+    html += '<div class="table-wrap" style="margin-bottom:1.5rem"><table class="participants-table"><thead><tr><th>Participant</th><th class="center">Facebook</th><th class="center">Paiement</th><th class="center">Ligue MPP</th></tr></thead><tbody>' + buildRows(incomplets) + '</tbody></table></div>';
+  }
+
+  if (attente.length > 0) {
+    html += '<div class="p-section-title p-section-attente">&#128336; En attente &mdash; ' + attente.length + ' joueurs</div>';
+    html += '<div class="table-wrap"><table class="participants-table"><thead><tr><th>Participant</th><th class="center">Facebook</th><th class="center">Paiement</th><th class="center">Ligue MPP</th></tr></thead><tbody>' + buildRows(attente) + '</tbody></table></div>';
+  }
+
+  document.getElementById('participants-body').innerHTML = html;
 }
 
 function buildPredGrid(votes, names, gridId) {
@@ -507,8 +654,8 @@ function buildPredGrid(votes, names, gridId) {
     grid.innerHTML = '<div style="color:var(--silver);font-size:0.85rem;font-style:italic;grid-column:1/-1;text-align:center;padding:1.5rem 0">Les pronostics apparaitront ici au fil des inscriptions.</div>';
     return;
   }
+  var flags = {"France":"&#127467;&#127479;","Bresil":"&#127463;&#127479;","Argentine":"&#127462;&#127479;","Espagne":"&#127466;&#127480;","Angleterre":"&#127988;","Allemagne":"&#127465;&#127466;","Portugal":"&#127477;&#127481;","Pays-Bas":"&#127475;&#127473;","Maroc":"&#127474;&#127462;","Italie":"&#127470;&#127481;","Panama":"&#127477;&#127462;","Yamal":"&#9917;","Messi":"&#9917;"};
   var html = '';
-  var flags = {"France":"&#127467;&#127479;","Bresil":"&#127463;&#127479;","Argentine":"&#127462;&#127479;","Espagne":"&#127466;&#127480;","Angleterre":"&#127988;","Allemagne":"&#127465;&#127466;","Portugal":"&#127477;&#127481;","Pays-Bas":"&#127475;&#127473;","Maroc":"&#127474;&#127462;","Yamal":"&#9917;","Mbappe":"&#9917;"};
   for (var i = 0; i < entries.length; i++) {
     var item = entries[i][0], count = entries[i][1];
     var pct = Math.round(count / max * 100);
@@ -621,8 +768,8 @@ function renderHOF() {
 }
 
 var newsData = [
-  {time:"26 mai 2026",type:"info",text:"L'Issmoules Trophy 2026 est lance ! 29 participants enregistres, 3 paiements valides. Code MPP : UCXYKN9P. Cloture le 11 juin a 21h."},
-  {time:"Hommage",type:"exploit",text:"Ce tournoi est dedie a Zizounaldo, champion CDM 2022, qui nous a quittes en janvier 2025. Son trone reste vide &mdash; sa legende, elle, est eternelle."},
+  {time:"26 mai 2026",type:"info",text:"L'Issmoules Trophy 2026 est lance ! 31 participants enregistres, 5 paiements valides. Code MPP : UCXYKN9P. Cloture le 11 juin a 21h."},
+  {time:"Hommage",type:"exploit",text:"Ce tournoi est dedie a Zizounaldo, champion CDM 2022, qui nous a quittes en janvier 2025. Son trone reste vide - sa legende, elle, est eternelle."},
   {time:"Reglement",type:"info",text:"Nouveau format 2026 : 32 equipes en phase eliminatoire via les 32emes de finale. Selectionne tes favoris sur MPP avant le 11 juin 21h !"}
 ];
 
