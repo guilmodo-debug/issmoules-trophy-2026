@@ -7,30 +7,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy:#0a0f1e; --navy-mid:#0d1428; --navy-light:#141d35;
-    --navy-card:rgba(10,15,30,0.92);
-    --gold:#c9a84c; --gold-light:#e8c87a; --gold-bright:#f5d78e; --gold-dark:#8a6a20;
-    --red-star:#c0392b; --red-accent:#e74c3c;
-    --white:#f0f2f8; --silver:#8899bb;
-    --border:rgba(201,168,76,0.18); --border-light:rgba(201,168,76,0.08);
-    --green-ok:#4caf7a; --orange-warn:#f0a030;
+    --navy:#0a0f1e;--navy-card:rgba(10,15,30,0.92);
+    --gold:#c9a84c;--gold-light:#e8c87a;--gold-bright:#f5d78e;--gold-dark:#8a6a20;
+    --red-star:#c0392b;--red-accent:#e74c3c;
+    --white:#f0f2f8;--silver:#8899bb;
+    --border:rgba(201,168,76,0.18);--border-light:rgba(201,168,76,0.08);
+    --green-ok:#4caf7a;--orange-warn:#f0a030;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{background:var(--navy);color:var(--white);font-family:'Barlow',sans-serif;min-height:100vh;overflow-x:hidden;}
   body::before{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(201,168,76,0.02) 40px,rgba(201,168,76,0.02) 41px);pointer-events:none;z-index:0;}
   body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 40% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 60%);pointer-events:none;z-index:0;}
   .app{position:relative;z-index:1;}
-
-  /* ===== HEADER ===== */
   header{background:linear-gradient(180deg,rgba(8,12,24,0.99),rgba(12,18,36,0.98));border-bottom:1px solid var(--border);padding:0 2rem;position:sticky;top:0;z-index:100;box-shadow:0 4px 40px rgba(0,0,0,0.6);}
   .header-inner{max-width:1400px;margin:0 auto;height:68px;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
-
   .logo{display:flex;align-items:center;gap:0.75rem;flex-shrink:0;}
   .logo-emblem{width:44px;height:44px;flex-shrink:0;filter:drop-shadow(0 0 8px rgba(201,168,76,0.4));}
   .logo-text h1{font-family:'Bebas Neue',sans-serif;font-size:1.45rem;letter-spacing:3px;background:linear-gradient(135deg,var(--gold-bright),var(--gold),var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
   .logo-text .subtitle{font-family:'Barlow Condensed',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:3px;color:var(--red-star);text-transform:uppercase;margin-top:1px;}
-
-  /* COUNTDOWN — étiré */
   .countdown-block{display:flex;align-items:center;gap:0.75rem;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.22);border-radius:10px;padding:0.5rem 1.25rem;flex:1;max-width:380px;justify-content:center;}
   .countdown-label{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--silver);white-space:nowrap;}
   .countdown-units{display:flex;gap:0.5rem;align-items:center;}
@@ -38,63 +32,43 @@
   .countdown-num{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;line-height:1;color:var(--gold-bright);display:block;letter-spacing:1px;}
   .countdown-sub{font-family:'Barlow Condensed',sans-serif;font-size:0.5rem;letter-spacing:1.5px;color:var(--silver);text-transform:uppercase;}
   .countdown-sep{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--gold-dark);line-height:1;margin-bottom:6px;}
-
-  /* RADIO BADGE */
   .radio-badge{position:relative;display:flex;align-items:center;gap:0.4rem;background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.3);border-radius:8px;padding:0.45rem 0.9rem;cursor:pointer;transition:all 0.2s;font-family:'Barlow Condensed',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:1px;color:var(--white);flex-shrink:0;white-space:nowrap;}
-  .radio-badge:hover{background:rgba(192,57,43,0.2);border-color:rgba(192,57,43,0.5);}
+  .radio-badge:hover{background:rgba(192,57,43,0.2);}
   .radio-notif{position:absolute;top:-4px;right:-4px;width:10px;height:10px;border-radius:50%;background:var(--red-accent);}
   .radio-notif::after{content:'';position:absolute;inset:0;border-radius:50%;background:var(--red-accent);animation:ripple 1.5s ease-out infinite;}
   @keyframes ripple{0%{transform:scale(1);opacity:1;}100%{transform:scale(2.5);opacity:0;}}
-
   .prize-pill{background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-light));color:var(--navy);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.85rem;letter-spacing:1px;padding:0.45rem 1.1rem;border-radius:20px;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 2px 16px rgba(201,168,76,0.35);white-space:nowrap;flex-shrink:0;}
-  .prize-pill:hover{transform:translateY(-2px);box-shadow:0 4px 24px rgba(201,168,76,0.55);}
-
-  /* TIMELINE BAR */
+  .prize-pill:hover{transform:translateY(-2px);}
   .timeline-bar{background:rgba(8,12,24,0.95);border-bottom:1px solid var(--border-light);padding:0.55rem 2rem;}
   .timeline-inner{max-width:1400px;margin:0 auto;}
   .timeline-track{display:flex;align-items:center;}
   .timeline-phase{flex:1;text-align:center;}
-  .timeline-dot{width:10px;height:10px;border-radius:50%;margin:0 auto 3px;transition:all 0.2s;}
+  .timeline-dot{width:10px;height:10px;border-radius:50%;margin:0 auto 3px;}
   .timeline-dot.done{background:var(--gold);box-shadow:0 0 6px rgba(201,168,76,0.5);}
   .timeline-dot.active{background:var(--red-accent);animation:pulseDot 1.5s ease-in-out infinite;}
   .timeline-dot.upcoming{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.18);}
   @keyframes pulseDot{0%,100%{transform:scale(1);}50%{transform:scale(1.35);}}
   .timeline-label{font-family:'Barlow Condensed',sans-serif;font-size:0.58rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--silver);white-space:nowrap;}
-  .timeline-label.active-label{color:var(--red-accent);}
   .timeline-label.done-label{color:var(--gold-dark);}
   .timeline-connector{height:1px;background:var(--border-light);flex:1;max-width:28px;}
   .timeline-connector.done-conn{background:rgba(201,168,76,0.4);}
-
   .tagline-bar{background:linear-gradient(90deg,transparent,rgba(201,168,76,0.07),transparent);border-bottom:1px solid var(--border-light);text-align:center;padding:0.4rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:5px;color:var(--gold);text-transform:uppercase;}
   .comp-banner{background:rgba(10,15,30,0.8);border-bottom:1px solid var(--border-light);text-align:center;padding:0.4rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:2px;color:var(--silver);text-transform:uppercase;}
   .comp-banner span{color:var(--gold-light);font-weight:900;}
-
-  /* LAYOUT */
   .main-layout{max-width:1400px;margin:0 auto;padding:2rem;display:grid;grid-template-columns:230px 1fr;gap:2rem;align-items:start;}
-
-  /* SIDEBAR */
   aside{position:sticky;top:128px;display:flex;flex-direction:column;gap:0.25rem;}
   .nav-btn{display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;border-radius:6px;border:1px solid transparent;background:transparent;color:var(--silver);font-family:'Barlow Condensed',sans-serif;font-size:0.88rem;font-weight:600;letter-spacing:0.5px;cursor:pointer;transition:all 0.2s;text-align:left;width:100%;}
   .nav-btn:hover{background:rgba(201,168,76,0.06);color:var(--gold-light);border-color:var(--border);}
   .nav-btn.active{background:rgba(201,168,76,0.1);border-color:rgba(201,168,76,0.4);color:var(--gold-light);}
   .nav-icon{font-size:0.95rem;flex-shrink:0;}
   .nav-divider{height:1px;background:var(--border-light);margin:0.3rem 0;}
-
   .nav-btn.pulse-btn{animation:navPulse 2s ease-in-out infinite;}
-  @keyframes navPulse{
-    0%,100%{background:transparent;border-color:transparent;color:var(--silver);}
-    50%{background:rgba(201,168,76,0.12);border-color:rgba(201,168,76,0.5);color:var(--gold-bright);}
-  }
+  @keyframes navPulse{0%,100%{background:transparent;border-color:transparent;color:var(--silver);}50%{background:rgba(201,168,76,0.12);border-color:rgba(201,168,76,0.5);color:var(--gold-bright);}}
   .nav-btn.pulse-btn.active{animation:none;background:rgba(201,168,76,0.1);border-color:rgba(201,168,76,0.4);color:var(--gold-light);}
-
   .admin-zone{background:rgba(201,168,76,0.04);border:1px dashed rgba(201,168,76,0.25);border-radius:8px;padding:1rem;margin-top:0.75rem;}
   .admin-zone h4{font-family:'Barlow Condensed',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
   .admin-zone textarea{width:100%;min-height:70px;background:rgba(0,0,0,0.5);border:1px solid rgba(201,168,76,0.2);border-radius:5px;color:var(--white);font-family:'Barlow',sans-serif;font-size:0.7rem;padding:0.4rem;resize:vertical;margin-bottom:0.4rem;}
-  .admin-zone textarea::placeholder{color:var(--silver);opacity:0.5;}
-  .btn-import{width:100%;padding:0.45rem;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--navy);border:none;border-radius:5px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:opacity 0.2s;}
-  .btn-import:hover{opacity:0.85;}
-
-  /* MAIN */
+  .btn-import{width:100%;padding:0.45rem;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--navy);border:none;border-radius:5px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;}
   main{min-width:0;}
   .tab-content{display:none;animation:fadeIn 0.3s ease;}
   .tab-content.active{display:block;}
@@ -102,9 +76,7 @@
   .section-header{margin-bottom:1.5rem;}
   .section-header h2{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:4px;background:linear-gradient(135deg,var(--gold-bright),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
   .section-header p{color:var(--silver);font-size:0.83rem;margin-top:0.3rem;}
-  .card{background:var(--navy-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;backdrop-filter:blur(12px);box-shadow:0 4px 30px rgba(0,0,0,0.4),inset 0 1px 0 rgba(201,168,76,0.1);}
-
-  /* TABLE */
+  .card{background:var(--navy-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;backdrop-filter:blur(12px);}
   .table-wrap{overflow-x:auto;}
   table{width:100%;border-collapse:collapse;min-width:500px;}
   thead tr{background:rgba(0,0,0,0.4);border-bottom:1px solid var(--border);}
@@ -113,8 +85,6 @@
   tbody tr{border-bottom:1px solid rgba(255,255,255,0.03);transition:background 0.15s;}
   tbody tr:hover{background:rgba(201,168,76,0.04);}
   td{padding:0.85rem 1.25rem;font-size:0.88rem;}
-
-  /* CLASSEMENT */
   .rank-num{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;line-height:1;}
   .rank-1{color:var(--gold-bright);}.rank-2{color:#b8c8d8;}.rank-3{color:#cd7f32;}.rank-other{color:var(--silver);}
   .player-name{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--white);}
@@ -130,41 +100,31 @@
   .section-chasse td{background:rgba(255,255,255,0.03);color:var(--silver);border-top:1px solid rgba(255,255,255,0.06);}
   .section-milieu td{background:rgba(255,255,255,0.02);color:rgba(136,153,187,0.6);border-top:1px solid rgba(255,255,255,0.04);}
   .section-fin td{background:rgba(192,57,43,0.04);color:rgba(192,57,43,0.6);border-top:1px solid rgba(192,57,43,0.1);}
-
-  /* CLASSEMENT PLACEHOLDER */
   .classement-placeholder{background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:10px;padding:3rem 2rem;text-align:center;}
   .classement-placeholder .big-icon{font-size:3.5rem;margin-bottom:1rem;opacity:0.6;}
   .classement-placeholder h3{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:3px;color:var(--gold-light);margin-bottom:0.5rem;}
   .classement-placeholder p{color:var(--silver);font-size:0.85rem;}
-
-  /* GROUPS */
   .groups-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(278px,1fr));gap:1rem;}
   .group-card{background:var(--navy-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;backdrop-filter:blur(12px);transition:border-color 0.2s;}
   .group-card:hover{border-color:rgba(201,168,76,0.35);}
   .group-header{background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04));padding:0.6rem 1rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
   .group-letter{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:2px;color:var(--gold-light);}
   .group-label{font-size:0.62rem;font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--silver);}
-  .team-row{display:flex;align-items:center;gap:0.75rem;padding:0.55rem 1rem;border-bottom:1px solid rgba(255,255,255,0.03);font-size:0.83rem;transition:background 0.15s;}
-  .team-row:hover{background:rgba(201,168,76,0.04);}
+  .team-row{display:flex;align-items:center;gap:0.75rem;padding:0.55rem 1rem;border-bottom:1px solid rgba(255,255,255,0.03);font-size:0.83rem;}
   .team-row:last-child{border-bottom:none;}
   .team-flag{font-size:1.15rem;flex-shrink:0;}
   .team-name{font-family:'Barlow Condensed',sans-serif;font-weight:600;color:var(--white);flex:1;}
   .team-stats{display:flex;gap:0.5rem;font-size:0.68rem;font-family:'Barlow Condensed',sans-serif;color:var(--silver);}
   .team-stat{text-align:center;min-width:18px;}
   .team-stat.pts-stat{color:var(--gold-light);font-weight:700;}
-
-  /* BRACKET */
-  .bracket-note{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:1rem 1.5rem;margin-bottom:1.5rem;font-family:'Barlow Condensed',sans-serif;font-size:0.88rem;letter-spacing:0.5px;color:var(--silver);}
+  .bracket-note{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:1rem 1.5rem;margin-bottom:1.5rem;font-family:'Barlow Condensed',sans-serif;font-size:0.88rem;color:var(--silver);}
   .bracket-note strong{color:var(--gold-light);}
   .phases-timeline{display:flex;flex-direction:column;gap:0.85rem;}
-  .phase-block{background:var(--navy-card);border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.5rem;display:flex;align-items:center;gap:1.5rem;transition:border-color 0.2s;}
-  .phase-block:hover{border-color:rgba(201,168,76,0.3);}
+  .phase-block{background:var(--navy-card);border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.5rem;display:flex;align-items:center;gap:1.5rem;}
   .phase-icon{font-size:1.8rem;flex-shrink:0;width:44px;text-align:center;}
   .phase-info h3{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--white);letter-spacing:1px;}
   .phase-info p{font-size:0.78rem;color:var(--silver);margin-top:0.15rem;}
   .phase-date{margin-left:auto;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;color:var(--gold);text-align:right;flex-shrink:0;}
-
-  /* PRIZEPOOL */
   .prizepool-header{display:flex;align-items:center;justify-content:space-between;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.25);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;}
   .prizepool-total{font-family:'Bebas Neue',sans-serif;font-size:3rem;line-height:1;background:linear-gradient(135deg,var(--gold-bright),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
   .prizepool-meta{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--silver);margin-top:0.25rem;}
@@ -184,8 +144,6 @@
   .bonus-name{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:600;color:var(--white);}
   .bonus-pct{font-size:0.68rem;color:var(--silver);margin-top:2px;}
   .bonus-amount{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--red-accent);flex-shrink:0;}
-
-  /* PARTICIPANTS TABLE — nouvel onglet */
   .participants-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;}
   .participants-header h3{font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
   .counter-badges{display:flex;gap:0.5rem;}
@@ -193,36 +151,21 @@
   .cb-green{background:rgba(76,175,122,0.15);color:var(--green-ok);border:1px solid rgba(76,175,122,0.3);}
   .cb-orange{background:rgba(240,160,48,0.15);color:var(--orange-warn);border:1px solid rgba(240,160,48,0.3);}
   .cb-silver{background:rgba(136,153,187,0.12);color:var(--silver);border:1px solid rgba(136,153,187,0.2);}
-
   .participants-table{width:100%;border-collapse:collapse;}
   .participants-table th{padding:0.6rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);text-align:left;background:rgba(0,0,0,0.3);border-bottom:1px solid var(--border);}
   .participants-table td{padding:0.65rem 1rem;font-size:0.83rem;border-bottom:1px solid rgba(255,255,255,0.03);}
   .participants-table tr:hover td{background:rgba(201,168,76,0.03);}
   .p-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.95rem;color:var(--white);}
   .p-pseudo{font-size:0.72rem;color:var(--silver);font-style:italic;margin-top:2px;}
-
-  .chip{display:inline-flex;align-items:center;gap:0.25rem;font-size:0.65rem;font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px;padding:0.18rem 0.5rem;border-radius:4px;}
+  .chip{display:inline-flex;align-items:center;font-size:0.65rem;font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px;padding:0.18rem 0.5rem;border-radius:4px;}
   .chip-ok{background:rgba(76,175,122,0.15);color:var(--green-ok);border:1px solid rgba(76,175,122,0.3);}
   .chip-pending{background:rgba(240,160,48,0.12);color:var(--orange-warn);border:1px solid rgba(240,160,48,0.25);}
   .chip-none{background:rgba(136,153,187,0.08);color:rgba(136,153,187,0.5);border:1px solid rgba(136,153,187,0.15);}
-
-  /* TROPHÉES avec tooltip */
-  .trophy-wrap{display:inline-flex;gap:2px;align-items:center;margin-left:4px;}
+  .trophy-wrap{display:inline-flex;gap:2px;align-items:center;margin-left:6px;vertical-align:middle;}
   .trophy-item{position:relative;cursor:default;font-size:0.9rem;display:inline-block;}
-  .trophy-item .tooltip{
-    display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);
-    background:rgba(10,15,30,0.97);border:1px solid var(--border);border-radius:6px;
-    padding:0.35rem 0.65rem;font-size:0.7rem;font-family:'Barlow Condensed',sans-serif;
-    color:var(--gold-light);white-space:nowrap;z-index:200;letter-spacing:0.5px;
-    box-shadow:0 4px 16px rgba(0,0,0,0.5);pointer-events:none;
-  }
-  .trophy-item .tooltip::after{
-    content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
-    border:5px solid transparent;border-top-color:var(--border);
-  }
+  .trophy-item .tooltip{display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(10,15,30,0.97);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;font-size:0.7rem;font-family:'Barlow Condensed',sans-serif;color:var(--gold-light);white-space:nowrap;z-index:200;letter-spacing:0.5px;box-shadow:0 4px 16px rgba(0,0,0,0.5);pointer-events:none;}
+  .trophy-item .tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:rgba(201,168,76,0.3);}
   .trophy-item:hover .tooltip{display:block;}
-
-  /* MUR DES PRÉDICTIONS */
   .predictions-intro{background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:8px;padding:0.75rem 1rem;margin-bottom:1.25rem;font-size:0.8rem;color:var(--silver);}
   .pred-section-title{font-family:'Barlow Condensed',sans-serif;font-size:0.68rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);margin:0 0 0.75rem;}
   .predictions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:0.75rem;margin-bottom:1.5rem;}
@@ -234,8 +177,6 @@
   .pred-bar{height:100%;background:linear-gradient(90deg,var(--gold-dark),var(--gold));border-radius:3px;transition:width 0.8s ease;}
   .pred-players{font-size:0.72rem;color:var(--silver);font-family:'Barlow Condensed',sans-serif;text-align:center;}
   .pred-names{font-size:0.68rem;color:rgba(136,153,187,0.7);font-style:italic;text-align:center;margin-top:2px;}
-
-  /* RULES */
   .tooltip-info{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:0.75rem 1rem;font-size:0.8rem;color:var(--silver);margin-bottom:1rem;}
   .rules-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
   .rule-card{background:var(--navy-card);border:1px solid var(--border);border-radius:8px;padding:1.25rem;backdrop-filter:blur(12px);}
@@ -245,11 +186,8 @@
   .rule-row .label{color:var(--silver);}
   .rule-row .val{font-weight:600;font-family:'Barlow Condensed',sans-serif;font-size:0.88rem;}
   .val-green{color:var(--green-ok);}.val-gold{color:var(--gold-light);}.val-red{color:var(--red-accent);}.val-white{color:var(--white);}
-
-  /* RADIO */
   .news-feed{display:flex;flex-direction:column;gap:0.75rem;}
-  .news-item{display:flex;gap:1rem;background:var(--navy-card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;backdrop-filter:blur(12px);transition:border-color 0.2s;}
-  .news-item:hover{border-color:rgba(201,168,76,0.3);}
+  .news-item{display:flex;gap:1rem;background:var(--navy-card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;backdrop-filter:blur(12px);}
   .news-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:5px;}
   .dot-drama{background:var(--red-accent);}.dot-exploit{background:var(--gold);}.dot-info{background:var(--silver);}
   .news-body{flex:1;}
@@ -260,8 +198,6 @@
   .type-exploit{background:rgba(201,168,76,0.12);color:var(--gold-light);}
   .type-info{background:rgba(136,153,187,0.12);color:var(--silver);}
   .news-text{font-size:0.85rem;color:var(--white);font-style:italic;}
-
-  /* INSCRIPTION */
   .reg-steps{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-bottom:1.5rem;}
   .step-card{background:var(--navy-card);border:1px solid var(--border);border-radius:10px;padding:1.5rem;position:relative;overflow:hidden;transition:border-color 0.2s;backdrop-filter:blur(12px);}
   .step-card:hover{border-color:rgba(201,168,76,0.4);}
@@ -279,9 +215,7 @@
   .warning-box h4{font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--red-accent);margin-bottom:0.75rem;}
   .warning-box ul{list-style:none;display:flex;flex-direction:column;gap:0.4rem;}
   .warning-box li{font-size:0.83rem;color:var(--silver);padding-left:1.1rem;position:relative;}
-  .warning-box li::before{content:'▸';position:absolute;left:0;font-size:0.7rem;color:var(--red-accent);}
-
-  /* HOF */
+  .warning-box li::before{content:'>';position:absolute;left:0;font-size:0.7rem;color:var(--red-accent);}
   .hof-tribute{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.3);border-radius:10px;padding:1.5rem;margin-bottom:1.5rem;text-align:center;}
   .hof-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;}
   .hof-card{background:var(--navy-card);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center;backdrop-filter:blur(12px);transition:border-color 0.2s;}
@@ -289,33 +223,14 @@
   .hof-edition{font-family:'Barlow Condensed',sans-serif;font-size:0.68rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.75rem;}
   .hof-winner{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px;color:var(--gold-bright);}
   .hof-sub{font-size:0.72rem;color:var(--silver);margin-top:0.35rem;font-family:'Barlow Condensed',sans-serif;}
-
   #notification{position:fixed;bottom:2rem;right:2rem;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--navy);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.88rem;letter-spacing:1px;padding:0.75rem 1.5rem;border-radius:7px;box-shadow:0 4px 24px rgba(201,168,76,0.4);transform:translateY(100px);opacity:0;transition:all 0.4s ease;z-index:9999;}
   #notification.show{transform:translateY(0);opacity:1;}
-
-  @media(max-width:900px){
-    .main-layout{grid-template-columns:1fr;}
-    aside{position:static;flex-direction:row;flex-wrap:wrap;gap:0.3rem;}
-    .nav-btn{width:auto;font-size:0.75rem;padding:0.4rem 0.65rem;}
-    .nav-divider,.admin-zone{display:none;}
-    .prize-grid{grid-template-columns:repeat(2,1fr);}
-    .reg-steps,.rules-grid{grid-template-columns:1fr;}
-    .countdown-block{max-width:none;flex:none;}
-    .header-inner{flex-wrap:wrap;height:auto;padding:0.6rem 0;gap:0.6rem;}
-  }
-  @media(max-width:600px){
-    .main-layout{padding:1rem;}
-    header{padding:0 1rem;}
-    .prize-grid,.groups-grid,.hof-grid{grid-template-columns:1fr;}
-    .bonus-grid{grid-template-columns:1fr;}
-    .countdown-block{display:none;}
-  }
+  @media(max-width:900px){.main-layout{grid-template-columns:1fr;}aside{position:static;flex-direction:row;flex-wrap:wrap;gap:0.3rem;}.nav-btn{width:auto;font-size:0.75rem;padding:0.4rem 0.65rem;}.nav-divider,.admin-zone{display:none;}.prize-grid{grid-template-columns:repeat(2,1fr);}.reg-steps,.rules-grid{grid-template-columns:1fr;}.countdown-block{max-width:none;flex:none;}.header-inner{flex-wrap:wrap;height:auto;padding:0.6rem 0;gap:0.6rem;}}
+  @media(max-width:600px){.main-layout{padding:1rem;}header{padding:0 1rem;}.prize-grid,.groups-grid,.hof-grid{grid-template-columns:1fr;}.bonus-grid{grid-template-columns:1fr;}.countdown-block{display:none;}}
 </style>
 </head>
 <body>
 <div class="app">
-
-<!-- HEADER -->
 <header>
   <div class="header-inner">
     <div class="logo">
@@ -333,550 +248,442 @@
       </svg>
       <div class="logo-text">
         <h1>ISSMOULES TROPHY</h1>
-        <div class="subtitle">★ Write History Before It Happens ★</div>
+        <div class="subtitle">&#9733; Write History Before It Happens &#9733;</div>
       </div>
     </div>
-
-    <!-- COUNTDOWN ÉTIRÉ -->
     <div class="countdown-block">
-      <span class="countdown-label">Début dans</span>
+      <span class="countdown-label">Debut dans</span>
       <div class="countdown-units">
-        <div class="countdown-unit">
-          <span class="countdown-num" id="cd-days">--</span>
-          <span class="countdown-sub">jours</span>
-        </div>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-days">--</span><span class="countdown-sub">jours</span></div>
         <span class="countdown-sep">:</span>
-        <div class="countdown-unit">
-          <span class="countdown-num" id="cd-hours">--</span>
-          <span class="countdown-sub">heures</span>
-        </div>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-hours">--</span><span class="countdown-sub">heures</span></div>
         <span class="countdown-sep">:</span>
-        <div class="countdown-unit">
-          <span class="countdown-num" id="cd-mins">--</span>
-          <span class="countdown-sub">min</span>
-        </div>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-mins">--</span><span class="countdown-sub">min</span></div>
         <span class="countdown-sep">:</span>
-        <div class="countdown-unit">
-          <span class="countdown-num" id="cd-secs">--</span>
-          <span class="countdown-sub">sec</span>
-        </div>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-secs">--</span><span class="countdown-sub">sec</span></div>
       </div>
     </div>
-
     <div class="radio-badge" onclick="switchTab('radio')">
       <div class="radio-notif" id="radio-notif"></div>
-      📻 Radio Vestiaire
+      &#128251; Radio Vestiaire
     </div>
-
-    <div class="prize-pill" onclick="switchTab('finance')">🏆 Prizepool : 290 €</div>
+    <div class="prize-pill" onclick="switchTab('finance')">&#127942; Prizepool : 290 &#8364;</div>
   </div>
 </header>
-
-<!-- TIMELINE -->
 <div class="timeline-bar">
-  <div class="timeline-inner">
-    <div class="timeline-track" id="timeline-track"></div>
-  </div>
+  <div class="timeline-inner"><div class="timeline-track" id="timeline-track"></div></div>
 </div>
-
-<div class="tagline-bar">⚽ &nbsp; Coupe du Monde FIFA 2026 &nbsp;·&nbsp; USA · Canada · Mexique &nbsp;·&nbsp; 48 nations · 104 matchs &nbsp; ⚽</div>
-<div class="comp-banner"><span>11 JUIN — 19 JUILLET 2026</span> &nbsp;·&nbsp; 12 groupes &nbsp;·&nbsp; <span>Code ligue MPP : UCXYKN9P</span></div>
-
+<div class="tagline-bar">&#9917; &nbsp; Coupe du Monde FIFA 2026 &nbsp;&middot;&nbsp; USA &middot; Canada &middot; Mexique &nbsp;&middot;&nbsp; 48 nations &middot; 104 matchs &nbsp; &#9917;</div>
+<div class="comp-banner"><span>11 JUIN &mdash; 19 JUILLET 2026</span> &nbsp;&middot;&nbsp; 12 groupes &nbsp;&middot;&nbsp; <span>Code ligue MPP : UCXYKN9P</span></div>
 <div class="main-layout">
   <aside>
-    <button class="nav-btn pulse-btn active" onclick="switchTab('inscription')" id="nav-inscription"><span class="nav-icon">✅</span> Inscription</button>
-    <button class="nav-btn" onclick="switchTab('finance')" id="nav-finance"><span class="nav-icon">💰</span> Prizepool</button>
-    <button class="nav-btn" onclick="switchTab('participants')" id="nav-participants"><span class="nav-icon">👥</span> Participants</button>
-    <button class="nav-btn" onclick="switchTab('classement')" id="nav-classement"><span class="nav-icon">🏆</span> Classement Live</button>
-    <button class="nav-btn" onclick="switchTab('predictions')" id="nav-predictions"><span class="nav-icon">🔮</span> Mur des Prédictions</button>
-    <button class="nav-btn" onclick="switchTab('groupes')" id="nav-groupes"><span class="nav-icon">⚽</span> Groupes CM2026</button>
-    <button class="nav-btn" onclick="switchTab('tableau')" id="nav-tableau"><span class="nav-icon">🗓</span> Tableau final</button>
-    <button class="nav-btn" onclick="switchTab('regles')" id="nav-regles"><span class="nav-icon">📋</span> Règles du jeu</button>
-    <button class="nav-btn" onclick="switchTab('hof')" id="nav-hof"><span class="nav-icon">⭐</span> Hall of Fame</button>
-    <button class="nav-btn" onclick="switchTab('radio')" id="nav-radio"><span class="nav-icon">📻</span> Radio Vestiaire</button>
+    <button class="nav-btn pulse-btn active" onclick="switchTab('inscription')" id="nav-inscription"><span class="nav-icon">&#9989;</span> Inscription</button>
+    <button class="nav-btn" onclick="switchTab('finance')" id="nav-finance"><span class="nav-icon">&#128176;</span> Prizepool</button>
+    <button class="nav-btn" onclick="switchTab('participants')" id="nav-participants"><span class="nav-icon">&#128101;</span> Participants</button>
+    <button class="nav-btn" onclick="switchTab('classement')" id="nav-classement"><span class="nav-icon">&#127942;</span> Classement Live</button>
+    <button class="nav-btn" onclick="switchTab('predictions')" id="nav-predictions"><span class="nav-icon">&#128302;</span> Mur des Predictions</button>
+    <button class="nav-btn" onclick="switchTab('groupes')" id="nav-groupes"><span class="nav-icon">&#9917;</span> Groupes CM2026</button>
+    <button class="nav-btn" onclick="switchTab('tableau')" id="nav-tableau"><span class="nav-icon">&#128197;</span> Tableau final</button>
+    <button class="nav-btn" onclick="switchTab('regles')" id="nav-regles"><span class="nav-icon">&#128203;</span> Regles du jeu</button>
+    <button class="nav-btn" onclick="switchTab('hof')" id="nav-hof"><span class="nav-icon">&#11088;</span> Hall of Fame</button>
+    <button class="nav-btn" onclick="switchTab('radio')" id="nav-radio"><span class="nav-icon">&#128251;</span> Radio Vestiaire</button>
     <div class="admin-zone">
-      <h4>⚙ Import Classement MPP</h4>
+      <h4>&#9881; Import Classement MPP</h4>
       <textarea id="mpp-import" placeholder="Colle ici le classement MPP..."></textarea>
-      <button class="btn-import" onclick="importMPP()">↑ Mettre à jour</button>
+      <button class="btn-import" onclick="importMPP()">Mettre a jour</button>
     </div>
   </aside>
-
   <main>
-
-    <!-- INSCRIPTION -->
     <div class="tab-content active" id="tab-inscription">
-      <div class="section-header">
-        <h2>Rejoindre la Ligue</h2>
-        <p>3 étapes pour valider ta place. Clôture absolue le <strong style="color:var(--red-accent)">11 juin 2026 à 21h00</strong>.</p>
-      </div>
+      <div class="section-header"><h2>Rejoindre la Ligue</h2><p>3 etapes pour valider ta place. Cloture absolue le <strong style="color:var(--red-accent)">11 juin 2026 a 21h00</strong>.</p></div>
       <div class="reg-steps">
-        <div class="step-card">
-          <div class="step-num">1</div>
-          <h3>💳 Payer la mise</h3>
-          <p>Règle tes 10 € via PayPal. Indique ton prénom + pseudo MPP dans la note de paiement.</p>
-          <a href="https://www.paypal.com/ncp/payment/BBHFGXGPRNWJU" target="_blank" class="btn-action btn-gold">Payer 10 € sur PayPal ↗</a>
+        <div class="step-card"><div class="step-num">1</div><h3>&#128179; Payer la mise</h3><p>Regle tes 10 &#8364; via PayPal. Indique ton prenom + pseudo MPP dans la note.</p><a href="https://www.paypal.com/ncp/payment/BBHFGXGPRNWJU" target="_blank" class="btn-action btn-gold">Payer 10 &#8364; sur PayPal</a></div>
+        <div class="step-card"><div class="step-num">2</div><h3>&#128241; Creer un compte MPP</h3><p>Telecharge MonPetitProno (iOS / Android) ou va sur mpp.football.</p><a href="https://mpp.football" target="_blank" class="btn-action btn-gold">Aller sur mpp.football</a></div>
+        <div class="step-card"><div class="step-num">3</div><h3>&#128273; Rejoindre la ligue MPP</h3><p>Dans l'app : Mes ligues &rarr; Rejoindre &rarr; entre le code ci-dessous. Selectionne aussi tes favoris sur MPP avant le 11 juin 21h !</p>
+          <div class="code-box"><span class="code-label">Code ligue MPP</span><span class="code-value" onclick="copyCode()">UCXYKN9P</span></div>
+          <button class="btn-action btn-gold" onclick="copyCode()">Copier le code</button>
         </div>
-        <div class="step-card">
-          <div class="step-num">2</div>
-          <h3>📱 Créer un compte MPP</h3>
-          <p>Télécharge MonPetitProno (iOS / Android) ou va sur mpp.football. Gratuit, rapide.</p>
-          <a href="https://mpp.football" target="_blank" class="btn-action btn-gold">Aller sur mpp.football ↗</a>
-        </div>
-        <div class="step-card">
-          <div class="step-num">3</div>
-          <h3>🔑 Rejoindre la ligue MPP</h3>
-          <p>Dans l'app : Mes ligues → Rejoindre → entre le code ci-dessous. Sélectionne aussi tes favoris (vainqueur + buteur) directement sur MPP avant le 11 juin 21h !</p>
-          <div class="code-box">
-            <span class="code-label">Code ligue MPP</span>
-            <span class="code-value" onclick="copyCode()" title="Cliquer pour copier">UCXYKN9P</span>
-          </div>
-          <button class="btn-action btn-gold" onclick="copyCode()">📋 Copier le code</button>
-        </div>
-        <div class="step-card">
-          <div class="step-num">4</div>
-          <h3>👥 Rejoindre le groupe Facebook</h3>
-          <p>C'est là que ça se passe : annonces, classements, résultats, et le trash talk de qualité.</p>
-          <a href="https://www.facebook.com/groups/4028054953995753" target="_blank" class="btn-action btn-red">Rejoindre le groupe Facebook ↗</a>
-        </div>
+        <div class="step-card"><div class="step-num">4</div><h3>&#128101; Rejoindre le groupe Facebook</h3><p>Annonces, classements, resultats et le trash talk de qualite.</p><a href="https://www.facebook.com/groups/4028054953995753" target="_blank" class="btn-action btn-red">Rejoindre le groupe Facebook</a></div>
       </div>
-      <div class="warning-box">
-        <h4>⚠ Rappels importants</h4>
-        <ul>
-          <li><strong style="color:var(--white)">Clôture absolue</strong> le 11 juin 2026 à 21h00 — coup d'envoi Mexique vs Afrique du Sud.</li>
-          <li>Sélectionne tes <strong style="color:var(--white)">favoris (vainqueur + buteur)</strong> directement sur MPP avant la deadline.</li>
-          <li>Un seul compte MPP par joueur — tout doublon = exclusion immédiate.</li>
-          <li>Égalité au classement final : nombre de bons pronos → scores exacts → tirage au sort.</li>
-          <li>En cas de litige sur les scores : MPP fait foi.</li>
-        </ul>
-      </div>
+      <div class="warning-box"><h4>&#9888; Rappels importants</h4><ul>
+        <li><strong style="color:var(--white)">Cloture absolue</strong> le 11 juin 2026 a 21h00 &mdash; coup d'envoi Mexique vs Afrique du Sud.</li>
+        <li>Selectionne tes <strong style="color:var(--white)">favoris (vainqueur + buteur)</strong> directement sur MPP avant la deadline.</li>
+        <li>Un seul compte MPP par joueur &mdash; tout doublon = exclusion immediate.</li>
+        <li>Egalite au classement final : bons pronos &rarr; scores exacts &rarr; tirage au sort.</li>
+        <li>En cas de litige sur les scores : MPP fait foi.</li>
+      </ul></div>
     </div>
-
-    <!-- PRIZEPOOL -->
     <div class="tab-content" id="tab-finance">
-      <div class="section-header">
-        <h2>Prizepool</h2>
-        <p>29 participants enregistrés — 3 paiements validés à ce jour.</p>
-      </div>
+      <div class="section-header"><h2>Prizepool</h2><p>29 participants enregistres &mdash; 3 paiements valides a ce jour.</p></div>
       <div class="prizepool-header">
-        <div>
-          <div class="prizepool-total">290 €</div>
-          <div class="prizepool-meta">Prizepool théorique · 29 participants × 10 €</div>
-        </div>
-        <div class="prizepool-note">Montant réel mis à jour au fil des paiements confirmés. Répartition définitive communiquée après la clôture (11 juin).</div>
+        <div><div class="prizepool-total">290 &#8364;</div><div class="prizepool-meta">Prizepool theorique &middot; 29 participants x 10 &#8364;</div></div>
+        <div class="prizepool-note">Montant reel mis a jour au fil des paiements. Repartition definitive apres la cloture (11 juin).</div>
       </div>
-
-      <div class="prize-section-title">🏆 Podium Principal — 70%</div>
+      <div class="prize-section-title">&#127942; Podium Principal &mdash; 70%</div>
       <div class="prize-grid" style="margin-bottom:1.25rem">
-        <div class="prize-card p1">
-          <div class="prize-place">🥇 1er — 50%</div>
-          <div class="prize-amount gold">102 €</div>
-          <div class="prize-pct">théorique à 29 inscrits</div>
-        </div>
-        <div class="prize-card p2">
-          <div class="prize-place">🥈 2ème — 30%</div>
-          <div class="prize-amount silver">61 €</div>
-          <div class="prize-pct">théorique à 29 inscrits</div>
-        </div>
-        <div class="prize-card p3">
-          <div class="prize-place">🥉 3ème — 20%</div>
-          <div class="prize-amount bronze">41 €</div>
-          <div class="prize-pct">théorique à 29 inscrits</div>
-        </div>
+        <div class="prize-card p1"><div class="prize-place">&#129351; 1er &mdash; 50%</div><div class="prize-amount gold">102 &#8364;</div><div class="prize-pct">theorique a 29 inscrits</div></div>
+        <div class="prize-card p2"><div class="prize-place">&#129352; 2eme &mdash; 30%</div><div class="prize-amount silver">61 &#8364;</div><div class="prize-pct">theorique a 29 inscrits</div></div>
+        <div class="prize-card p3"><div class="prize-place">&#129353; 3eme &mdash; 20%</div><div class="prize-amount bronze">41 &#8364;</div><div class="prize-pct">theorique a 29 inscrits</div></div>
       </div>
-
-      <div class="prize-section-title">🎯 Primes Annexes — 30%</div>
+      <div class="prize-section-title">&#127919; Primes Annexes &mdash; 30%</div>
       <div class="bonus-grid">
-        <div class="bonus-card">
-          <div><div class="bonus-name">📊 Plus grand nombre de bons résultats</div><div class="bonus-pct">25% des primes annexes</div></div>
-          <div class="bonus-amount">22 €</div>
-        </div>
-        <div class="bonus-card">
-          <div><div class="bonus-name">🎯 Plus grand nombre de scores exacts</div><div class="bonus-pct">25% des primes annexes</div></div>
-          <div class="bonus-amount">22 €</div>
-        </div>
-        <div class="bonus-card">
-          <div><div class="bonus-name">🔝 Leader après phase de groupes</div><div class="bonus-pct">25% des primes annexes</div></div>
-          <div class="bonus-amount">22 €</div>
-        </div>
-        <div class="bonus-card">
-          <div><div class="bonus-name">👩 Meilleure performance féminine</div><div class="bonus-pct">25% des primes annexes</div></div>
-          <div class="bonus-amount">22 €</div>
-        </div>
+        <div class="bonus-card"><div><div class="bonus-name">Plus grand nombre de bons resultats</div><div class="bonus-pct">25% des primes annexes</div></div><div class="bonus-amount">22 &#8364;</div></div>
+        <div class="bonus-card"><div><div class="bonus-name">Plus grand nombre de scores exacts</div><div class="bonus-pct">25% des primes annexes</div></div><div class="bonus-amount">22 &#8364;</div></div>
+        <div class="bonus-card"><div><div class="bonus-name">Leader apres phase de groupes</div><div class="bonus-pct">25% des primes annexes</div></div><div class="bonus-amount">22 &#8364;</div></div>
+        <div class="bonus-card"><div><div class="bonus-name">Meilleure performance feminine</div><div class="bonus-pct">25% des primes annexes</div></div><div class="bonus-amount">22 &#8364;</div></div>
       </div>
     </div>
-
-    <!-- PARTICIPANTS -->
     <div class="tab-content" id="tab-participants">
-      <div class="section-header">
-        <h2>Participants</h2>
-        <p>Statut des inscriptions en temps réel.</p>
-      </div>
-      <div class="card">
-        <div style="padding:1.5rem">
-          <div class="participants-header">
-            <h3>Participants enregistrés</h3>
-            <div class="counter-badges">
-              <span class="counter-badge cb-green" id="badge-paid">3 payés</span>
-              <span class="counter-badge cb-orange" id="badge-mpp">5 sur MPP</span>
-              <span class="counter-badge cb-silver" id="badge-total">29 total</span>
-            </div>
-          </div>
-          <div class="table-wrap">
-            <table class="participants-table">
-              <thead>
-                <tr>
-                  <th>Participant</th>
-                  <th class="center">Facebook</th>
-                  <th class="center">Paiement</th>
-                  <th class="center">Ligue MPP</th>
-                </tr>
-              </thead>
-              <tbody id="participants-body"></tbody>
-            </table>
+      <div class="section-header"><h2>Participants</h2><p>Statut des inscriptions en temps reel.</p></div>
+      <div class="card"><div style="padding:1.5rem">
+        <div class="participants-header">
+          <h3>Participants enregistres</h3>
+          <div class="counter-badges">
+            <span class="counter-badge cb-green" id="badge-paid">3 payes</span>
+            <span class="counter-badge cb-orange" id="badge-mpp">5 sur MPP</span>
+            <span class="counter-badge cb-silver" id="badge-total">29 total</span>
           </div>
         </div>
-      </div>
+        <div class="table-wrap">
+          <table class="participants-table">
+            <thead><tr><th>Participant</th><th class="center">Facebook</th><th class="center">Paiement</th><th class="center">Ligue MPP</th></tr></thead>
+            <tbody id="participants-body"></tbody>
+          </table>
+        </div>
+      </div></div>
     </div>
-
-    <!-- CLASSEMENT LIVE -->
     <div class="tab-content" id="tab-classement">
-      <div class="section-header">
-        <h2>Classement Live</h2>
-        <p>Disponible dès le coup d'envoi le 11 juin 2026 à 21h00.</p>
-      </div>
+      <div class="section-header"><h2>Classement Live</h2><p>Disponible des le coup d'envoi le 11 juin 2026 a 21h00.</p></div>
       <div class="classement-placeholder">
-        <div class="big-icon">⏳</div>
-        <h3>Compétition pas encore lancée</h3>
-        <p>Le classement apparaîtra ici dès le premier match joué.<br>Rendez-vous le <strong style="color:var(--gold-light)">11 juin 2026 à 21h00</strong> — Mexique vs Afrique du Sud.</p>
+        <div class="big-icon">&#9203;</div>
+        <h3>Competition pas encore lancee</h3>
+        <p>Le classement apparaitra ici des le premier match joue.<br>Rendez-vous le <strong style="color:var(--gold-light)">11 juin 2026 a 21h00</strong> &mdash; Mexique vs Afrique du Sud.</p>
       </div>
     </div>
-
-    <!-- MUR DES PRÉDICTIONS -->
     <div class="tab-content" id="tab-predictions">
-      <div class="section-header">
-        <h2>Mur des Prédictions</h2>
-        <p>Les pronostics vainqueur et meilleur buteur de chaque participant.</p>
-      </div>
-      <div class="predictions-intro">
-        🔮 Pronostics sélectionnés directement sur MPP avant le 11 juin 21h. Ce mur se remplit au fil des inscriptions — revenez voir les camps qui se forment !
-      </div>
-
-      <div class="pred-section-title">🏆 Pronostics Vainqueur Final</div>
+      <div class="section-header"><h2>Mur des Predictions</h2><p>Les pronostics vainqueur et meilleur buteur de chaque participant.</p></div>
+      <div class="predictions-intro">&#128302; Pronostics selectionnes directement sur MPP avant le 11 juin 21h. Ce mur se remplit au fil des inscriptions !</div>
+      <div class="pred-section-title">&#127942; Pronostics Vainqueur Final</div>
       <div class="predictions-grid" id="predictions-grid-vainqueur"></div>
-
-      <div class="pred-section-title">⚽ Pronostics Meilleur Buteur</div>
+      <div class="pred-section-title">&#9917; Pronostics Meilleur Buteur</div>
       <div class="predictions-grid" id="predictions-grid-buteur"></div>
     </div>
-
-    <!-- GROUPES -->
     <div class="tab-content" id="tab-groupes">
-      <div class="section-header">
-        <h2>Groupes Mondial 2026</h2>
-        <p>12 groupes de 4 équipes. Les 2 premiers + 8 meilleurs 3ᵉ se qualifient pour les 32èmes.</p>
-      </div>
+      <div class="section-header"><h2>Groupes Mondial 2026</h2><p>12 groupes de 4 equipes. Les 2 premiers + 8 meilleurs 3es se qualifient pour les 32emes.</p></div>
       <div class="groups-grid" id="groups-grid"></div>
     </div>
-
-    <!-- TABLEAU FINAL -->
     <div class="tab-content" id="tab-tableau">
-      <div class="section-header">
-        <h2>Tableau Final</h2>
-        <p>Phase à élimination directe — à partir du 29 juin 2026.</p>
-      </div>
-      <div class="bracket-note">⚽ <strong>Phase de groupes</strong> en cours (11–27 juin). Le tableau se dévoile à l'issue des 72 matchs. Les 32 qualifiés seront connus le <strong>27 juin au soir</strong>. Nouveau format 2026 : <strong>32èmes de finale</strong> avant les huitièmes.</div>
+      <div class="section-header"><h2>Tableau Final</h2><p>Phase a elimination directe &mdash; a partir du 29 juin 2026.</p></div>
+      <div class="bracket-note">&#9917; <strong>Phase de groupes</strong> en cours (11-27 juin). Le tableau se devoile a l'issue des 72 matchs. Nouveau format 2026 : <strong>32emes de finale</strong> avant les huitiemes.</div>
       <div class="phases-timeline">
-        <div class="phase-block" style="border-color:rgba(201,168,76,0.3);background:rgba(201,168,76,0.04)">
-          <div class="phase-icon">⚽</div><div class="phase-info"><h3>Phase de Groupes</h3><p>12 groupes de 4 — 72 matchs</p></div><div class="phase-date">11 — 27 JUIN</div>
-        </div>
-        <div class="phase-block">
-          <div class="phase-icon">⚔️</div><div class="phase-info"><h3>32èmes de Finale</h3><p>32 équipes — 16 matchs</p></div><div class="phase-date">29 JUIN — 3 JUIL</div>
-        </div>
-        <div class="phase-block">
-          <div class="phase-icon">🎯</div><div class="phase-info"><h3>Huitièmes de Finale</h3><p>16 équipes — 8 matchs</p></div><div class="phase-date">4 — 7 JUIL</div>
-        </div>
-        <div class="phase-block">
-          <div class="phase-icon">💥</div><div class="phase-info"><h3>Quarts de Finale</h3><p>8 équipes — 4 matchs</p></div><div class="phase-date">9 — 12 JUIL</div>
-        </div>
-        <div class="phase-block">
-          <div class="phase-icon">🔥</div><div class="phase-info"><h3>Demi-Finales</h3><p>4 équipes — 2 matchs</p></div><div class="phase-date">14 — 15 JUIL</div>
-        </div>
-        <div class="phase-block" style="border-color:rgba(201,168,76,0.5);background:rgba(201,168,76,0.06)">
-          <div class="phase-icon">🏆</div><div class="phase-info"><h3>FINALE</h3><p>MetLife Stadium — New York / New Jersey</p></div><div class="phase-date" style="color:var(--gold-bright)">19 JUILLET</div>
-        </div>
+        <div class="phase-block" style="border-color:rgba(201,168,76,0.3);background:rgba(201,168,76,0.04)"><div class="phase-icon">&#9917;</div><div class="phase-info"><h3>Phase de Groupes</h3><p>12 groupes de 4 &mdash; 72 matchs</p></div><div class="phase-date">11 &mdash; 27 JUIN</div></div>
+        <div class="phase-block"><div class="phase-icon">&#9876;</div><div class="phase-info"><h3>32emes de Finale</h3><p>32 equipes &mdash; 16 matchs</p></div><div class="phase-date">29 JUIN &mdash; 3 JUIL</div></div>
+        <div class="phase-block"><div class="phase-icon">&#127919;</div><div class="phase-info"><h3>Huitiemes de Finale</h3><p>16 equipes &mdash; 8 matchs</p></div><div class="phase-date">4 &mdash; 7 JUIL</div></div>
+        <div class="phase-block"><div class="phase-icon">&#128165;</div><div class="phase-info"><h3>Quarts de Finale</h3><p>8 equipes &mdash; 4 matchs</p></div><div class="phase-date">9 &mdash; 12 JUIL</div></div>
+        <div class="phase-block"><div class="phase-icon">&#128293;</div><div class="phase-info"><h3>Demi-Finales</h3><p>4 equipes &mdash; 2 matchs</p></div><div class="phase-date">14 &mdash; 15 JUIL</div></div>
+        <div class="phase-block" style="border-color:rgba(201,168,76,0.5);background:rgba(201,168,76,0.06)"><div class="phase-icon">&#127942;</div><div class="phase-info"><h3>FINALE</h3><p>MetLife Stadium &mdash; New York / New Jersey</p></div><div class="phase-date" style="color:var(--gold-bright)">19 JUILLET</div></div>
       </div>
     </div>
-
-    <!-- RÈGLES -->
     <div class="tab-content" id="tab-regles">
-      <div class="section-header">
-        <h2>Règles du Jeu</h2>
-        <p>Barème officiel MonPetitProno — règles en vigueur pour la Coupe du Monde 2026.</p>
-      </div>
-      <div class="tooltip-info">💡 MPP calcule ses cotes avec une recette secrète basée sur les paris classiques + coefficient de performance. Les cotes sont fixées ~2 semaines avant chaque match et ne bougent plus.</div>
+      <div class="section-header"><h2>Regles du Jeu</h2><p>Bareme officiel MonPetitProno &mdash; regles en vigueur pour la Coupe du Monde 2026.</p></div>
+      <div class="tooltip-info">&#128161; MPP calcule ses cotes avec une recette secrete basee sur les paris classiques + coefficient de performance. Les cotes sont fixees ~2 semaines avant chaque match.</div>
       <div class="rules-grid">
-        <div class="rule-card">
-          <h3>Résultats & Points</h3>
-          <div class="rule-row"><span class="label">Bon résultat (1N2)</span><span class="val val-green">Points de la cote</span></div>
-          <div class="rule-row"><span class="label">Mauvais résultat</span><span class="val val-red">0 point</span></div>
-          <div class="rule-row"><span class="label">Match non pronostiqué</span><span class="val val-red">0 point</span></div>
-          <div class="rule-row"><span class="label">Bonus ×2 (1 par compétition)</span><span class="val val-gold">Double les points du match</span></div>
-          <div class="rule-row"><span class="label">Bonus sur mauvais résultat</span><span class="val val-red">0×2 = 0</span></div>
+        <div class="rule-card"><h3>Resultats &amp; Points</h3>
+          <div class="rule-row"><span class="label">Bon resultat (1N2)</span><span class="val val-green">Points de la cote</span></div>
+          <div class="rule-row"><span class="label">Mauvais resultat</span><span class="val val-red">0 point</span></div>
+          <div class="rule-row"><span class="label">Match non pronostique</span><span class="val val-red">0 point</span></div>
+          <div class="rule-row"><span class="label">Bonus x2 (1 par competition)</span><span class="val val-gold">Double les points</span></div>
+          <div class="rule-row"><span class="label">Bonus sur mauvais resultat</span><span class="val val-red">0x2 = 0</span></div>
         </div>
-        <div class="rule-card">
-          <h3>Score Exact — Bonus Rareté</h3>
+        <div class="rule-card"><h3>Score Exact &mdash; Bonus Rarete</h3>
           <div class="rule-row"><span class="label">Plus de 30% d'exacts</span><span class="val val-white">+20 pts "Exact"</span></div>
           <div class="rule-row"><span class="label">Entre 20 et 30% exacts</span><span class="val val-white">+30 pts "Rare"</span></div>
-          <div class="rule-row"><span class="label">Entre 5 et 20% exacts</span><span class="val val-gold">+50 pts "Très Rare"</span></div>
+          <div class="rule-row"><span class="label">Entre 5 et 20% exacts</span><span class="val val-gold">+50 pts "Tres Rare"</span></div>
           <div class="rule-row"><span class="label">Entre 0,5 et 5% exacts</span><span class="val val-gold">+70 pts "Mega Rare"</span></div>
           <div class="rule-row"><span class="label">Moins de 0,5% exacts</span><span class="val val-green">+100 pts "Ultra Rare"</span></div>
         </div>
-        <div class="rule-card">
-          <h3>Favoris (Bonus MPP)</h3>
+        <div class="rule-card"><h3>Favoris (Bonus MPP)</h3>
           <div class="rule-row"><span class="label">Vainqueur final</span><span class="val val-gold">Points selon cote MPP</span></div>
           <div class="rule-row"><span class="label">Meilleur buteur</span><span class="val val-gold">Points selon cote MPP</span></div>
           <div class="rule-row"><span class="label">Deadline favoris</span><span class="val val-red">11 juin 21h00</span></div>
-          <div class="rule-row"><span class="label">Points ajoutés</span><span class="val val-white">Après finale (20 juillet)</span></div>
-          <div class="rule-row"><span class="label">Égalité buteurs</span><span class="val val-white">Meilleur buteur officiel FIFA</span></div>
+          <div class="rule-row"><span class="label">Points ajoutes</span><span class="val val-white">Apres finale (20 juillet)</span></div>
+          <div class="rule-row"><span class="label">Egalite buteurs</span><span class="val val-white">Meilleur buteur officiel FIFA</span></div>
         </div>
-        <div class="rule-card">
-          <h3>Prolongations & Tiebreak</h3>
-          <div class="rule-row"><span class="label">Prolongations</span><span class="val val-white">À partir des 32èmes</span></div>
-          <div class="rule-row"><span class="label">Résultat après 120 min</span><span class="val val-white">Compte (pas les TAB)</span></div>
-          <div class="rule-row"><span class="label">Ex : 1-1 puis 3-1 ap</span><span class="val val-white">2-1 → victoire ✓</span></div>
-          <div class="rule-row"><span class="label">Ex : 1-1 puis 3-1 ap</span><span class="val val-red">1-1 → 0 point</span></div>
-          <div class="rule-row"><span class="label">Égalité finale</span><span class="val val-white">Bons pronos → Exacts → Tirage</span></div>
+        <div class="rule-card"><h3>Prolongations &amp; Tiebreak</h3>
+          <div class="rule-row"><span class="label">Prolongations</span><span class="val val-white">A partir des 32emes</span></div>
+          <div class="rule-row"><span class="label">Resultat apres 120 min</span><span class="val val-white">Compte (pas les TAB)</span></div>
+          <div class="rule-row"><span class="label">Ex : 1-1 puis 3-1 ap</span><span class="val val-white">2-1 victoire OK</span></div>
+          <div class="rule-row"><span class="label">Ex : 1-1 puis 3-1 ap</span><span class="val val-red">1-1 = 0 point</span></div>
+          <div class="rule-row"><span class="label">Egalite finale</span><span class="val val-white">Bons pronos &rarr; Exacts &rarr; Tirage</span></div>
         </div>
       </div>
     </div>
-
-    <!-- HALL OF FAME -->
     <div class="tab-content" id="tab-hof">
-      <div class="section-header">
-        <h2>Hall of Fame</h2>
-        <p>Les légendes depuis Euro 2016.</p>
-      </div>
+      <div class="section-header"><h2>Hall of Fame</h2><p>Les legendes depuis Euro 2016.</p></div>
       <div class="hof-tribute">
-        <div style="font-size:1.5rem;margin-bottom:0.5rem">⭐</div>
+        <div style="font-size:1.5rem;margin-bottom:0.5rem">&#11088;</div>
         <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:4px;background:linear-gradient(135deg,#f5d78e,#c9a84c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">ZIZOUNALDO</div>
-        <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;letter-spacing:2px;color:var(--silver);margin-top:0.3rem;text-transform:uppercase;">Champion CDM 2022 · Pour toujours dans nos cœurs</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;letter-spacing:2px;color:var(--silver);margin-top:0.3rem;text-transform:uppercase;">Champion CDM 2022 &middot; Pour toujours dans nos coeurs</div>
       </div>
       <div class="hof-grid" id="hof-grid"></div>
     </div>
-
-    <!-- RADIO VESTIAIRE -->
     <div class="tab-content" id="tab-radio">
-      <div class="section-header">
-        <h2>Radio Vestiaire</h2>
-        <p>Le drama, les piques et les infos du tournoi.</p>
-      </div>
+      <div class="section-header"><h2>Radio Vestiaire</h2><p>Le drama, les piques et les infos du tournoi.</p></div>
       <div class="news-feed" id="news-feed"></div>
     </div>
-
   </main>
 </div>
 </div>
-
 <div id="notification"></div>
-
 <script>
-const LIGUE_CODE = "UCXYKN9P";
-const KICKOFF = new Date("2026-06-11T21:00:00");
+var LIGUE_CODE = "UCXYKN9P";
+var KICKOFF = new Date("2026-06-11T21:00:00");
 
-// ===== PARTICIPANTS (depuis Google Sheet — 29 joueurs) =====
-const participants = [
-  { prenom:"Guillaume", nom:"Brun",      palmares:"🥇",   infobulle:"Vainqueur CDM 2018",              sexe:"H", facebook:false, paye:false, montant:"",       date:"", pseudo:"Guig",          mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Tarik",     nom:"TK",        palmares:"🥇",   infobulle:"Vainqueur Euro 2024",             sexe:"H", facebook:false, paye:false, montant:"",       date:"", pseudo:"Lion1008",      mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Adrien",    nom:"Rocca",     palmares:"🥇🥇", infobulle:"Vainqueur Euro 2016 & Euro 2020", sexe:"H", facebook:false, paye:false, montant:"",       date:"", pseudo:"Pintu",         mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Ben",       nom:"Hamadache", palmares:"🥈",   infobulle:"2ème CDM 2018",                   sexe:"H", facebook:false, paye:false, montant:"",       date:"", pseudo:"Ben",           mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Delphine",  nom:"Modot",     palmares:"🥈",   infobulle:"2ème Euro 2016",                  sexe:"F", facebook:false, paye:false, montant:"",       date:"", pseudo:"Dedel",         mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Guillaume", nom:"Modot",     palmares:"🥈",   infobulle:"2ème Euro 2024",                  sexe:"H", facebook:true,  paye:true,  montant:"9,99€",  date:"25/05", pseudo:"GusModot",  mpp:true,  vainqueur:"Brésil",  buteur:"" },
-  { prenom:"Pat",       nom:"Modot",     palmares:"🥈",   infobulle:"2ème Euro 2020",                  sexe:"F", facebook:true,  paye:false, montant:"",       date:"", pseudo:"Patou",         mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Quentin",   nom:"Allard",    palmares:"🥉",   infobulle:"3ème Euro 2024",                  sexe:"H", facebook:false, paye:false, montant:"",       date:"", pseudo:"Qwintos",       mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Steven",    nom:"Moreau",    palmares:"🥈",   infobulle:"2ème CDM 2022",                   sexe:"H", facebook:false, paye:false, montant:"",       date:"", pseudo:"Gloub94",       mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Adrien",    nom:"Collet",    palmares:"🥉",   infobulle:"3ème Euro 2016",                  sexe:"H", facebook:false, paye:false, montant:"",       date:"", pseudo:"Soutizz",       mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Loïc",      nom:"Chouquet",  palmares:"🥉",   infobulle:"3ème CDM 2022",                   sexe:"H", facebook:false, paye:false, montant:"",       date:"", pseudo:"Losogre",       mpp:true,  vainqueur:"Espagne", buteur:"Yamal" },
-  { prenom:"Sylvain",   nom:"Roger",     palmares:"🥉",   infobulle:"3ème Euro 2020",                  sexe:"H", facebook:false, paye:false, montant:"",       date:"", pseudo:"Sylvain",       mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Loïc",      nom:"Carpentier",palmares:"🥉",   infobulle:"3ème CDM 2018",                   sexe:"H", facebook:false, paye:false, montant:"",       date:"", pseudo:"Loïc",          mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Ahmed",     nom:"Wk",        palmares:"",     infobulle:"",                                sexe:"H", facebook:true,  paye:false, montant:"",       date:"", pseudo:"",              mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Ced",       nom:"Gourlawen", palmares:"",     infobulle:"",                                sexe:"H", facebook:true,  paye:false, montant:"",       date:"", pseudo:"",              mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Clément",   nom:"Beauchesne",palmares:"",     infobulle:"",                                sexe:"H", facebook:true,  paye:false, montant:"",       date:"", pseudo:"",              mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Edu",       nom:"Martins",   palmares:"",     infobulle:"",                                sexe:"H", facebook:true,  paye:false, montant:"",       date:"", pseudo:"",              mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Fanny",     nom:"Tran",      palmares:"",     infobulle:"",                                sexe:"F", facebook:true,  paye:false, montant:"",       date:"", pseudo:"",              mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Florian",   nom:"Dutrelot",  palmares:"",     infobulle:"",                                sexe:"H", facebook:true,  paye:true,  montant:"9,99€",  date:"26/05", pseudo:"Florian#8TPME", mpp:true, vainqueur:"France", buteur:"" },
-  { prenom:"Olivia",    nom:"Ouakkal",   palmares:"",     infobulle:"",                                sexe:"F", facebook:true,  paye:false, montant:"",       date:"", pseudo:"",              mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Philippe",  nom:"Platret",   palmares:"",     infobulle:"",                                sexe:"H", facebook:true,  paye:false, montant:"",       date:"", pseudo:"",              mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Rémy",      nom:"de Souza",  palmares:"",     infobulle:"",                                sexe:"H", facebook:true,  paye:false, montant:"",       date:"", pseudo:"",              mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Richard",   nom:"Perie",     palmares:"",     infobulle:"",                                sexe:"H", facebook:true,  paye:false, montant:"",       date:"", pseudo:"",              mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Sandra",    nom:"Cath",      palmares:"",     infobulle:"",                                sexe:"F", facebook:true,  paye:false, montant:"",       date:"", pseudo:"",              mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Sandy",     nom:"Bock",      palmares:"",     infobulle:"",                                sexe:"F", facebook:true,  paye:false, montant:"",       date:"", pseudo:"",              mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"Sébastien", nom:"Clotté",    palmares:"",     infobulle:"",                                sexe:"H", facebook:true,  paye:true,  montant:"10€",    date:"26/05", pseudo:"Sobab",     mpp:true,  vainqueur:"France",  buteur:"" },
-  { prenom:"Stéphane",  nom:"Hebert",    palmares:"",     infobulle:"",                                sexe:"H", facebook:true,  paye:false, montant:"",       date:"", pseudo:"Prophane",      mpp:true,  vainqueur:"",        buteur:"" },
-  { prenom:"Ti",        nom:"Bordo",     palmares:"",     infobulle:"",                                sexe:"H", facebook:true,  paye:false, montant:"",       date:"", pseudo:"",              mpp:false, vainqueur:"",        buteur:"" },
-  { prenom:"William",   nom:"Be",        palmares:"",     infobulle:"",                                sexe:"H", facebook:true,  paye:false, montant:"",       date:"", pseudo:"",              mpp:false, vainqueur:"",        buteur:"" },
+var participants = [
+  {prenom:"Guillaume",nom:"Brun",      palmares:"1er",  infobulle:"Vainqueur CDM 2018",              sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Guig",         mpp:false,vainqueur:"",     buteur:""},
+  {prenom:"Tarik",    nom:"TK",        palmares:"1er",  infobulle:"Vainqueur Euro 2024",             sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Lion1008",     mpp:false,vainqueur:"",     buteur:""},
+  {prenom:"Adrien",   nom:"Rocca",     palmares:"1er x2",infobulle:"Vainqueur Euro 2016 et Euro 2020",sexe:"H",facebook:false,paye:false,montant:"",  date:"",pseudo:"Pintu",        mpp:false,vainqueur:"",     buteur:""},
+  {prenom:"Ben",      nom:"Hamadache", palmares:"2eme", infobulle:"2eme CDM 2018",                   sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Ben",          mpp:false,vainqueur:"",     buteur:""},
+  {prenom:"Delphine", nom:"Modot",     palmares:"2eme", infobulle:"2eme Euro 2016",                  sexe:"F",facebook:false,paye:false,montant:"",   date:"",pseudo:"Dedel",        mpp:false,vainqueur:"",     buteur:""},
+  {prenom:"Guillaume",nom:"Modot",     palmares:"2eme", infobulle:"2eme Euro 2024",                  sexe:"H",facebook:true, paye:true, montant:"9.99",date:"25/05",pseudo:"GusModot",mpp:true, vainqueur:"Bresil",buteur:""},
+  {prenom:"Pat",      nom:"Modot",     palmares:"2eme", infobulle:"2eme Euro 2020",                  sexe:"F",facebook:true, paye:false,montant:"",   date:"",pseudo:"Patou",        mpp:false,vainqueur:"",     buteur:""},
+  {prenom:"Quentin",  nom:"Allard",    palmares:"3eme", infobulle:"3eme Euro 2024",                  sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Qwintos",      mpp:false,vainqueur:"",     buteur:""},
+  {prenom:"Steven",   nom:"Moreau",    palmares:"2eme", infobulle:"2eme CDM 2022",                   sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Gloub94",      mpp:false,vainqueur:"",     buteur:""},
+  {prenom:"Adrien",   nom:"Collet",    palmares:"3eme", infobulle:"3eme Euro 2016",                  sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Soutizz",      mpp:false,vainqueur:"",     buteur:""},
+  {prenom:"Loic",     nom:"Chouquet",  palmares:"3eme", infobulle:"3eme CDM 2022",                   sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Losogre",      mpp:true, vainqueur:"Espagne",buteur:"Yamal"},
+  {prenom:"Sylvain",  nom:"Roger",     palmares:"3eme", infobulle:"3eme Euro 2020",                  sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Sylvain",      mpp:false,vainqueur:"",     buteur:""},
+  {prenom:"Loic",     nom:"Carpentier",palmares:"3eme", infobulle:"3eme CDM 2018",                   sexe:"H",facebook:false,paye:false,montant:"",   date:"",pseudo:"Loic",         mpp:false,vainqueur:"",     buteur:""},
+  {prenom:"Ahmed",    nom:"Wk",        palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Ced",      nom:"Gourlawen", palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Clement",  nom:"Beauchesne",palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Edu",      nom:"Martins",   palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Fanny",    nom:"Tran",      palmares:"",     infobulle:"",sexe:"F",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Florian",  nom:"Dutrelot",  palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:true, montant:"9.99",date:"26/05",pseudo:"Florian8TPME",mpp:true,vainqueur:"France",buteur:""},
+  {prenom:"Olivia",   nom:"Ouakkal",   palmares:"",     infobulle:"",sexe:"F",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Philippe", nom:"Platret",   palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Remy",     nom:"de Souza",  palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Richard",  nom:"Perie",     palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Sandra",   nom:"Cath",      palmares:"",     infobulle:"",sexe:"F",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Sandy",    nom:"Bock",      palmares:"",     infobulle:"",sexe:"F",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Sebastien",nom:"Clotte",    palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:true, montant:"10",date:"26/05",pseudo:"Sobab",mpp:true,vainqueur:"France",buteur:""},
+  {prenom:"Stephane", nom:"Hebert",    palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"Prophane",mpp:true,vainqueur:"",buteur:""},
+  {prenom:"Ti",       nom:"Bordo",     palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
+  {prenom:"William",  nom:"Be",        palmares:"",     infobulle:"",sexe:"H",facebook:true, paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""}
 ];
 
-let players = participants.filter(p=>p.pseudo).map(p=>({name:p.pseudo,pts:0,bons:0,exacts:0}));
+var palmaresIcons = {"1er":"&#129351;","1er x2":"&#129351;&#129351;","2eme":"&#129352;","3eme":"&#129353;"};
 
-// Helper trophées
 function buildTrophyHtml(palmares, infobulle) {
-  if(!palmares) return '';
-  const icons = [...palmares];
-  return `<span class="trophy-wrap">${icons.map(ic => `<span class="trophy-item">${ic}<span class="tooltip">${infobulle}</span></span>`).join('')}</span>`;
+  if (!palmares || !palmaresIcons[palmares]) return '';
+  return '<span class="trophy-wrap"><span class="trophy-item">' + palmaresIcons[palmares] + '<span class="tooltip">' + infobulle + '</span></span></span>';
 }
 
-// ===== PARTICIPANTS =====
 function renderParticipants() {
-  const body = document.getElementById('participants-body');
-  const paid = participants.filter(p=>p.paye).length;
-  const mpp  = participants.filter(p=>p.mpp).length;
-  document.getElementById('badge-paid').textContent = paid+' payés';
-  document.getElementById('badge-mpp').textContent  = mpp+' sur MPP';
-  document.getElementById('badge-total').textContent= participants.length+' total';
-
-  body.innerHTML = participants.map(p => {
-    const fbChip  = p.facebook ? '<span class="chip chip-ok">✓ Oui</span>' : '<span class="chip chip-none">—</span>';
-    const payChip = p.paye ? `<span class="chip chip-ok">✓ ${p.montant}</span>` : '<span class="chip chip-pending">En attente</span>';
-    const mppChip = p.mpp  ? '<span class="chip chip-ok">✓ Inscrit</span>'   : '<span class="chip chip-none">—</span>';
-    const trophy  = buildTrophyHtml(p.palmares, p.infobulle);
-    return `<tr>
-      <td>
-        <div style="display:flex;align-items:center;gap:4px;">
-          <div>
-            <div class="p-name">${p.prenom} ${p.nom}</div>
-            ${p.pseudo ? `<div class="p-pseudo">${p.pseudo}</div>` : ''}
-          </div>
-          ${trophy}
-        </div>
-      </td>
-      <td class="center">${fbChip}</td>
-      <td class="center">${payChip}</td>
-      <td class="center">${mppChip}</td>
-    </tr>`;
-  }).join('');
+  var body = document.getElementById('participants-body');
+  var paid = 0, mppCount = 0;
+  for (var i = 0; i < participants.length; i++) { if(participants[i].paye) paid++; if(participants[i].mpp) mppCount++; }
+  document.getElementById('badge-paid').textContent = paid + ' payes';
+  document.getElementById('badge-mpp').textContent = mppCount + ' sur MPP';
+  document.getElementById('badge-total').textContent = participants.length + ' total';
+  var html = '';
+  for (var i = 0; i < participants.length; i++) {
+    var p = participants[i];
+    var fbChip = p.facebook ? '<span class="chip chip-ok">OK</span>' : '<span class="chip chip-none">-</span>';
+    var payChip = p.paye ? '<span class="chip chip-ok">Paye</span>' : '<span class="chip chip-pending">En attente</span>';
+    var mppChip = p.mpp ? '<span class="chip chip-ok">Inscrit</span>' : '<span class="chip chip-none">-</span>';
+    var trophy = buildTrophyHtml(p.palmares, p.infobulle);
+    html += '<tr><td><div style="display:flex;align-items:center;gap:4px;"><div><div class="p-name">' + p.prenom + ' ' + p.nom + '</div>' + (p.pseudo ? '<div class="p-pseudo">' + p.pseudo + '</div>' : '') + '</div>' + trophy + '</div></td><td class="center">' + fbChip + '</td><td class="center">' + payChip + '</td><td class="center">' + mppChip + '</td></tr>';
+  }
+  body.innerHTML = html;
 }
-
-// ===== MUR DES PRÉDICTIONS =====
-const countryFlags = {
-  "France":"🇫🇷","Brésil":"🇧🇷","Argentine":"🇦🇷","Espagne":"🇪🇸",
-  "Angleterre":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","Allemagne":"🇩🇪","Portugal":"🇵🇹","Pays-Bas":"🇳🇱",
-  "Maroc":"🇲🇦","Sénégal":"🇸🇳","Belgique":"🇧🇪"
-};
 
 function buildPredGrid(votes, names, gridId) {
-  const sorted = Object.entries(votes).sort((a,b)=>b[1]-a[1]);
-  const max = sorted[0]?.[1] || 1;
-  const grid = document.getElementById(gridId);
-  if(sorted.length === 0) {
-    grid.innerHTML = '<div style="color:var(--silver);font-size:0.85rem;font-style:italic;grid-column:1/-1;text-align:center;padding:1.5rem 0">Les pronostics apparaîtront ici au fil des inscriptions.</div>';
+  var entries = [];
+  for (var k in votes) { entries.push([k, votes[k]]); }
+  entries.sort(function(a,b){return b[1]-a[1];});
+  var max = entries.length > 0 ? entries[0][1] : 1;
+  var grid = document.getElementById(gridId);
+  if (entries.length === 0) {
+    grid.innerHTML = '<div style="color:var(--silver);font-size:0.85rem;font-style:italic;grid-column:1/-1;text-align:center;padding:1.5rem 0">Les pronostics apparaitront ici au fil des inscriptions.</div>';
     return;
   }
-  grid.innerHTML = sorted.map(([item, count]) => `
-    <div class="pred-card">
-      <div class="pred-flag">${countryFlags[item]||'⚽'}</div>
-      <div class="pred-country">${item}</div>
-      <div class="pred-bar-wrap"><div class="pred-bar" style="width:${Math.round(count/max*100)}%"></div></div>
-      <div class="pred-players">${count} joueur${count>1?'s':''}</div>
-      <div class="pred-names">${names[item].join(', ')}</div>
-    </div>`).join('');
+  var html = '';
+  var flags = {"France":"&#127467;&#127479;","Bresil":"&#127463;&#127479;","Argentine":"&#127462;&#127479;","Espagne":"&#127466;&#127480;","Angleterre":"&#127988;","Allemagne":"&#127465;&#127466;","Portugal":"&#127477;&#127481;","Pays-Bas":"&#127475;&#127473;","Maroc":"&#127474;&#127462;","Yamal":"&#9917;","Mbappe":"&#9917;"};
+  for (var i = 0; i < entries.length; i++) {
+    var item = entries[i][0], count = entries[i][1];
+    var pct = Math.round(count / max * 100);
+    html += '<div class="pred-card"><div class="pred-flag">' + (flags[item] || '&#9917;') + '</div><div class="pred-country">' + item + '</div><div class="pred-bar-wrap"><div class="pred-bar" style="width:' + pct + '%"></div></div><div class="pred-players">' + count + ' joueur' + (count > 1 ? 's' : '') + '</div><div class="pred-names">' + names[item].join(', ') + '</div></div>';
+  }
+  grid.innerHTML = html;
 }
 
 function renderPredictions() {
-  const vVotes={}, vNames={}, bVotes={}, bNames={};
-  participants.forEach(p => {
-    if(p.vainqueur && p.vainqueur !== 'Autre' && p.vainqueur !== '') {
-      vVotes[p.vainqueur] = (vVotes[p.vainqueur]||0)+1;
-      if(!vNames[p.vainqueur]) vNames[p.vainqueur]=[];
-      vNames[p.vainqueur].push(p.prenom);
+  var vv = {}, vn = {}, bv = {}, bn = {};
+  for (var i = 0; i < participants.length; i++) {
+    var p = participants[i];
+    if (p.vainqueur && p.vainqueur !== 'Autre' && p.vainqueur !== '') {
+      vv[p.vainqueur] = (vv[p.vainqueur] || 0) + 1;
+      if (!vn[p.vainqueur]) vn[p.vainqueur] = [];
+      vn[p.vainqueur].push(p.prenom);
     }
-    if(p.buteur && p.buteur !== 'Autre' && p.buteur !== '') {
-      bVotes[p.buteur] = (bVotes[p.buteur]||0)+1;
-      if(!bNames[p.buteur]) bNames[p.buteur]=[];
-      bNames[p.buteur].push(p.prenom);
+    if (p.buteur && p.buteur !== 'Autre' && p.buteur !== '') {
+      bv[p.buteur] = (bv[p.buteur] || 0) + 1;
+      if (!bn[p.buteur]) bn[p.buteur] = [];
+      bn[p.buteur].push(p.prenom);
     }
-  });
-  buildPredGrid(vVotes, vNames, 'predictions-grid-vainqueur');
-  buildPredGrid(bVotes, bNames, 'predictions-grid-buteur');
+  }
+  buildPredGrid(vv, vn, 'predictions-grid-vainqueur');
+  buildPredGrid(bv, bn, 'predictions-grid-buteur');
 }
 
-// ===== TIMELINE =====
-const timelinePhases = [
+var timelinePhases = [
   {label:"Inscriptions",status:"done"},
-  {label:"Groupes",     status:"upcoming"},
-  {label:"32èmes",      status:"upcoming"},
-  {label:"8èmes",       status:"upcoming"},
-  {label:"Quarts",      status:"upcoming"},
-  {label:"Demis",       status:"upcoming"},
-  {label:"Finale",      status:"upcoming"},
+  {label:"Groupes",status:"upcoming"},
+  {label:"32emes",status:"upcoming"},
+  {label:"8emes",status:"upcoming"},
+  {label:"Quarts",status:"upcoming"},
+  {label:"Demis",status:"upcoming"},
+  {label:"Finale",status:"upcoming"}
 ];
 
 function renderTimeline() {
-  const track = document.getElementById('timeline-track');
-  track.innerHTML = '';
-  timelinePhases.forEach((p,i) => {
-    if(i>0){const sep=document.createElement('div');sep.className='timeline-connector'+(p.status==='done'?' done-conn':'');track.appendChild(sep);}
-    const ph=document.createElement('div');ph.className='timeline-phase';
-    const lc=p.status==='active'?'active-label':p.status==='done'?'done-label':'';
-    ph.innerHTML=`<div class="timeline-dot ${p.status}"></div><div class="timeline-label ${lc}">${p.label}</div>`;
-    track.appendChild(ph);
-  });
+  var track = document.getElementById('timeline-track');
+  var html = '';
+  for (var i = 0; i < timelinePhases.length; i++) {
+    var p = timelinePhases[i];
+    if (i > 0) html += '<div class="timeline-connector' + (p.status === 'done' ? ' done-conn' : '') + '"></div>';
+    var lc = p.status === 'done' ? 'done-label' : (p.status === 'active' ? 'active-label' : '');
+    html += '<div class="timeline-phase"><div class="timeline-dot ' + p.status + '"></div><div class="timeline-label ' + lc + '">' + p.label + '</div></div>';
+  }
+  track.innerHTML = html;
 }
 
-// ===== COUNTDOWN =====
 function updateCountdown() {
-  const diff = KICKOFF - new Date();
-  if(diff<=0){['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>document.getElementById(id).textContent='00');return;}
-  document.getElementById('cd-days').textContent  = String(Math.floor(diff/864e5)).padStart(2,'0');
-  document.getElementById('cd-hours').textContent = String(Math.floor((diff%864e5)/36e5)).padStart(2,'0');
-  document.getElementById('cd-mins').textContent  = String(Math.floor((diff%36e5)/6e4)).padStart(2,'0');
-  document.getElementById('cd-secs').textContent  = String(Math.floor((diff%6e4)/1e3)).padStart(2,'0');
+  var diff = KICKOFF - new Date();
+  if (diff <= 0) {
+    document.getElementById('cd-days').textContent = '00';
+    document.getElementById('cd-hours').textContent = '00';
+    document.getElementById('cd-mins').textContent = '00';
+    document.getElementById('cd-secs').textContent = '00';
+    return;
+  }
+  document.getElementById('cd-days').textContent  = String(Math.floor(diff/86400000)).padStart(2,'0');
+  document.getElementById('cd-hours').textContent = String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
+  document.getElementById('cd-mins').textContent  = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+  document.getElementById('cd-secs').textContent  = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
 }
 
-// ===== GROUPES =====
-const groups = [
-  {letter:"A",teams:[{flag:"🇲🇽",name:"Mexique"},{flag:"🇿🇦",name:"Afrique du Sud"},{flag:"🇰🇷",name:"Corée du Sud"},{flag:"🇨🇿",name:"Rép. Tchèque"}]},
-  {letter:"B",teams:[{flag:"🇨🇦",name:"Canada"},{flag:"🇶🇦",name:"Qatar"},{flag:"🇨🇭",name:"Suisse"},{flag:"🇧🇦",name:"Bosnie-Herzégovine"}]},
-  {letter:"C",teams:[{flag:"🇧🇷",name:"Brésil"},{flag:"🇲🇦",name:"Maroc"},{flag:"🇭🇹",name:"Haïti"},{flag:"🏴󠁧󠁢󠁳󠁣󠁴󠁿",name:"Écosse"}]},
-  {letter:"D",teams:[{flag:"🇺🇸",name:"États-Unis"},{flag:"🇵🇾",name:"Paraguay"},{flag:"🇦🇺",name:"Australie"},{flag:"🇹🇷",name:"Turquie"}]},
-  {letter:"E",teams:[{flag:"🇩🇪",name:"Allemagne"},{flag:"🇨🇼",name:"Curaçao"},{flag:"🇨🇮",name:"Côte d'Ivoire"},{flag:"🇪🇨",name:"Équateur"}]},
-  {letter:"F",teams:[{flag:"🇳🇱",name:"Pays-Bas"},{flag:"🇯🇵",name:"Japon"},{flag:"🇸🇪",name:"Suède"},{flag:"🇹🇳",name:"Tunisie"}]},
-  {letter:"G",teams:[{flag:"🇧🇪",name:"Belgique"},{flag:"🇪🇬",name:"Égypte"},{flag:"🇮🇷",name:"Iran"},{flag:"🇳🇿",name:"Nouvelle-Zélande"}]},
-  {letter:"H",teams:[{flag:"🇪🇸",name:"Espagne"},{flag:"🇨🇻",name:"Cap-Vert"},{flag:"🇸🇦",name:"Arabie Saoudite"},{flag:"🇺🇾",name:"Uruguay"}]},
-  {letter:"I",teams:[{flag:"🇫🇷",name:"France"},{flag:"🇸🇳",name:"Sénégal"},{flag:"🇮🇶",name:"Irak"},{flag:"🇳🇴",name:"Norvège"}]},
-  {letter:"J",teams:[{flag:"🇦🇷",name:"Argentine"},{flag:"🇩🇿",name:"Algérie"},{flag:"🇦🇹",name:"Autriche"},{flag:"🇯🇴",name:"Jordanie"}]},
-  {letter:"K",teams:[{flag:"🇵🇹",name:"Portugal"},{flag:"🇨🇩",name:"RD Congo"},{flag:"🇺🇿",name:"Ouzbékistan"},{flag:"🇨🇴",name:"Colombie"}]},
-  {letter:"L",teams:[{flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿",name:"Angleterre"},{flag:"🇭🇷",name:"Croatie"},{flag:"🇬🇭",name:"Ghana"},{flag:"🇵🇦",name:"Panama"}]},
+var groups = [
+  {letter:"A",teams:[{flag:"&#127474;&#127485;",name:"Mexique"},{flag:"&#127487;&#127462;",name:"Afrique du Sud"},{flag:"&#127472;&#127479;",name:"Coree du Sud"},{flag:"&#127464;&#127487;",name:"Rep. Tcheque"}]},
+  {letter:"B",teams:[{flag:"&#127464;&#127462;",name:"Canada"},{flag:"&#127478;&#127462;",name:"Qatar"},{flag:"&#127464;&#127469;",name:"Suisse"},{flag:"&#127463;&#127462;",name:"Bosnie-Herzegovine"}]},
+  {letter:"C",teams:[{flag:"&#127463;&#127479;",name:"Bresil"},{flag:"&#127474;&#127462;",name:"Maroc"},{flag:"&#127469;&#127481;",name:"Haiti"},{flag:"&#127987;",name:"Ecosse"}]},
+  {letter:"D",teams:[{flag:"&#127482;&#127480;",name:"Etats-Unis"},{flag:"&#127477;&#127486;",name:"Paraguay"},{flag:"&#127462;&#127482;",name:"Australie"},{flag:"&#127481;&#127479;",name:"Turquie"}]},
+  {letter:"E",teams:[{flag:"&#127465;&#127466;",name:"Allemagne"},{flag:"&#127464;&#127484;",name:"Curacao"},{flag:"&#127464;&#127470;",name:"Cote d'Ivoire"},{flag:"&#127466;&#127464;",name:"Equateur"}]},
+  {letter:"F",teams:[{flag:"&#127475;&#127473;",name:"Pays-Bas"},{flag:"&#127471;&#127477;",name:"Japon"},{flag:"&#127480;&#127466;",name:"Suede"},{flag:"&#127481;&#127475;",name:"Tunisie"}]},
+  {letter:"G",teams:[{flag:"&#127463;&#127466;",name:"Belgique"},{flag:"&#127466;&#127468;",name:"Egypte"},{flag:"&#127470;&#127479;",name:"Iran"},{flag:"&#127475;&#127487;",name:"Nouvelle-Zelande"}]},
+  {letter:"H",teams:[{flag:"&#127466;&#127480;",name:"Espagne"},{flag:"&#127464;&#127483;",name:"Cap-Vert"},{flag:"&#127480;&#127462;",name:"Arabie Saoudite"},{flag:"&#127482;&#127486;",name:"Uruguay"}]},
+  {letter:"I",teams:[{flag:"&#127467;&#127479;",name:"France"},{flag:"&#127480;&#127475;",name:"Senegal"},{flag:"&#127470;&#127478;",name:"Irak"},{flag:"&#127475;&#127476;",name:"Norvege"}]},
+  {letter:"J",teams:[{flag:"&#127462;&#127479;",name:"Argentine"},{flag:"&#127465;&#127487;",name:"Algerie"},{flag:"&#127462;&#127481;",name:"Autriche"},{flag:"&#127471;&#127476;",name:"Jordanie"}]},
+  {letter:"K",teams:[{flag:"&#127477;&#127481;",name:"Portugal"},{flag:"&#127464;&#127465;",name:"RD Congo"},{flag:"&#127482;&#127487;",name:"Ouzbekistan"},{flag:"&#127464;&#127476;",name:"Colombie"}]},
+  {letter:"L",teams:[{flag:"&#127988;",name:"Angleterre"},{flag:"&#127469;&#127479;",name:"Croatie"},{flag:"&#127468;&#127469;",name:"Ghana"},{flag:"&#127477;&#127462;",name:"Panama"}]}
 ];
 
-function renderGroups(){
-  const grid=document.getElementById('groups-grid');grid.innerHTML='';
-  groups.forEach(g=>{
-    const c=document.createElement('div');c.className='group-card';
-    c.innerHTML=`<div class="group-header"><span class="group-letter">GROUPE ${g.letter}</span><span class="group-label">0 matchs joués</span></div>
-      <div>${g.teams.map(t=>`<div class="team-row"><span class="team-flag">${t.flag}</span><span class="team-name">${t.name}</span>
-        <div class="team-stats"><div class="team-stat">J<br>0</div><div class="team-stat">G<br>0</div><div class="team-stat">N<br>0</div><div class="team-stat">P<br>0</div><div class="team-stat pts-stat">Pts<br>0</div></div>
-      </div>`).join('')}</div>`;
-    grid.appendChild(c);
-  });
+function renderGroups() {
+  var grid = document.getElementById('groups-grid');
+  var html = '';
+  for (var i = 0; i < groups.length; i++) {
+    var g = groups[i];
+    var teamsHtml = '';
+    for (var j = 0; j < g.teams.length; j++) {
+      var t = g.teams[j];
+      teamsHtml += '<div class="team-row"><span class="team-flag">' + t.flag + '</span><span class="team-name">' + t.name + '</span><div class="team-stats"><div class="team-stat">J<br>0</div><div class="team-stat">G<br>0</div><div class="team-stat">N<br>0</div><div class="team-stat">P<br>0</div><div class="team-stat pts-stat">Pts<br>0</div></div></div>';
+    }
+    html += '<div class="group-card"><div class="group-header"><span class="group-letter">GROUPE ' + g.letter + '</span><span class="group-label">0 matchs</span></div><div>' + teamsHtml + '</div></div>';
+  }
+  grid.innerHTML = html;
 }
 
-// ===== HOF =====
-const hofData=[
+var hofData = [
   {edition:"Euro 2016",winner:"Pintu",second:"Dedel",third:"Soutizz"},
-  {edition:"CDM 2018",winner:"Guig",second:"Ben",third:"Loïc C."},
+  {edition:"CDM 2018",winner:"Guig",second:"Ben",third:"Loic C."},
   {edition:"Euro 2020",winner:"Pintu",second:"Patou",third:"Sylvain"},
-  {edition:"CDM 2022",winner:"Zizounaldo ✦",second:"Steven M.",third:"Loïc C."},
-  {edition:"Euro 2024",winner:"Lion1008",second:"GusModot",third:"Qwintos"},
+  {edition:"CDM 2022",winner:"Zizounaldo",second:"Steven M.",third:"Loic C."},
+  {edition:"Euro 2024",winner:"Lion1008",second:"GusModot",third:"Qwintos"}
 ];
 
-function renderHOF(){
-  document.getElementById('hof-grid').innerHTML=hofData.map(h=>`
-    <div class="hof-card"><div class="hof-edition">${h.edition}</div>
-    <div class="hof-winner">🥇 ${h.winner}</div>
-    <div class="hof-sub">🥈 ${h.second} &nbsp;·&nbsp; 🥉 ${h.third}</div></div>`).join('');
+function renderHOF() {
+  var html = '';
+  for (var i = 0; i < hofData.length; i++) {
+    var h = hofData[i];
+    html += '<div class="hof-card"><div class="hof-edition">' + h.edition + '</div><div class="hof-winner">&#129351; ' + h.winner + '</div><div class="hof-sub">&#129352; ' + h.second + ' &nbsp;&middot;&nbsp; &#129353; ' + h.third + '</div></div>';
+  }
+  document.getElementById('hof-grid').innerHTML = html;
 }
 
-// ===== NEWS =====
-const news=[
-  {time:"26 mai 2026",type:"info",text:"L'Issmoules Trophy 2026 est lancé ! 29 participants enregistrés, 3 paiements validés. Code MPP : UCXYKN9P. Clôture le 11 juin à 21h."},
-  {time:"Hommage",type:"exploit",text:"Ce tournoi est dédié à Zizounaldo, champion CDM 2022, qui nous a quittés en janvier 2025. Son trône reste vide — sa légende, elle, est éternelle."},
-  {time:"Règlement",type:"info",text:"Nouveau format 2026 : 32 équipes en phase éliminatoire via les 32è
+var newsData = [
+  {time:"26 mai 2026",type:"info",text:"L'Issmoules Trophy 2026 est lance ! 29 participants enregistres, 3 paiements valides. Code MPP : UCXYKN9P. Cloture le 11 juin a 21h."},
+  {time:"Hommage",type:"exploit",text:"Ce tournoi est dedie a Zizounaldo, champion CDM 2022, qui nous a quittes en janvier 2025. Son trone reste vide &mdash; sa legende, elle, est eternelle."},
+  {time:"Reglement",type:"info",text:"Nouveau format 2026 : 32 equipes en phase eliminatoire via les 32emes de finale. Selectionne tes favoris sur MPP avant le 11 juin 21h !"}
+];
+
+function renderNews() {
+  var html = '';
+  for (var i = 0; i < newsData.length; i++) {
+    var n = newsData[i];
+    html += '<div class="news-item"><div class="news-dot dot-' + n.type + '"></div><div class="news-body"><div class="news-meta"><span class="news-time">' + n.time + '</span><span class="news-type type-' + n.type + '">' + n.type + '</span></div><div class="news-text">"' + n.text + '"</div></div></div>';
+  }
+  document.getElementById('news-feed').innerHTML = html;
+}
+
+function importMPP() {
+  var raw = document.getElementById('mpp-import').value.trim();
+  if (!raw) return;
+  showNotification('Classement mis a jour !');
+  document.getElementById('mpp-import').value = '';
+}
+
+function switchTab(id) {
+  var tabs = document.querySelectorAll('.tab-content');
+  for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
+  var btns = document.querySelectorAll('.nav-btn');
+  for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+  var tab = document.getElementById('tab-' + id);
+  if (tab) tab.classList.add('active');
+  var btn = document.getElementById('nav-' + id);
+  if (btn) btn.classList.add('active');
+  if (id === 'radio') {
+    var notif = document.getElementById('radio-notif');
+    if (notif) notif.style.display = 'none';
+  }
+}
+
+function copyCode() {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(LIGUE_CODE).then(function() { showNotification('Code UCXYKN9P copie !'); });
+  } else {
+    showNotification('Code : UCXYKN9P');
+  }
+}
+
+function showNotification(msg) {
+  var n = document.getElementById('notification');
+  n.textContent = msg;
+  n.classList.add('show');
+  setTimeout(function() { n.classList.remove('show'); }, 2800);
+}
+
+renderTimeline();
+renderGroups();
+renderHOF();
+renderNews();
+renderParticipants();
+renderPredictions();
+updateCountdown();
+setInterval(updateCountdown, 1000);
+if (new Date() >= KICKOFF) {
+  var btn = document.getElementById('nav-inscription');
+  if (btn) btn.classList.remove('pulse-btn');
+}
+</script>
+</body>
+</html>
