@@ -345,7 +345,7 @@
       <div class="radio-notif" id="radio-notif"></div>
       &#128251; Radio Vestiaire
     </div>
-    <div class="prize-pill" onclick="switchTab('finance')">&#127942; Prizepool : 310 &#8364;</div>
+    <div class="prize-pill" onclick="switchTab('finance')">&#127942; Prizepool : 340 &#8364;</div>
   </div>
 </header>
 
@@ -367,7 +367,11 @@
     <button class="nav-btn" onclick="switchTab('regles')" id="nav-regles"><span class="nav-icon">&#128203;</span> Regles du jeu</button>
     <button class="nav-btn" onclick="switchTab('hof')" id="nav-hof"><span class="nav-icon">&#11088;</span> Hall of Fame</button>
     <button class="nav-btn" onclick="switchTab('radio')" id="nav-radio"><span class="nav-icon">&#128251;</span> Radio Vestiaire</button>
-    <button class="nav-btn" onclick="switchTab('liens')" id="nav-liens"><span class="nav-icon">&#128279;</span> Liens utiles</button>
+    <div class="admin-zone">
+      <h4>&#9881; Import Classement MPP</h4>
+      <textarea id="mpp-import" placeholder="Colle ici le classement MPP..."></textarea>
+      <button class="btn-import" onclick="importMPP()">Mettre a jour</button>
+    </div>
   </aside>
 
   <main>
@@ -395,7 +399,7 @@
 
     <!-- PRIZEPOOL -->
     <div class="tab-content" id="tab-finance">
-      <div class="section-header"><h2>Prizepool</h2><p>50 participants enregistres &mdash; 31 paiements valides a ce jour.</p></div>
+      <div class="section-header"><h2>Prizepool</h2><p>50 participants enregistres &mdash; 34 paiements valides a ce jour.</p></div>
       <div class="jauge-wrap">
         <div class="jauge-header">
           <div class="jauge-title">&#127942; Cagnotte en cours de constitution</div>
@@ -403,37 +407,37 @@
         </div>
         <div class="jauge-track">
           <div class="jauge-fill-theorique" style="width:100%"></div>
-          <div class="jauge-fill-reel" style="width:62%"></div>
+          <div class="jauge-fill-reel" style="width:68%"></div>
           <div class="jauge-marker-500"></div>
         </div>
         <div class="jauge-labels">
           <div class="jauge-label-item">
             <div class="jauge-dot jauge-dot-reel"></div>
-            <div><div class="jauge-label-text">Total reel collecte</div><div class="jauge-label-amount reel">310 &#8364;</div></div>
+            <div><div class="jauge-label-text">Total reel collecte</div><div class="jauge-label-amount reel">340 &#8364;</div></div>
           </div>
           <div class="jauge-label-item">
             <div class="jauge-dot jauge-dot-theo"></div>
             <div><div class="jauge-label-text">Total theorique (50 inscrits)</div><div class="jauge-label-amount theo">500 &#8364;</div></div>
           </div>
           <div class="jauge-label-item" style="margin-left:auto">
-            <div><div class="jauge-label-text">Restant pour atteindre l'objectif</div><div class="jauge-label-amount" style="color:var(--orange-warn)">190 &#8364;</div></div>
+            <div><div class="jauge-label-text">Restant pour atteindre l'objectif</div><div class="jauge-label-amount" style="color:var(--orange-warn)">160 &#8364;</div></div>
           </div>
         </div>
-        <div class="jauge-inscrits">31 paiements valides sur 50 inscrits &mdash; il manque 19 paiements pour atteindre l'objectif</div>
+        <div class="jauge-inscrits">34 paiements valides sur 50 inscrits &mdash; il manque 16 paiements pour atteindre l'objectif</div>
       </div>
       <div class="prize-section-title">&#127942; Podium Principal &mdash; 70%</div>
       <div class="prize-grid" style="margin-bottom:1.25rem">
-        <div class="prize-card p1"><div class="prize-place">&#129351; 1er &mdash; 50%</div><div class="prize-amount gold" id="prize-1er">175 &#8364;</div><div class="prize-pct">theorique a 50 inscrits &bull; reel : 109 &#8364;</div></div>
-        <div class="prize-card p2"><div class="prize-place">&#129352; 2eme &mdash; 30%</div><div class="prize-amount silver" id="prize-2eme">105 &#8364;</div><div class="prize-pct">theorique a 50 inscrits &bull; reel : 65 &#8364;</div></div>
-        <div class="prize-card p3"><div class="prize-place">&#129353; 3eme &mdash; 20%</div><div class="prize-amount bronze" id="prize-3eme">70 &#8364;</div><div class="prize-pct">theorique a 50 inscrits &bull; reel : 43 &#8364;</div></div>
+        <div class="prize-card p1"><div class="prize-place">&#129351; 1er &mdash; 50%</div><div class="prize-amount gold">119 &#8364;</div><div class="prize-pct">reel &mdash; 175 &#8364; theorique</div></div>
+        <div class="prize-card p2"><div class="prize-place">&#129352; 2eme &mdash; 30%</div><div class="prize-amount silver">71 &#8364;</div><div class="prize-pct">reel &mdash; 105 &#8364; theorique</div></div>
+        <div class="prize-card p3"><div class="prize-place">&#129353; 3eme &mdash; 20%</div><div class="prize-amount bronze">48 &#8364;</div><div class="prize-pct">reel &mdash; 70 &#8364; theorique</div></div>
       </div>
       <div class="prize-section-title">&#127919; Primes Annexes &mdash; 30%</div>
       <div class="bonus-grid">
-        <div class="bonus-card"><div><div class="bonus-name">Plus grand nombre de bons resultats</div><div class="bonus-pct">20% des primes annexes</div></div><div class="bonus-amount">30 &#8364;</div></div>
-        <div class="bonus-card"><div><div class="bonus-name">Plus grand nombre de scores exacts</div><div class="bonus-pct">20% des primes annexes</div></div><div class="bonus-amount">30 &#8364;</div></div>
-        <div class="bonus-card"><div><div class="bonus-name">Vainqueur phase de groupes</div><div class="bonus-pct">20% des primes annexes</div></div><div class="bonus-amount">30 &#8364;</div></div>
-        <div class="bonus-card"><div><div class="bonus-name">Meilleure performance feminine</div><div class="bonus-pct">20% des primes annexes</div></div><div class="bonus-amount">30 &#8364;</div></div>
-        <div class="bonus-card"><div><div class="bonus-name">Plus gros score sur un match</div><div class="bonus-pct">20% des primes annexes</div></div><div class="bonus-amount">30 &#8364;</div></div>
+        <div class="bonus-card"><div><div class="bonus-name">Plus grand nombre de bons resultats</div><div class="bonus-pct">20% des primes annexes</div></div><div class="bonus-amount">20 &#8364;</div></div>
+        <div class="bonus-card"><div><div class="bonus-name">Plus grand nombre de scores exacts</div><div class="bonus-pct">20% des primes annexes</div></div><div class="bonus-amount">20 &#8364;</div></div>
+        <div class="bonus-card"><div><div class="bonus-name">Leader apres phase de groupes</div><div class="bonus-pct">20% des primes annexes</div></div><div class="bonus-amount">20 &#8364;</div></div>
+        <div class="bonus-card"><div><div class="bonus-name">Meilleure performance feminine</div><div class="bonus-pct">20% des primes annexes</div></div><div class="bonus-amount">20 &#8364;</div></div>
+        <div class="bonus-card"><div><div class="bonus-name">Plus gros score sur un match</div><div class="bonus-pct">20% des primes annexes</div></div><div class="bonus-amount">20 &#8364;</div></div>
       </div>
     </div>
 
@@ -545,38 +549,6 @@
       <div class="news-feed" id="news-feed"></div>
     </div>
 
-    <!-- LIENS UTILES -->
-    <div class="tab-content" id="tab-liens">
-      <div class="section-header"><h2>Liens Utiles</h2><p>Acces direct a la ligue et a la communaute.</p></div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem;">
-        <a href="https://mpp.football/leagues/mpp_challenge_UCXYKN9P" target="_blank" style="text-decoration:none;">
-          <div style="background:var(--navy-card);border:1px solid var(--border);border-radius:12px;padding:1.75rem 1.5rem;text-align:center;transition:border-color 0.2s,transform 0.2s;cursor:pointer;" onmouseover="this.style.borderColor='rgba(201,168,76,0.5)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.18)';this.style.transform='none'">
-            <div style="font-size:2.5rem;margin-bottom:0.75rem">&#128302;</div>
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:3px;background:linear-gradient(135deg,var(--gold-bright),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.4rem;">Ligue MPP</div>
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;color:var(--silver);letter-spacing:1px;margin-bottom:0.75rem;">Issmoules Trophy 2026</div>
-            <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:0.4rem 0.8rem;display:inline-block;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:3px;color:var(--gold-light);">UCXYKN9P</div>
-            <div style="margin-top:1rem;padding:0.6rem 1rem;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--navy);border-radius:7px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.9rem;letter-spacing:1px;">OUVRIR LA LIGUE &#8594;</div>
-          </div>
-        </a>
-        <a href="https://www.facebook.com/groups/4028054953995753" target="_blank" style="text-decoration:none;">
-          <div style="background:var(--navy-card);border:1px solid var(--border);border-radius:12px;padding:1.75rem 1.5rem;text-align:center;transition:border-color 0.2s,transform 0.2s;cursor:pointer;" onmouseover="this.style.borderColor='rgba(24,119,242,0.5)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.18)';this.style.transform='none'">
-            <div style="font-size:2.5rem;margin-bottom:0.75rem">&#128101;</div>
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:3px;color:var(--white);margin-bottom:0.4rem;">Groupe Facebook</div>
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;color:var(--silver);letter-spacing:1px;margin-bottom:0.75rem;">Annonces &bull; Resultats &bull; Trash talk</div>
-            <div style="margin-top:1rem;padding:0.6rem 1rem;background:rgba(24,119,242,0.8);color:var(--white);border-radius:7px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.9rem;letter-spacing:1px;">REJOINDRE LE GROUPE &#8594;</div>
-          </div>
-        </a>
-        <a href="https://www.paypal.com/ncp/payment/BBHFGXGPRNWJU" target="_blank" style="text-decoration:none;">
-          <div style="background:var(--navy-card);border:1px solid var(--border);border-radius:12px;padding:1.75rem 1.5rem;text-align:center;transition:border-color 0.2s,transform 0.2s;cursor:pointer;" onmouseover="this.style.borderColor='rgba(0,112,186,0.5)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.18)';this.style.transform='none'">
-            <div style="font-size:2.5rem;margin-bottom:0.75rem">&#128179;</div>
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:3px;color:var(--white);margin-bottom:0.4rem;">Payer ma mise</div>
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;color:var(--silver);letter-spacing:1px;margin-bottom:0.75rem;">10 &#8364; via PayPal &bull; Note : prenom + pseudo</div>
-            <div style="margin-top:1rem;padding:0.6rem 1rem;background:rgba(0,112,186,0.8);color:var(--white);border-radius:7px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.9rem;letter-spacing:1px;">PAYER 10 &#8364; &#8594;</div>
-          </div>
-        </a>
-      </div>
-    </div>
-
   </main>
 </div>
 </div>
@@ -595,21 +567,21 @@ var participants = [
   {prenom:"Celine",nom:"Catala",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"27/05",pseudo:"APILena",mpp:true,vainqueur:"France",buteur:"Autre"},
   {prenom:"Clement",nom:"Beauchesne",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"26/05",pseudo:"LeKlemant",mpp:true,vainqueur:"France",buteur:"Autre"},
   {prenom:"Delphine",nom:"Modot",palmares:"2eme",infobulle:"2eme Euro 2016",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"",pseudo:"Dedel",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Edu",nom:"Martins",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Edu",nom:"Martins",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"08/06",pseudo:"edurrrrrrr",mpp:true,vainqueur:"Portugal",buteur:"Ronaldo"},
   {prenom:"Fanny",nom:"Tran",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"10",date:"27/05",pseudo:"Bounette",mpp:true,vainqueur:"Panama",buteur:"Messi"},
   {prenom:"Florian",nom:"Dutrelot",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"26/05",pseudo:"Fiffou07",mpp:true,vainqueur:"France",buteur:"Autre"},
   {prenom:"Giovanni",nom:"Becchere",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"28/05",pseudo:"Giobeck",mpp:true,vainqueur:"",buteur:""},
+  {prenom:"Guillaume",nom:"Modot",palmares:"2eme",infobulle:"2eme Euro 2024",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"25/05",pseudo:"GusModot",mpp:true,vainqueur:"Portugal",buteur:"Autre"},
   {prenom:"Guillaume",nom:"Brun",palmares:"1er",infobulle:"Vainqueur CDM 2018",sexe:"H",facebook:false,paye:true,montant:"9.99",date:"05/06",pseudo:"BobbyWanKenoby",mpp:true,vainqueur:"Argentine",buteur:"Autre"},
   {prenom:"Guillaume",nom:"Constant",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"10",date:"06/06",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Guillaume",nom:"Modot",palmares:"2eme",infobulle:"2eme Euro 2024",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"25/05",pseudo:"GusModot",mpp:true,vainqueur:"Bresil",buteur:"Autre"},
   {prenom:"Helene",nom:"Cenier",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"10",date:"31/05",pseudo:"Elenou",mpp:true,vainqueur:"France",buteur:"Haaland"},
   {prenom:"Jean Baptiste",nom:"Gallet",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
   {prenom:"Jeremy",nom:"Coudant",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,montant:"9.99",date:"28/05",pseudo:"",mpp:false,vainqueur:"",buteur:""},
   {prenom:"Julie",nom:"Sarkissian",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Laure",nom:"Kounaley",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:false,montant:"",date:"",pseudo:"Phoenix25",mpp:true,vainqueur:"",buteur:""},
+  {prenom:"Laure",nom:"Kounakey",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:false,montant:"",date:"",pseudo:"Phoenix25",mpp:true,vainqueur:"",buteur:""},
   {prenom:"Leo",nom:"Modot",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,montant:"9.99",date:"06/06",pseudo:"LeonitoDoBraziou",mpp:true,vainqueur:"France",buteur:"Mbappe"},
-  {prenom:"Loic",nom:"Carpentier",palmares:"3eme",infobulle:"3eme CDM 2018",sexe:"H",facebook:true,paye:true,montant:"10",date:"29/05",pseudo:"ZEROO",mpp:true,vainqueur:"France",buteur:"Autre"},
   {prenom:"Loic",nom:"Chouquet",palmares:"3eme",infobulle:"3eme CDM 2022",sexe:"H",facebook:false,paye:true,montant:"10",date:"28/05",pseudo:"Losogre",mpp:true,vainqueur:"Espagne",buteur:"Yamal"},
+  {prenom:"Loic",nom:"Carpentier",palmares:"3eme",infobulle:"3eme CDM 2018",sexe:"H",facebook:true,paye:true,montant:"10",date:"29/05",pseudo:"ZEROO",mpp:true,vainqueur:"France",buteur:"Autre"},
   {prenom:"Lucas",nom:"Mrl",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"28/05",pseudo:"Lucas2309",mpp:true,vainqueur:"",buteur:""},
   {prenom:"Manu",nom:"Heraud",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,montant:"10",date:"06/06",pseudo:"",mpp:false,vainqueur:"",buteur:""},
   {prenom:"Marc",nom:"Paillot",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"27/05",pseudo:"Marco_Trez",mpp:true,vainqueur:"France",buteur:"Mbappe"},
@@ -626,8 +598,8 @@ var participants = [
   {prenom:"Sandra",nom:"Cath",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
   {prenom:"Sandy",nom:"Bock",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
   {prenom:"Sebastien",nom:"Clotte",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"10",date:"26/05",pseudo:"Sobab",mpp:true,vainqueur:"France",buteur:"Autre"},
-  {prenom:"Sley",nom:"Ganga",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:false,montant:"",date:"",pseudo:"CoachPepito",mpp:true,vainqueur:"",buteur:""},
-  {prenom:"Sophie",nom:"Ganga",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:false,montant:"",date:"",pseudo:"Massyalla",mpp:false,vainqueur:"",buteur:""},
+  {prenom:"Sley",nom:"Ganga",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"06/06",pseudo:"CoachPepito",mpp:true,vainqueur:"",buteur:""},
+  {prenom:"Sophie",nom:"Ganga",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"06/06",pseudo:"Massyalla",mpp:false,vainqueur:"",buteur:""},
   {prenom:"Stephane",nom:"Hebert",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"28/05",pseudo:"Prophane",mpp:true,vainqueur:"Bresil",buteur:"Vinicius"},
   {prenom:"Steven",nom:"Moreau",palmares:"2eme",infobulle:"2eme CDM 2022",sexe:"H",facebook:true,paye:false,montant:"",date:"",pseudo:"Gloub94",mpp:false,vainqueur:"",buteur:""},
   {prenom:"Sylvain",nom:"Roger",palmares:"3eme",infobulle:"3eme Euro 2020",sexe:"H",facebook:false,paye:false,montant:"",date:"",pseudo:"Sylvain",mpp:false,vainqueur:"",buteur:""},
@@ -688,25 +660,23 @@ function buildPredGrid(votes, names, autreNames, gridId) {
   var entries = [];
   for (var k in votes) { entries.push([k, votes[k]]); }
   entries.sort(function(a,b){return b[1]-a[1];});
+  var max = entries.length > 0 ? entries[0][1] : 1;
   var grid = document.getElementById(gridId);
   if (entries.length === 0 && autreNames.length === 0) {
     grid.innerHTML = '<div style="color:var(--silver);font-size:0.95rem;font-style:italic;grid-column:1/-1;text-align:center;padding:1.5rem 0">Les pronostics apparaitront ici au fil des inscriptions.</div>';
     return;
   }
-  var flags = {"France":"&#127467;&#127479;","Bresil":"&#127463;&#127479;","Argentine":"&#127462;&#127479;","Espagne":"&#127466;&#127480;","Angleterre":"&#127988;&#8205;&#9878;&#65039;","Allemagne":"&#127465;&#127466;","Portugal":"&#127477;&#127481;","Pays-Bas":"&#127475;&#127473;","Maroc":"&#127474;&#127462;","Italie":"&#127470;&#127481;","Panama":"&#127477;&#127462;","Yamal":"&#127466;&#127480;","Messi":"&#127462;&#127479;","Mbappe":"&#127467;&#127479;","Haaland":"&#127475;&#127476;","Vinicius":"&#127463;&#127479;","Kane":"&#127988;&#8205;&#9878;&#65039;"};
-  var allCounts = entries.map(function(e){return e[1];});
-  if (autreNames.length > 0) allCounts.push(autreNames.length);
-  var max = allCounts.length > 0 ? Math.max.apply(null, allCounts) : 1;
+  var flags = {"France":"&#127467;&#127479;","Bresil":"&#127463;&#127479;","Argentine":"&#127462;&#127479;","Espagne":"&#127466;&#127480;","Angleterre":"&#127988;","Allemagne":"&#127465;&#127466;","Portugal":"&#127477;&#127481;","Pays-Bas":"&#127475;&#127473;","Maroc":"&#127474;&#127462;","Italie":"&#127470;&#127481;","Panama":"&#127477;&#127462;","Yamal":"&#9917;","Messi":"&#9917;","Mbappe":"&#9917;","Haaland":"&#9917;","Vinicius":"&#9917;"};
   var html = '';
-  /* Carte "Autre" en premier si elle existe */
-  if (autreNames.length > 0) {
-    var autrePct = Math.round(autreNames.length / max * 100);
-    html += '<div class="pred-card" style="border-color:rgba(201,168,76,0.4)"><div class="pred-flag">&#127942;</div><div class="pred-country" style="color:var(--gold-light)">Autre</div><div class="pred-bar-wrap"><div class="pred-bar" style="width:' + autrePct + '%"></div></div><div class="pred-players">' + autreNames.length + ' joueur' + (autreNames.length > 1 ? 's' : '') + '</div><div class="pred-names">' + autreNames.join(', ') + '</div><div class="pred-autre-note">Buteur non liste sur MPP</div></div>';
-  }
   for (var i = 0; i < entries.length; i++) {
     var item = entries[i][0], count = entries[i][1];
     var pct = Math.round(count / max * 100);
     html += '<div class="pred-card"><div class="pred-flag">' + (flags[item] || '&#9917;') + '</div><div class="pred-country">' + item + '</div><div class="pred-bar-wrap"><div class="pred-bar" style="width:' + pct + '%"></div></div><div class="pred-players">' + count + ' joueur' + (count > 1 ? 's' : '') + '</div><div class="pred-names">' + names[item].join(', ') + '</div></div>';
+  }
+  /* Carte speciale "Autre" */
+  if (autreNames.length > 0) {
+    var autrePct = Math.round(autreNames.length / max * 100);
+    html += '<div class="pred-card" style="border-color:rgba(136,153,187,0.25)"><div class="pred-flag">&#10067;</div><div class="pred-country" style="color:var(--silver)">Autre</div><div class="pred-bar-wrap"><div class="pred-bar" style="width:' + autrePct + '%;background:linear-gradient(90deg,rgba(136,153,187,0.4),rgba(136,153,187,0.6))"></div></div><div class="pred-players">' + autreNames.length + ' joueur' + (autreNames.length > 1 ? 's' : '') + '</div><div class="pred-names">' + autreNames.join(', ') + '</div><div class="pred-autre-note">Buteur non liste sur MPP</div></div>';
   }
   grid.innerHTML = html;
 }
@@ -819,7 +789,7 @@ function renderHOF() {
 }
 
 var newsData = [
-  {time:"6 juin 2026",type:"info",text:"50 participants enregistres, 31 paiements valides — cagnotte reelle : 310 €. Plus que 5 jours avant le coup d'envoi ! Code MPP : UCXYKN9P. Cloture le 11 juin a 21h."},
+  {time:"08 juin 2026",type:"info",text:"50 participants enregistres, 34 paiements valides. Cagnotte reelle : 340€. Cloture ce soir a 21h — Mexique vs Afrique du Sud !"},
   {time:"Hommage",type:"exploit",text:"Ce tournoi est dedie a Zizounaldo, champion CDM 2022, qui nous a quittes en janvier 2025. Son trone reste vide - sa legende, elle, est eternelle."},
   {time:"Reglement",type:"info",text:"Nouveau format 2026 : 32 equipes en phase eliminatoire via les 32emes de finale. Selectionne tes favoris sur MPP avant le 11 juin 21h !"}
 ];
@@ -833,6 +803,12 @@ function renderNews() {
   document.getElementById('news-feed').innerHTML = html;
 }
 
+function importMPP() {
+  var raw = document.getElementById('mpp-import').value.trim();
+  if (!raw) return;
+  showNotification('Classement mis a jour !');
+  document.getElementById('mpp-import').value = '';
+}
 
 function switchTab(id) {
   var tabs = document.querySelectorAll('.tab-content');
