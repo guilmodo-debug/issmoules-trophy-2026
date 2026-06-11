@@ -185,6 +185,10 @@
   .chip-pending{background:rgba(240,160,48,0.12);color:var(--orange-warn);border:1px solid rgba(240,160,48,0.25);}
   .chip-none{background:rgba(136,153,187,0.08);color:rgba(136,153,187,0.5);border:1px solid rgba(136,153,187,0.15);}
 
+  .poker-chip{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#c0392b,#8b1a1a);border:1.5px solid rgba(201,168,76,0.5);font-size:0.7rem;margin-left:5px;vertical-align:middle;flex-shrink:0;cursor:default;position:relative;}
+  .poker-chip .tooltip{display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(10,15,30,0.97);border:1px solid var(--border);border-radius:6px;padding:0.3rem 0.6rem;font-size:0.78rem;font-family:'Barlow Condensed',sans-serif;color:var(--gold-light);white-space:nowrap;z-index:200;letter-spacing:0.5px;box-shadow:0 4px 16px rgba(0,0,0,0.5);pointer-events:none;}
+  .poker-chip .tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:rgba(201,168,76,0.3);}
+  .poker-chip:hover .tooltip{display:block;}
   .trophy-wrap{display:inline-flex;gap:2px;align-items:center;margin-left:6px;vertical-align:middle;}
   .trophy-item{position:relative;cursor:default;font-size:1rem;display:inline-block;}
   .trophy-item .tooltip{display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(10,15,30,0.97);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.75rem;font-size:0.8rem;font-family:'Barlow Condensed',sans-serif;color:var(--gold-light);white-space:nowrap;z-index:200;letter-spacing:0.5px;box-shadow:0 4px 16px rgba(0,0,0,0.5);pointer-events:none;}
@@ -345,7 +349,7 @@
       <div class="radio-notif" id="radio-notif"></div>
       &#128251; Radio Vestiaire
     </div>
-    <div class="prize-pill" onclick="switchTab('finance')">&#127942; Prizepool : 570 &#8364;</div>
+    <div class="prize-pill" onclick="switchTab('finance')">&#127942; Prizepool : 500 &#8364;</div>
   </div>
 </header>
 
@@ -399,61 +403,53 @@
 
     <!-- PRIZEPOOL -->
     <div class="tab-content" id="tab-finance">
-      <div class="section-header"><h2>Prizepool</h2><p>57 participants enregistres &mdash; 44 paiements valides a ce jour.</p></div>
+      <div class="section-header"><h2>Prizepool</h2><p>61 participants &mdash; 52 paiements valides &mdash; Prizepool final arrete.</p></div>
       <div class="jauge-wrap">
         <div class="jauge-header">
-          <div class="jauge-title">&#127942; Cagnotte en cours de constitution</div>
-          <div class="jauge-objectif">Objectif : 570 &#8364;</div>
+          <div class="jauge-title">&#127942; Prizepool final</div>
+          <div class="jauge-objectif" style="color:var(--gold-bright);font-size:1.4rem;">500 &#8364;</div>
         </div>
         <div class="jauge-track">
-          <div class="jauge-fill-theorique" style="width:100%"></div>
-          <div class="jauge-fill-reel" style="width:77%"></div>
-          <div class="jauge-marker-500"></div>
+          <div class="jauge-fill-reel" style="width:100%"></div>
         </div>
         <div class="jauge-labels">
           <div class="jauge-label-item">
             <div class="jauge-dot jauge-dot-reel"></div>
-            <div><div class="jauge-label-text">Total reel collecte</div><div class="jauge-label-amount reel">440 &#8364;</div></div>
+            <div><div class="jauge-label-text">Total collecte (brut)</div><div class="jauge-label-amount reel">520 &#8364;</div></div>
           </div>
           <div class="jauge-label-item">
-            <div class="jauge-dot jauge-dot-theo"></div>
-            <div><div class="jauge-label-text">Total theorique (57 inscrits)</div><div class="jauge-label-amount theo">570 &#8364;</div></div>
+            <div class="jauge-dot" style="background:rgba(192,57,43,0.7);border:1px solid rgba(192,57,43,0.8);"></div>
+            <div><div class="jauge-label-text">Frais de transaction</div><div class="jauge-label-amount" style="color:var(--red-accent)">&#8722;20 &#8364;</div></div>
           </div>
           <div class="jauge-label-item" style="margin-left:auto">
-            <div><div class="jauge-label-text">Restant pour atteindre l'objectif</div><div class="jauge-label-amount" style="color:var(--orange-warn)">130 &#8364;</div></div>
+            <div><div class="jauge-label-text">Prizepool final</div><div class="jauge-label-amount reel" style="font-size:1.6rem;">500 &#8364;</div></div>
           </div>
         </div>
-        <div class="jauge-inscrits">44 paiements valides sur 57 inscrits &mdash; il manque 13 paiements pour atteindre l'objectif</div>
+        <div class="jauge-inscrits">52 paiements valides sur 61 participants &mdash; prizepool arrete</div>
       </div>
-      <div class="prize-section-title">&#127942; Podium Principal &mdash; 70%</div>
-      <div class="prize-grid" style="margin-bottom:1.25rem">
-        <div class="prize-card p1"><div class="prize-place">&#129351; 1er &mdash; 50%</div><div class="prize-amount gold">200 &#8364;</div><div class="prize-pct">theorique a 57 inscrits</div></div>
-        <div class="prize-card p2"><div class="prize-place">&#129352; 2eme &mdash; 30%</div><div class="prize-amount silver">120 &#8364;</div><div class="prize-pct">theorique a 57 inscrits</div></div>
-        <div class="prize-card p3"><div class="prize-place">&#129353; 3eme &mdash; 20%</div><div class="prize-amount bronze">80 &#8364;</div><div class="prize-pct">theorique a 57 inscrits</div></div>
+      <div class="prize-section-title">&#127942; Podium Principal &mdash; 76%</div>
+      <div class="prize-grid" style="margin-bottom:0.75rem;grid-template-columns:repeat(3,1fr)">
+        <div class="prize-card p1"><div class="prize-place">&#129351; 1er &mdash; 39%</div><div class="prize-amount gold">150 &#8364;</div><div class="prize-pct">du prizepool final</div></div>
+        <div class="prize-card p2"><div class="prize-place">&#129352; 2eme &mdash; 26%</div><div class="prize-amount silver">100 &#8364;</div><div class="prize-pct">du prizepool final</div></div>
+        <div class="prize-card p3"><div class="prize-place">&#129353; 3eme &mdash; 18%</div><div class="prize-amount bronze">70 &#8364;</div><div class="prize-pct">du prizepool final</div></div>
       </div>
-      <div class="prize-section-title">&#127919; Primes Annexes &mdash; 30%</div>
+      <div class="prize-grid" style="margin-bottom:1.25rem;grid-template-columns:repeat(2,1fr)">
+        <div class="prize-card" style="border-color:rgba(201,168,76,0.2)"><div class="prize-place" style="color:rgba(201,168,76,0.6)">4eme &mdash; 11%</div><div class="prize-amount" style="color:rgba(201,168,76,0.7)">40 &#8364;</div><div class="prize-pct">du prizepool final</div></div>
+        <div class="prize-card" style="border-color:rgba(201,168,76,0.12)"><div class="prize-place" style="color:rgba(201,168,76,0.5)">5eme &mdash; 5%</div><div class="prize-amount" style="color:rgba(201,168,76,0.5)">20 &#8364;</div><div class="prize-pct">du prizepool final</div></div>
+      </div>
+      <div class="prize-section-title">&#127919; Primes Annexes &mdash; 24%</div>
       <div class="bonus-grid">
-        <div class="bonus-card"><div><div class="bonus-name">Plus grand nombre de bons resultats</div><div class="bonus-pct">15% des primes annexes</div></div><div class="bonus-amount">26 &#8364;</div></div>
-        <div class="bonus-card"><div><div class="bonus-name">Plus grand nombre de scores exacts</div><div class="bonus-pct">15% des primes annexes</div></div><div class="bonus-amount">26 &#8364;</div></div>
-        <div class="bonus-card"><div><div class="bonus-name">Leader apres phase de groupes</div><div class="bonus-pct">15% des primes annexes</div></div><div class="bonus-amount">26 &#8364;</div></div>
-        <div class="bonus-card"><div><div class="bonus-name">Meilleure performance feminine</div><div class="bonus-pct">15% des primes annexes</div></div><div class="bonus-amount">26 &#8364;</div></div>
-        <div class="bonus-card bonus-card-highlight" style="grid-column:1/-1;border-color:rgba(231,76,60,0.5);background:rgba(231,76,60,0.07);position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red-accent),rgba(231,76,60,0.3))"></div>
-          <div style="display:flex;align-items:center;gap:0.75rem;flex:1;">
-            <div style="font-size:1.8rem;">&#9889;</div>
-            <div>
-              <div class="bonus-name" style="color:var(--gold-bright);font-size:1.05rem;">Plus gros score sur un match</div>
-              <div class="bonus-pct" style="color:var(--red-accent);font-weight:700;">40% des primes annexes &mdash; Prime boostee !</div>
-            </div>
-          </div>
-          <div class="bonus-amount" style="font-size:2.2rem;color:var(--red-accent);">68 &#8364;</div>
-        </div>
+        <div class="bonus-card" style="border-color:rgba(201,168,76,0.3);background:rgba(201,168,76,0.05);grid-column:1/-1"><div><div class="bonus-name" style="color:var(--gold-light);font-size:1.05rem;">&#9917; Plus gros score sur un seul match</div><div class="bonus-pct">33% des primes annexes</div></div><div class="bonus-amount" style="font-size:2rem;color:var(--gold-light);">40 &#8364;</div></div>
+        <div class="bonus-card"><div><div class="bonus-name">Plus grand nombre de bons resultats</div><div class="bonus-pct">17% des primes annexes</div></div><div class="bonus-amount">20 &#8364;</div></div>
+        <div class="bonus-card"><div><div class="bonus-name">Plus grand nombre de scores exacts</div><div class="bonus-pct">17% des primes annexes</div></div><div class="bonus-amount">20 &#8364;</div></div>
+        <div class="bonus-card"><div><div class="bonus-name">Leader apres phase de groupes</div><div class="bonus-pct">17% des primes annexes</div></div><div class="bonus-amount">20 &#8364;</div></div>
+        <div class="bonus-card"><div><div class="bonus-name">Meilleure performance feminine</div><div class="bonus-pct">17% des primes annexes</div></div><div class="bonus-amount">20 &#8364;</div></div>
       </div>
     </div>
 
     <!-- PARTICIPANTS -->
     <div class="tab-content" id="tab-participants">
-      <div class="section-header"><h2>Participants</h2><p>Statut des inscriptions en temps reel &mdash; 57 joueurs enregistres.</p></div>
+      <div class="section-header"><h2>Participants</h2><p>Statut des inscriptions en temps reel &mdash; 61 joueurs enregistres.</p></div>
       <div class="participants-links">
         <a href="https://www.facebook.com/groups/4028054953995753" target="_blank" class="p-link-btn p-link-fb">&#128101; Groupe Facebook</a>
         <a href="https://www.paypal.com/ncp/payment/BBHFGXGPRNWJU" target="_blank" class="p-link-btn p-link-pp">&#128179; Payer ma mise (10&#8364;)</a>
@@ -569,63 +565,67 @@ var LIGUE_CODE = "UCXYKN9P";
 var KICKOFF = new Date("2026-06-11T21:00:00");
 
 var participants = [
-  {prenom:"Adrien",nom:"Rocca",palmares:"1er x2",infobulle:"Vainqueur Euro 2016 et Euro 2020",sexe:"H",facebook:true,paye:true,montant:"10",date:"27/05",pseudo:"PippoZenzaghi",mpp:true,vainqueur:"Italie",buteur:"Autre"},
-  {prenom:"Adrien",nom:"Collet",palmares:"3eme",infobulle:"3eme Euro 2016",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"10/06",pseudo:"Soutizz",mpp:true,vainqueur:"Allemagne",buteur:"Autre"},
-  {prenom:"Ahmed",nom:"Wk",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"26/05",pseudo:"Midoo#Y5R8",mpp:true,vainqueur:"Portugal",buteur:"Haaland"},
-  {prenom:"Alexis",nom:"Hengert",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"10",date:"10/06",pseudo:"Integra",mpp:true,vainqueur:"France",buteur:"Kane"},
-  {prenom:"Ben",nom:"Hamadache",palmares:"2eme",infobulle:"2eme CDM 2018",sexe:"H",facebook:true,paye:false,montant:"",date:"",pseudo:"Soujackinho",mpp:true,vainqueur:"Belgique",buteur:"Kane"},
-  {prenom:"Ced",nom:"Gourlawen",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"10",date:"05/06",pseudo:"Gros783433",mpp:true,vainqueur:"Portugal",buteur:"Autre"},
-  {prenom:"Celine",nom:"Catala",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"27/05",pseudo:"APILena",mpp:true,vainqueur:"Espagne",buteur:"Autre"},
-  {prenom:"Clement",nom:"Beauchesne",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"26/05",pseudo:"LeKlemant",mpp:true,vainqueur:"France",buteur:"Autre"},
-  {prenom:"Delphine",nom:"Modot",palmares:"2eme",infobulle:"2eme Euro 2016",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"25/05",pseudo:"Dedelforever",mpp:true,vainqueur:"",buteur:""},
-  {prenom:"Edu",nom:"Martins",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"08/06",pseudo:"edurrrrrrr",mpp:true,vainqueur:"Portugal",buteur:"Ronaldo"},
-  {prenom:"Emmanuel",nom:"Heraud",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,montant:"10",date:"06/06",pseudo:"Manu#ANZJL",mpp:true,vainqueur:"",buteur:""},
-  {prenom:"Fanny",nom:"Tran",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"10",date:"27/05",pseudo:"Bounette",mpp:true,vainqueur:"Panama",buteur:"Messi"},
-  {prenom:"Florian",nom:"Dutrelot",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"26/05",pseudo:"Fiffou07",mpp:true,vainqueur:"France",buteur:"Autre"},
-  {prenom:"Giovanni",nom:"Becchere",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"28/05",pseudo:"Giobeck",mpp:true,vainqueur:"",buteur:""},
-  {prenom:"Greg",nom:"Chouquet",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:false,montant:"",date:"",pseudo:"Claptou",mpp:true,vainqueur:"Portugal",buteur:"Ronaldo"},
-  {prenom:"Guillaume",nom:"Modot",palmares:"2eme",infobulle:"2eme Euro 2024",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"25/05",pseudo:"GusModot",mpp:true,vainqueur:"Portugal",buteur:"Autre"},
-  {prenom:"Guillaume",nom:"Brun",palmares:"1er",infobulle:"Vainqueur CDM 2018",sexe:"H",facebook:false,paye:true,montant:"9.99",date:"05/06",pseudo:"BobbyWanKenoby",mpp:true,vainqueur:"Argentine",buteur:"Autre"},
-  {prenom:"Guillaume",nom:"Constant",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"10",date:"06/06",pseudo:"GuiConstant",mpp:true,vainqueur:"Espagne",buteur:"Kane"},
-  {prenom:"Helene",nom:"Cenier",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"10",date:"31/05",pseudo:"Elenou",mpp:true,vainqueur:"France",buteur:"Haaland"},
-  {prenom:"Jean Baptiste",nom:"Gallet",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"09/06",pseudo:"JBMJ",mpp:true,vainqueur:"Angleterre",buteur:"Kane"},
-  {prenom:"Jeremy",nom:"Coudant",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,montant:"9.99",date:"28/05",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Kostya",nom:"",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:false,montant:"",date:"",pseudo:"FCZakos",mpp:true,vainqueur:"France",buteur:"Yamal"},
-  {prenom:"Laure",nom:"Kounakey",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:false,montant:"",date:"",pseudo:"Phoenix25",mpp:true,vainqueur:"",buteur:""},
-  {prenom:"Leo",nom:"Modot",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,montant:"9.99",date:"25/05",pseudo:"LeonitoDoBraziou",mpp:true,vainqueur:"France",buteur:"Mbappe"},
-  {prenom:"Loic",nom:"Chouquet",palmares:"3eme",infobulle:"3eme CDM 2022",sexe:"H",facebook:false,paye:true,montant:"10",date:"28/05",pseudo:"Losogre",mpp:true,vainqueur:"Espagne",buteur:"Yamal"},
-  {prenom:"Loic",nom:"Carpentier",palmares:"3eme",infobulle:"3eme CDM 2018",sexe:"H",facebook:true,paye:true,montant:"10",date:"29/05",pseudo:"ZEROO",mpp:true,vainqueur:"France",buteur:"Autre"},
-  {prenom:"Lucas",nom:"Mrl",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"28/05",pseudo:"Lucas2309",mpp:true,vainqueur:"Bresil",buteur:"Autre"},
-  {prenom:"Marc",nom:"Paillot",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"27/05",pseudo:"Marco_Trez",mpp:true,vainqueur:"France",buteur:"Mbappe"},
-  {prenom:"Mathieu",nom:"Le Brun",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:false,montant:"",date:"",pseudo:"MathPsg-34",mpp:true,vainqueur:"France",buteur:"Kane"},
-  {prenom:"Matthew",nom:"Domain",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"01/06",pseudo:"Matt_dmn07",mpp:true,vainqueur:"Portugal",buteur:"Autre"},
-  {prenom:"Minouche",nom:"Poppins",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"06/06",pseudo:"MinouchePoppins",mpp:true,vainqueur:"",buteur:""},
-  {prenom:"Mohamed",nom:"Amine Bouzid",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"10",date:"04/06",pseudo:"Madridal",mpp:true,vainqueur:"",buteur:""},
-  {prenom:"Morgan",nom:"Charles",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"10/06",pseudo:"GOAT#U4LT5UTR",mpp:true,vainqueur:"Portugal",buteur:"Kane"},
-  {prenom:"Nicolas",nom:"Pacaud",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"31/05",pseudo:"pacmania",mpp:true,vainqueur:"France",buteur:"Mbappe"},
-  {prenom:"Olivia",nom:"Ouakkal",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"03/06",pseudo:"Doucette45",mpp:true,vainqueur:"France",buteur:"Mbappe"},
-  {prenom:"Pat",nom:"Modot",palmares:"2eme",infobulle:"2eme Euro 2020",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"09/06",pseudo:"Patou75015",mpp:true,vainqueur:"",buteur:""},
-  {prenom:"Paul",nom:"",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:false,montant:"",date:"",pseudo:"LeP30600",mpp:true,vainqueur:"France",buteur:"Mbappe"},
-  {prenom:"Philippe",nom:"Platret",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Quentin",nom:"Allard",palmares:"3eme",infobulle:"3eme Euro 2024",sexe:"H",facebook:false,paye:false,montant:"",date:"",pseudo:"Qwintos",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Remy",nom:"de Souza",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"28/05",pseudo:"ThisIsTheSouz",mpp:true,vainqueur:"Angleterre",buteur:"Kane"},
-  {prenom:"Richard",nom:"Perie",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"08/06",pseudo:"richard#TN6D",mpp:true,vainqueur:"Espagne",buteur:"Autre"},
-  {prenom:"Sandra",nom:"Cath",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"10/06",pseudo:"Drass",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Sandy",nom:"Bock",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Sebastien",nom:"Clotte",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"10",date:"26/05",pseudo:"Sobab",mpp:true,vainqueur:"France",buteur:"Autre"},
-  {prenom:"Simon",nom:"Lez",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"09/06",pseudo:"Saymsonite",mpp:true,vainqueur:"France",buteur:"Autre"},
-  {prenom:"Sley",nom:"Ganga",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"06/06",pseudo:"CoachPepito",mpp:true,vainqueur:"",buteur:""},
-  {prenom:"Sophie",nom:"Ganga",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"06/06",pseudo:"Massyalla",mpp:true,vainqueur:"France",buteur:"Mbappe"},
-  {prenom:"Stephane",nom:"Hebert",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"28/05",pseudo:"Prophane",mpp:true,vainqueur:"Bresil",buteur:"Vinicius"},
-  {prenom:"Steven",nom:"Moreau",palmares:"2eme",infobulle:"2eme CDM 2022",sexe:"H",facebook:true,paye:false,montant:"",date:"",pseudo:"Gloub94",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Sylvain",nom:"Roger",palmares:"3eme",infobulle:"3eme Euro 2020",sexe:"H",facebook:false,paye:false,montant:"",date:"",pseudo:"Sylvain",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Tarik",nom:"TK",palmares:"1er",infobulle:"Vainqueur Euro 2024",sexe:"H",facebook:false,paye:false,montant:"",date:"",pseudo:"Lion1008",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Thibault",nom:"Pecheur",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"09/06",pseudo:"JabbaThePunt",mpp:true,vainqueur:"Espagne",buteur:"Kane"},
-  {prenom:"Thibault",nom:"Reverdito",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"26/05",pseudo:"ClutchK11",mpp:true,vainqueur:"",buteur:""},
-  {prenom:"Ti",nom:"Bordo",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:false,montant:"",date:"",pseudo:"",mpp:false,vainqueur:"",buteur:""},
-  {prenom:"Tony",nom:"Anne-Marie",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,montant:"9.99",date:"28/05",pseudo:"Tams972",mpp:true,vainqueur:"Espagne",buteur:"Mbappe"},
-  {prenom:"William",nom:"Be",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"10/06",pseudo:"William#UWN3",mpp:true,vainqueur:"France",buteur:"Mbappe"},
-  {prenom:"Zaid",nom:"Rahmani",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"04/06",pseudo:"RZKABYLE",mpp:true,vainqueur:"Bresil",buteur:"Autre"}
+  {prenom:"Adrien",nom:"Rocca",palmares:"1er x2",infobulle:"Vainqueur Euro 2016, Euro 2020",sexe:"H",facebook:true,paye:true,montant:"10",date:"27/05",pseudo:"PippoZenzaghi",mpp:true,poker:true,vainqueur:"Italie",buteur:"Autre"},
+  {prenom:"Adrien",nom:"Collet",palmares:"3eme",infobulle:"3e Euro 2016",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"10/06",pseudo:"Soutizz",mpp:true,poker:false,vainqueur:"Allemagne",buteur:"Autre"},
+  {prenom:"Ahmed",nom:"Wk",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"26/05",pseudo:"Midoo#Y5R8",mpp:true,poker:false,vainqueur:"Portugal",buteur:"Haaland"},
+  {prenom:"Alexis",nom:"Hengert",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"10",date:"10/06",pseudo:"Integra",mpp:true,poker:false,vainqueur:"France",buteur:"Kane"},
+  {prenom:"Ben",nom:"Hamadache",palmares:"2eme",infobulle:"2e CDM 2018",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"Voir plus tard",pseudo:"Soujackinho",mpp:true,poker:false,vainqueur:"Belgique",buteur:"Kane"},
+  {prenom:"Ced",nom:"Gourlawen",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"10",date:"05/06",pseudo:"Gros783433",mpp:true,poker:false,vainqueur:"Portugal",buteur:"Autre"},
+  {prenom:"Celine",nom:"Catala",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"27/05",pseudo:"APILena",mpp:true,poker:true,vainqueur:"Espagne",buteur:"Autre"},
+  {prenom:"Clement",nom:"Beauchesne",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"26/05",pseudo:"LeKlemant",mpp:true,poker:true,vainqueur:"France",buteur:"Autre"},
+  {prenom:"Delphine",nom:"Modot",palmares:"2eme",infobulle:"2e Euro 2016",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"Voir plus tard",pseudo:"Dedelforever",mpp:true,poker:false,vainqueur:"",buteur:""},
+  {prenom:"Edu",nom:"Martins",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"08/06",pseudo:"edurrrrrrr",mpp:true,poker:false,vainqueur:"Portugal",buteur:"Ronaldo"},
+  {prenom:"Emmanuel",nom:"Heraud",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,montant:"10",date:"06/06",pseudo:"Manu#ANZJL",mpp:true,poker:false,vainqueur:"",buteur:""},
+  {prenom:"Fanny",nom:"Tran",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"10",date:"27/05",pseudo:"Bounette",mpp:true,poker:true,vainqueur:"Panama",buteur:"Messi"},
+  {prenom:"Florian",nom:"Dutrelot",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"26/05",pseudo:"Fiffou07",mpp:true,poker:false,vainqueur:"France",buteur:"Autre"},
+  {prenom:"Giovanni",nom:"Becchere",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"28/05",pseudo:"Giobeck",mpp:true,poker:true,vainqueur:"",buteur:""},
+  {prenom:"Greg",nom:"Chouquet",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"10",date:"10/06",pseudo:"Claptou",mpp:true,poker:true,vainqueur:"Portugal",buteur:"Ronaldo"},
+  {prenom:"Guillaume",nom:"Modot",palmares:"2eme",infobulle:"2e Euro 2024",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"Voir plus tard",pseudo:"GusModot",mpp:true,poker:false,vainqueur:"Portugal",buteur:"Autre"},
+  {prenom:"Guillaume",nom:"Brun",palmares:"1er",infobulle:"Vainqueur CDM 2018",sexe:"H",facebook:false,paye:true,montant:"9.99",date:"05/06",pseudo:"BobbyWanKenoby",mpp:true,poker:false,vainqueur:"Argentine",buteur:"Autre"},
+  {prenom:"Guillaume",nom:"Constant",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"10",date:"06/06",pseudo:"GuiConstant",mpp:true,poker:false,vainqueur:"Espagne",buteur:"Kane"},
+  {prenom:"Helene",nom:"Cenier",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"10",date:"31/05",pseudo:"Elenou",mpp:true,poker:false,vainqueur:"France",buteur:"Haaland"},
+  {prenom:"Jean Baptiste",nom:"Gallet",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"09/06",pseudo:"JBMJ",mpp:true,poker:false,vainqueur:"Angleterre",buteur:"Kane"},
+  {prenom:"Jeremy",nom:"Coudant",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,montant:"9.99",date:"28/05",pseudo:"",mpp:false,poker:false,vainqueur:"",buteur:""},
+  {prenom:"Kostya",nom:"",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:false,montant:"",date:"",pseudo:"FCZakos",mpp:true,poker:true,vainqueur:"France",buteur:"Yamal"},
+  {prenom:"Laure",nom:"Kounakey",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:false,montant:"",date:"",pseudo:"Phoenix25",mpp:true,poker:false,vainqueur:"",buteur:""},
+  {prenom:"Leo",nom:"Modot",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,montant:"9.99",date:"Voir plus tard",pseudo:"LeonitoDoBraziou",mpp:true,poker:false,vainqueur:"France",buteur:"Mbappe"},
+  {prenom:"Loic",nom:"Chouquet",palmares:"3eme",infobulle:"3e CDM 2022",sexe:"H",facebook:false,paye:true,montant:"10",date:"28/05",pseudo:"Losogre",mpp:true,poker:true,vainqueur:"Espagne",buteur:"Yamal"},
+  {prenom:"Loic",nom:"Carpentier",palmares:"3eme",infobulle:"3e CDM 2018",sexe:"H",facebook:true,paye:true,montant:"10",date:"29/05",pseudo:"ZEROO",mpp:true,poker:false,vainqueur:"France",buteur:"Autre"},
+  {prenom:"Lucas",nom:"Mrl",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"28/05",pseudo:"Lucas2309",mpp:true,poker:false,vainqueur:"Bresil",buteur:"Autre"},
+  {prenom:"Marc",nom:"Paillot",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"27/05",pseudo:"Marco_Trez",mpp:true,poker:false,vainqueur:"France",buteur:"Mbappe"},
+  {prenom:"Mathieu",nom:"Le Brun",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"10",date:"11/06",pseudo:"MathPsg-34",mpp:true,poker:false,vainqueur:"France",buteur:"Kane"},
+  {prenom:"Matthew",nom:"Domain",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"01/06",pseudo:"Matt_dmn07",mpp:true,poker:false,vainqueur:"Portugal",buteur:"Autre"},
+  {prenom:"Minouche",nom:"Poppins",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"06/06",pseudo:"MinouchePoppins",mpp:true,poker:false,vainqueur:"France",buteur:"Lukaku"},
+  {prenom:"Mohamed",nom:"Amine Bouzid",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"10",date:"04/06",pseudo:"Madridal",mpp:true,poker:true,vainqueur:"",buteur:""},
+  {prenom:"Morgan",nom:"Charles",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"10/06",pseudo:"GOAT#U4LT5UTR",mpp:true,poker:true,vainqueur:"Portugal",buteur:"Kane"},
+  {prenom:"Nicolas",nom:"Pacaud",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"31/05",pseudo:"pacmania",mpp:true,poker:false,vainqueur:"France",buteur:"Mbappe"},
+  {prenom:"Olivia",nom:"Ouakkal",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"03/06",pseudo:"Doucette45",mpp:true,poker:false,vainqueur:"France",buteur:"Mbappe"},
+  {prenom:"Pat",nom:"Modot",palmares:"2eme",infobulle:"2e Euro 2020",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"09/06",pseudo:"Patou75015",mpp:true,poker:false,vainqueur:"",buteur:""},
+  {prenom:"Paul",nom:"",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:false,montant:"",date:"",pseudo:"LeP30600",mpp:true,poker:false,vainqueur:"France",buteur:"Mbappe"},
+  {prenom:"Philippe",nom:"Platret",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:false,montant:"",date:"",pseudo:"",mpp:false,poker:false,vainqueur:"",buteur:""},
+  {prenom:"Quentin",nom:"Allard",palmares:"3eme",infobulle:"3e Euro 2024",sexe:"H",facebook:false,paye:false,montant:"",date:"",pseudo:"Qwintos",mpp:false,poker:false,vainqueur:"",buteur:""},
+  {prenom:"Remy",nom:"de Souza",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"28/05",pseudo:"ThisIsTheSouz",mpp:true,poker:false,vainqueur:"Angleterre",buteur:"Kane"},
+  {prenom:"Richard",nom:"Perie",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"08/06",pseudo:"richard#TN6D",mpp:true,poker:true,vainqueur:"Espagne",buteur:"Autre"},
+  {prenom:"Sandra",nom:"Cath",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"10/06",pseudo:"Sandra#ASF39",mpp:true,poker:false,vainqueur:"France",buteur:"Mbappe"},
+  {prenom:"Sandy",nom:"Bock",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:false,montant:"",date:"",pseudo:"",mpp:false,poker:false,vainqueur:"",buteur:""},
+  {prenom:"Sebastien",nom:"Clotte",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"10",date:"26/05",pseudo:"Sobab",mpp:true,poker:true,vainqueur:"France",buteur:"Autre"},
+  {prenom:"Simon",nom:"Lez",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"09/06",pseudo:"Saymsonite",mpp:true,poker:false,vainqueur:"France",buteur:"Autre"},
+  {prenom:"Sley",nom:"Ganga",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"06/06",pseudo:"CoachPepito",mpp:true,poker:true,vainqueur:"",buteur:""},
+  {prenom:"Sophie",nom:"Ganga",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,montant:"9.99",date:"06/06",pseudo:"Massyalla",mpp:true,poker:false,vainqueur:"France",buteur:"Mbappe"},
+  {prenom:"Stephane",nom:"Hebert",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"28/05",pseudo:"Prophane",mpp:true,poker:true,vainqueur:"Bresil",buteur:"Vinicius"},
+  {prenom:"Steven",nom:"Moreau",palmares:"2eme",infobulle:"2e CDM 2022",sexe:"H",facebook:true,paye:false,montant:"",date:"",pseudo:"Gloub94",mpp:false,poker:false,vainqueur:"",buteur:""},
+  {prenom:"Sylvain",nom:"Roger",palmares:"3eme",infobulle:"3e Euro 2020",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"11/06",pseudo:"Sylvain#B113K",mpp:true,poker:false,vainqueur:"",buteur:""},
+  {prenom:"Tarik",nom:"TK",palmares:"1er",infobulle:"Vainqueur Euro 2024",sexe:"H",facebook:false,paye:false,montant:"",date:"",pseudo:"Lion1008",mpp:false,poker:false,vainqueur:"",buteur:""},
+  {prenom:"Thibault",nom:"Reverdito",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"26/05",pseudo:"ClutchK11",mpp:true,poker:false,vainqueur:"",buteur:""},
+  {prenom:"Thibault",nom:"Pecheur",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"09/06",pseudo:"JabbaThePunt",mpp:true,poker:true,vainqueur:"Espagne",buteur:"Kane"},
+  {prenom:"Ti",nom:"Bordo",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:false,montant:"",date:"",pseudo:"",mpp:false,poker:false,vainqueur:"",buteur:""},
+  {prenom:"Tony",nom:"Anne-Marie",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,montant:"9.99",date:"28/05",pseudo:"Tams972",mpp:true,poker:true,vainqueur:"Espagne",buteur:"Mbappe"},
+  {prenom:"William",nom:"Be",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"10/06",pseudo:"William#UWN3",mpp:true,poker:false,vainqueur:"France",buteur:"Mbappe"},
+  {prenom:"Zaid",nom:"Rahmani",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"04/06",pseudo:"RZKABYLE",mpp:true,poker:false,vainqueur:"Bresil",buteur:"Autre"},
+  {prenom:"Antoine",nom:"Nenette",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,montant:"9.99",date:"Voir plus tard",pseudo:"GOAT#TR2GP9CK",mpp:true,poker:false,vainqueur:"",buteur:""},
+  {prenom:"Dyan",nom:"",palmares:"",infobulle:"",sexe:"F",facebook:false,paye:true,montant:"9.99",date:"Voir plus tard",pseudo:"Dyan#AUW3D",mpp:true,poker:false,vainqueur:"",buteur:""},
+  {prenom:"Lucy",nom:"",palmares:"",infobulle:"",sexe:"F",facebook:false,paye:true,montant:"9.99",date:"Voir plus tard",pseudo:"Lucy-Owen",mpp:true,poker:false,vainqueur:"Espagne",buteur:"Kane"},
+  {prenom:"Wilson",nom:"Pouvait",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,montant:"9.99",date:"11/06",pseudo:"TheRealWill",mpp:true,poker:true,vainqueur:"Espagne",buteur:"Kane"}
 ];
 
 var palmaresIcons = {"1er":"&#129351;","1er x2":"&#129351;&#129351;","2eme":"&#129352;","3eme":"&#129353;"};
@@ -633,6 +633,10 @@ var palmaresIcons = {"1er":"&#129351;","1er x2":"&#129351;&#129351;","2eme":"&#1
 function buildTrophyHtml(palmares, infobulle) {
   if (!palmares || !palmaresIcons[palmares]) return '';
   return '<span class="trophy-wrap"><span class="trophy-item">' + palmaresIcons[palmares] + '<span class="tooltip">' + infobulle + '</span></span></span>';
+}
+
+function buildPokerHtml() {
+  return '<span class="poker-chip">&#9827;<span class="tooltip">Membre du club de poker</span></span>';
 }
 
 function renderParticipants() {
@@ -652,7 +656,8 @@ function renderParticipants() {
       var payChip = p.paye ? '<span class="chip chip-ok">Paye</span>' : '<span class="chip chip-pending">En attente</span>';
       var mppChip = p.mpp ? '<span class="chip chip-ok">Inscrit</span>' : '<span class="chip chip-none">-</span>';
       var trophy = buildTrophyHtml(p.palmares, p.infobulle);
-      html += '<tr><td><div style="display:flex;align-items:center;gap:4px;"><div><div class="p-name' + (p.sexe === "F" ? " femme" : "") + '">' + p.prenom + ' ' + p.nom + '</div>' + (p.pseudo ? '<div class="p-pseudo">' + p.pseudo + '</div>' : '') + '</div>' + trophy + '</div></td><td class="center">' + fbChip + '</td><td class="center">' + payChip + '</td><td class="center">' + mppChip + '</td></tr>';
+      var poker = p.poker ? buildPokerHtml() : '';
+      html += '<tr><td><div style="display:flex;align-items:center;gap:4px;"><div><div class="p-name' + (p.sexe === "F" ? " femme" : "") + '">' + p.prenom + ' ' + p.nom + '</div>' + (p.pseudo ? '<div class="p-pseudo">' + p.pseudo + '</div>' : '') + '</div>' + trophy + poker + '</div></td><td class="center">' + fbChip + '</td><td class="center">' + payChip + '</td><td class="center">' + mppChip + '</td></tr>';
     }
     return html;
   }
@@ -683,7 +688,7 @@ function buildPredGrid(votes, names, autreNames, gridId) {
     grid.innerHTML = '<div style="color:var(--silver);font-size:0.95rem;font-style:italic;grid-column:1/-1;text-align:center;padding:1.5rem 0">Les pronostics apparaitront ici au fil des inscriptions.</div>';
     return;
   }
-  var flags = {"France":"&#127467;&#127479;","Bresil":"&#127463;&#127479;","Argentine":"&#127462;&#127479;","Espagne":"&#127466;&#127480;","Angleterre":"&#127988;","Allemagne":"&#127465;&#127466;","Portugal":"&#127477;&#127481;","Pays-Bas":"&#127475;&#127473;","Maroc":"&#127474;&#127462;","Italie":"&#127470;&#127481;","Panama":"&#127477;&#127462;","Yamal":"&#9917;","Messi":"&#9917;","Mbappe":"&#9917;","Haaland":"&#9917;","Vinicius":"&#9917;"};
+  var flags = {"France":"&#127467;&#127479;","Bresil":"&#127463;&#127479;","Argentine":"&#127462;&#127479;","Espagne":"&#127466;&#127480;","Angleterre":"&#127988;","Allemagne":"&#127465;&#127466;","Portugal":"&#127477;&#127481;","Pays-Bas":"&#127475;&#127473;","Maroc":"&#127474;&#127462;","Italie":"&#127470;&#127481;","Panama":"&#127477;&#127462;","Belgique":"&#127463;&#127466;","Yamal":"&#9917;","Messi":"&#9917;","Mbappe":"&#9917;","Haaland":"&#9917;","Vinicius":"&#9917;","Kane":"&#9917;","Ronaldo":"&#9917;","Lukaku":"&#9917;"};
   var html = '';
   for (var i = 0; i < entries.length; i++) {
     var item = entries[i][0], count = entries[i][1];
@@ -806,10 +811,9 @@ function renderHOF() {
 }
 
 var newsData = [
-  {time:"10 juin 2026",type:"exploit",text:"BOOST PRIZEPOOL ! La prime 'Plus gros score sur un match' passe a 40% des annexes, soit 68 EUR theoriques. Qui va s'eclater sur un match ?"},
-  {time:"10 juin 2026",type:"info",text:"57 participants enregistres, 44 paiements valides. Prizepool theorique : 570 EUR. Cloture ce soir a 21h00 &mdash; coup d'envoi Mexique vs Afrique du Sud !"},
+  {time:"11 juin 2026",type:"info",text:"L'Issmoules Trophy 2026 est lance ! 61 participants, 52 paiements valides. Prizepool final : 500 euros. Code MPP : UCXYKN9P. C'est parti !"},
   {time:"Hommage",type:"exploit",text:"Ce tournoi est dedie a Zizounaldo, champion CDM 2022, qui nous a quittes en janvier 2025. Son trone reste vide - sa legende, elle, est eternelle."},
-  {time:"Reglement",type:"info",text:"Nouveau format 2026 : 32 equipes en phase eliminatoire via les 32emes de finale. Selectionne tes favoris sur MPP avant ce soir 21h !"}
+  {time:"Reglement",type:"info",text:"Nouveau format 2026 : 32 equipes en phase eliminatoire via les 32emes de finale. Selectionne tes favoris sur MPP avant le 11 juin 21h !"}
 ];
 
 function renderNews() {
