@@ -108,11 +108,33 @@
   .pts{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:var(--white);}
   .pronostics-count{font-size:0.88rem;color:var(--silver);font-family:'Barlow Condensed',sans-serif;}
   .exact-badge{display:inline-block;background:rgba(201,168,76,0.12);color:var(--gold-light);font-size:0.78rem;font-weight:700;padding:0.15rem 0.42rem;border-radius:3px;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;}
+  /* SECTION LIGUES */
   .section-row td{padding:0.4rem 1.35rem;font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;}
-  .section-podium td{background:rgba(201,168,76,0.07);color:var(--gold);border-top:1px solid rgba(201,168,76,0.25);}
-  .section-chasse td{background:rgba(255,255,255,0.03);color:var(--silver);border-top:1px solid rgba(255,255,255,0.06);}
-  .section-milieu td{background:rgba(255,255,255,0.02);color:rgba(136,153,187,0.6);border-top:1px solid rgba(255,255,255,0.04);}
-  .section-fin td{background:rgba(192,57,43,0.04);color:rgba(192,57,43,0.6);border-top:1px solid rgba(192,57,43,0.1);}
+  .section-ldc td{background:rgba(201,168,76,0.1);color:var(--gold-bright);border-top:2px solid rgba(201,168,76,0.5);}
+  .section-uel td{background:rgba(255,165,0,0.07);color:rgba(255,165,80,0.9);border-top:1px solid rgba(255,165,0,0.25);}
+  .section-uecl td{background:rgba(60,180,120,0.07);color:rgba(80,200,140,0.85);border-top:1px solid rgba(60,180,120,0.25);}
+  .section-l1 td{background:rgba(255,255,255,0.03);color:var(--silver);border-top:1px solid rgba(255,255,255,0.07);}
+  .section-l2 td{background:rgba(255,255,255,0.015);color:rgba(136,153,187,0.55);border-top:1px solid rgba(255,255,255,0.04);}
+  .section-district td{background:rgba(192,57,43,0.04);color:rgba(192,57,43,0.55);border-top:1px solid rgba(192,57,43,0.12);}
+  /* Ligne top score */
+  tr.row-topscore td{background:rgba(201,168,76,0.07) !important;}
+  tr.row-topscore:hover td{background:rgba(201,168,76,0.12) !important;}
+  /* Badge top score */
+  .topscore-cell{position:relative;cursor:default;}
+  .topscore-val{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;color:var(--gold-bright);text-shadow:0 0 10px rgba(201,168,76,0.5);}
+  .topscore-val .tooltip{display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(10,15,30,0.97);border:1px solid rgba(201,168,76,0.5);border-radius:6px;padding:0.4rem 0.8rem;font-size:0.82rem;font-family:'Barlow Condensed',sans-serif;color:var(--gold-bright);white-space:nowrap;z-index:200;letter-spacing:1px;font-weight:900;box-shadow:0 4px 16px rgba(201,168,76,0.2);pointer-events:none;}
+  .topscore-val .tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:rgba(201,168,76,0.5);}
+  .topscore-val:hover .tooltip{display:block;}
+  /* Codes couleur bons résultats */
+  .bons-0{color:rgba(136,153,187,0.35);font-size:0.88rem;font-family:'Barlow Condensed',sans-serif;}
+  .bons-1{color:var(--silver);}
+  .bons-2{color:var(--gold-light);font-weight:700;}
+  .bons-3{color:var(--gold-bright);font-weight:900;text-shadow:0 0 8px rgba(245,215,142,0.4);}
+  /* Codes couleur scores exacts */
+  .exacts-0{color:rgba(136,153,187,0.3);font-size:0.88rem;font-family:'Barlow Condensed',sans-serif;}
+  .exacts-1{color:var(--orange-warn);}
+  .exacts-2{color:#e8803a;font-weight:700;}
+  .exacts-3{color:var(--red-accent);font-weight:900;text-shadow:0 0 8px rgba(231,76,60,0.4);}
 
   /* JETON POKER */
   .poker-token{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#111;border:2px solid #333;font-size:11px;cursor:default;position:relative;vertical-align:middle;margin-left:4px;flex-shrink:0;}
@@ -327,7 +349,7 @@
 
     <!-- CLASSEMENT LIVE -->
     <div class="tab-content active" id="tab-classement">
-      <div class="section-header"><h2>Classement Live</h2><p>Journ&#233;e 1 / 9 &mdash; Mexique 2-0 Afrique du Sud &mdash; 62 participants.</p></div>
+      <div class="section-header"><h2>Classement Live</h2><p>Match 2 / 104 &mdash; Cor&#233;e du Sud 2-1 R&#233;p. Tch&#232;que &mdash; 62 participants.</p></div>
       <div class="card">
         <div class="table-wrap">
           <table>
@@ -553,70 +575,70 @@ var participants = [
   {prenom:"Zaid",nom:"Rahmani",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,pseudo:"RZKABYLE",mpp:true,vainqueur:"France",buteur:"Autre",poker:false,topScore:0}
 ];
 
-/* ===== CLASSEMENT MPP JOURNEE 1 ===== */
-/* Source: PDF MPP capture du 11/06/2026 - croises avec Google Sheet */
+/* ===== CLASSEMENT MPP JOURNEE 2 ===== */
+/* Source: Google Sheet - mis a jour apres Coree 2-1 Tcheque */
 var classementMPP = [
-  {pseudo:"ThisIsTheSouz",pts:69,bons:1,exacts:1},
-  {pseudo:"Waninho",pts:69,bons:1,exacts:1},
-  {pseudo:"CoachPepito",pts:69,bons:1,exacts:1},
-  {pseudo:"Gloub94",pts:69,bons:1,exacts:1},
-  {pseudo:"Bounette",pts:69,bons:1,exacts:1},
-  {pseudo:"Integra",pts:69,bons:1,exacts:1},
-  {pseudo:"PippoZenzaghi",pts:69,bons:1,exacts:1},
-  {pseudo:"Babey94",pts:69,bons:1,exacts:1},
-  {pseudo:"TheRealWill",pts:69,bons:1,exacts:1},
-  {pseudo:"DESS_",pts:69,bons:1,exacts:1},
-  {pseudo:"Gros783433",pts:69,bons:1,exacts:1},
-  {pseudo:"Elenou",pts:69,bons:1,exacts:1},
-  {pseudo:"LeP30600",pts:69,bons:1,exacts:1},
-  {pseudo:"MathPsg-34",pts:69,bons:1,exacts:1},
-  {pseudo:"Massyalla",pts:69,bons:1,exacts:1},
-  {pseudo:"GusModot",pts:69,bons:1,exacts:1},
-  {pseudo:"GuiConstant",pts:69,bons:1,exacts:1},
-  {pseudo:"Lucas2309",pts:69,bons:1,exacts:1},
-  {pseudo:"Matt_dmn07",pts:69,bons:1,exacts:1},
-  {pseudo:"Patou75015",pts:69,bons:1,exacts:1},
-  {pseudo:"Fiffou07",pts:69,bons:1,exacts:1},
-  {pseudo:"LeKlemant",pts:69,bons:1,exacts:1},
-  {pseudo:"ClutchK11",pts:69,bons:1,exacts:1},
-  {pseudo:"APILena",pts:69,bons:1,exacts:1},
-  {pseudo:"Mamshino",pts:69,bons:1,exacts:1},
-  {pseudo:"Manucaylus",pts:69,bons:1,exacts:1},
-  {pseudo:"MissionPoutrage",pts:69,bons:1,exacts:1},
-  {pseudo:"cisco118",pts:69,bons:1,exacts:1},
-  {pseudo:"Sobab",pts:49,bons:1,exacts:0},
-  {pseudo:"Lucy-Owen",pts:49,bons:1,exacts:0},
-  {pseudo:"pacmania",pts:49,bons:1,exacts:0},
-  {pseudo:"ZEROO",pts:49,bons:1,exacts:0},
-  {pseudo:"William#UWN3",pts:49,bons:1,exacts:0},
-  {pseudo:"FCZakos",pts:49,bons:1,exacts:0},
-  {pseudo:"Prophane",pts:49,bons:1,exacts:0},
-  {pseudo:"Giobeck",pts:49,bons:1,exacts:0},
-  {pseudo:"edurrrrrrr",pts:49,bons:1,exacts:0},
-  {pseudo:"Phoenix25",pts:49,bons:1,exacts:0},
-  {pseudo:"MinouchePoppins",pts:49,bons:1,exacts:0},
-  {pseudo:"Claptou",pts:49,bons:1,exacts:0},
-  {pseudo:"LeonitoDoBraziou",pts:49,bons:1,exacts:0},
-  {pseudo:"Losogre",pts:49,bons:1,exacts:0},
-  {pseudo:"Tams972",pts:49,bons:1,exacts:0},
-  {pseudo:"SousChomageEnBi1",pts:49,bons:1,exacts:0},
-  {pseudo:"Saymsonite",pts:49,bons:1,exacts:0},
-  {pseudo:"Sylvain#B113K",pts:49,bons:1,exacts:0},
-  {pseudo:"Soutizz",pts:0,bons:0,exacts:0},
-  {pseudo:"richard#TN6D",pts:0,bons:0,exacts:0},
-  {pseudo:"MidooR2D2",pts:0,bons:0,exacts:0},
-  {pseudo:"Doucette45",pts:0,bons:0,exacts:0},
-  {pseudo:"Dedelforever",pts:0,bons:0,exacts:0},
-  {pseudo:"Ti-Bordo",pts:0,bons:0,exacts:0},
-  {pseudo:"JabbaThePunt",pts:0,bons:0,exacts:0},
-  {pseudo:"Marco_Trez",pts:0,bons:0,exacts:0},
-  {pseudo:"GOAT#U4LT5UTR",pts:0,bons:0,exacts:0},
-  {pseudo:"Madridal",pts:0,bons:0,exacts:0},
-  {pseudo:"RZKABYLE",pts:0,bons:0,exacts:0},
-  {pseudo:"BobbyWanKenoby",pts:0,bons:0,exacts:0},
-  {pseudo:"JBMJ",pts:0,bons:0,exacts:0},
-  {pseudo:"Soujackinho",pts:0,bons:0,exacts:0},
-  {pseudo:"Drass01",pts:0,bons:0,exacts:0}
+  {pseudo:"MissionPoutrage",pts:261,bons:2,exacts:1,topScore:192},
+  {pseudo:"Bounette",pts:185,bons:2,exacts:2,topScore:0},
+  {pseudo:"Gros783433",pts:185,bons:2,exacts:2,topScore:0},
+  {pseudo:"GuiConstant",pts:185,bons:2,exacts:2,topScore:0},
+  {pseudo:"MathPsg-34",pts:165,bons:2,exacts:1,topScore:0},
+  {pseudo:"ClutchK11",pts:165,bons:2,exacts:1,topScore:0},
+  {pseudo:"Sobab",pts:165,bons:2,exacts:1,topScore:0},
+  {pseudo:"ZEROO",pts:145,bons:2,exacts:0,topScore:0},
+  {pseudo:"edurrrrrrr",pts:145,bons:2,exacts:0,topScore:0},
+  {pseudo:"SousChomageEnBi1",pts:145,bons:2,exacts:0,topScore:0},
+  {pseudo:"Dedelforever",pts:116,bons:1,exacts:1,topScore:0},
+  {pseudo:"MidooR2D2",pts:96,bons:1,exacts:0,topScore:0},
+  {pseudo:"Doucette45",pts:96,bons:1,exacts:0,topScore:0},
+  {pseudo:"JabbaThePunt",pts:96,bons:1,exacts:0,topScore:0},
+  {pseudo:"Marco_Trez",pts:96,bons:1,exacts:0,topScore:0},
+  {pseudo:"Soujackinho",pts:96,bons:1,exacts:0,topScore:0},
+  {pseudo:"ThisIsTheSouz",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"Waninho",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"CoachPepito",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"Gloub94",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"Integra",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"PippoZenzaghi",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"Babey94",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"TheRealWill",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"DESS_",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"Elenou",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"LeP30600",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"Massyalla",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"GusModot",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"Lucas2309",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"Matt_dmn07",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"Patou75015",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"Fiffou07",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"LeKlemant",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"APILena",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"Mamshino",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"Manucaylus",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"cisco118",pts:69,bons:1,exacts:1,topScore:0},
+  {pseudo:"Lucy-Owen",pts:49,bons:1,exacts:0,topScore:0},
+  {pseudo:"pacmania",pts:49,bons:1,exacts:0,topScore:0},
+  {pseudo:"William#UWN3",pts:49,bons:1,exacts:0,topScore:0},
+  {pseudo:"FCZakos",pts:49,bons:1,exacts:0,topScore:0},
+  {pseudo:"Prophane",pts:49,bons:1,exacts:0,topScore:0},
+  {pseudo:"Giobeck",pts:49,bons:1,exacts:0,topScore:0},
+  {pseudo:"Phoenix25",pts:49,bons:1,exacts:0,topScore:0},
+  {pseudo:"MinouchePoppins",pts:49,bons:1,exacts:0,topScore:0},
+  {pseudo:"Claptou",pts:49,bons:1,exacts:0,topScore:0},
+  {pseudo:"LeonitoDoBraziou",pts:49,bons:1,exacts:0,topScore:0},
+  {pseudo:"Losogre",pts:49,bons:1,exacts:0,topScore:0},
+  {pseudo:"Tams972",pts:49,bons:1,exacts:0,topScore:0},
+  {pseudo:"Saymsonite",pts:49,bons:1,exacts:0,topScore:0},
+  {pseudo:"Sylvain#B113K",pts:49,bons:1,exacts:0,topScore:0},
+  {pseudo:"Soutizz",pts:0,bons:0,exacts:0,topScore:0},
+  {pseudo:"richard#TN6D",pts:0,bons:0,exacts:0,topScore:0},
+  {pseudo:"Ti-Bordo",pts:0,bons:0,exacts:0,topScore:0},
+  {pseudo:"GOAT#U4LT5UTR",pts:0,bons:0,exacts:0,topScore:0},
+  {pseudo:"Madridal",pts:0,bons:0,exacts:0,topScore:0},
+  {pseudo:"RZKABYLE",pts:0,bons:0,exacts:0,topScore:0},
+  {pseudo:"BobbyWanKenoby",pts:0,bons:0,exacts:0,topScore:0},
+  {pseudo:"JBMJ",pts:0,bons:0,exacts:0,topScore:0},
+  {pseudo:"Drass01",pts:0,bons:0,exacts:0,topScore:0}
 ];
 
 /* Mapping pseudo -> participant */
@@ -643,20 +665,61 @@ function buildPokerHtml(showPoker) {
 function renderClassement() {
   var tbody = document.getElementById('classement-tbody');
   var html = '';
-  var rank = 0;
-  var prevPts = -1;
-  var sameCount = 0;
+
+  /* Trouver le max top score */
+  var maxTopScore = 0;
+  for (var k = 0; k < classementMPP.length; k++) {
+    if (classementMPP[k].topScore && classementMPP[k].topScore > maxTopScore) maxTopScore = classementMPP[k].topScore;
+  }
+
+  /* Pré-calculer les rangs réels (avec gestion ex-æquo : même pts = même rang) */
+  var rangs = [];
+  var rankCursor = 1;
+  for (var i = 0; i < classementMPP.length; i++) {
+    if (i > 0 && classementMPP[i].pts !== classementMPP[i-1].pts) rankCursor = i + 1;
+    rangs[i] = rankCursor;
+  }
+
+  /* Définition des groupes ligues */
+  var ligues = [
+    {label:"Ligue des Champions",cls:"section-ldc",icon:"&#127942;",from:1},
+    {label:"Europa League",cls:"section-uel",icon:"&#127381;",from:6},
+    {label:"Conference League",cls:"section-uecl",icon:"&#128154;",from:11},
+    {label:"Ligue 1",cls:"section-l1",icon:"&#9917;",from:17},
+    {label:"Ligue 2",cls:"section-l2",icon:"&#128202;",from:29},
+    {label:"Niveau District 92",cls:"section-district",icon:"&#128128;",from:43}
+  ];
+  var insertedLigues = {};
+
+  /* Code couleur bons résultats */
+  function bonsClass(n) {
+    if (n === 0) return 'bons-0';
+    if (n === 1) return 'bons-1';
+    if (n === 2) return 'bons-2';
+    return 'bons-3';
+  }
+  /* Code couleur scores exacts */
+  function exactsClass(n) {
+    if (n === 0) return 'exacts-0';
+    if (n === 1) return 'exacts-1';
+    if (n === 2) return 'exacts-2';
+    return 'exacts-3';
+  }
 
   for (var i = 0; i < classementMPP.length; i++) {
     var c = classementMPP[i];
     var p = findParticipant(c.pseudo);
-    if (c.pts !== prevPts) {
-      rank = i + 1;
-      sameCount = 0;
-    } else {
-      sameCount++;
+    var rank = rangs[i];
+
+    /* Insérer le séparateur de ligue au bon rang (dès qu'on atteint ou dépasse le seuil pour la 1ère fois) */
+    for (var li = ligues.length - 1; li >= 0; li--) {
+      var seuil = ligues[li].from;
+      if (rank >= seuil && !insertedLigues[seuil]) {
+        insertedLigues[seuil] = true;
+        html += '<tr class="section-row ' + ligues[li].cls + '"><td colspan="6">' + ligues[li].icon + ' &nbsp;' + ligues[li].label + '</td></tr>';
+        break;
+      }
     }
-    prevPts = c.pts;
 
     var rankClass = rank === 1 ? 'rank-1' : (rank === 2 ? 'rank-2' : (rank === 3 ? 'rank-3' : 'rank-other'));
     var prenom = p ? p.prenom : c.pseudo;
@@ -664,19 +727,29 @@ function renderClassement() {
     var isFemme = p && p.sexe === 'F';
     var trophy = p ? buildTrophyHtml(p.palmares, p.infobulle) : '';
     var poker = p ? buildPokerHtml(p.poker) : '';
-    var topScore = p && p.topScore ? p.topScore : (c.pts > 0 ? '-' : '-');
 
-    html += '<tr>';
+    /* Top score */
+    var tsVal = c.topScore || 0;
+    var isTopScoreHolder = (tsVal > 0 && tsVal === maxTopScore);
+    var topScoreHtml;
+    if (isTopScoreHolder) {
+      topScoreHtml = '<td class="center topscore-cell"><span class="topscore-val">&#127942; ' + tsVal + '<span class="tooltip">&#127919; Prime 50&#8364; &mdash; Plus gros score sur un match</span></span></td>';
+    } else if (tsVal > 0) {
+      topScoreHtml = '<td class="center"><span style="font-family:\'Bebas Neue\',sans-serif;font-size:1rem;color:var(--silver)">' + tsVal + '</span></td>';
+    } else {
+      topScoreHtml = '<td class="center"><span style="color:rgba(136,153,187,0.3);font-size:0.8rem;">—</span></td>';
+    }
+
+    html += '<tr' + (isTopScoreHolder ? ' class="row-topscore"' : '') + '>';
     html += '<td><span class="rank-num ' + rankClass + '">' + (rank <= 3 ? ['','&#129351;','&#129352;','&#129353;'][rank] : rank) + '</span></td>';
-    html += '<td><div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;">';
-    html += '<div>';
+    html += '<td><div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;"><div>';
     html += '<div class="player-name' + (isFemme ? ' femme' : '') + '" style="' + (isFemme ? 'color:var(--rose)' : '') + '">' + c.pseudo + trophy + poker + '</div>';
     html += '<div class="player-prenom">' + prenom + (nomAffiche ? ' ' + nomAffiche : '') + '</div>';
     html += '</div></div></td>';
     html += '<td class="center"><span class="pts">' + c.pts + '</span></td>';
-    html += '<td class="center"><span class="pronostics-count">' + c.bons + '</span></td>';
-    html += '<td class="center"><span class="exact-badge">' + c.exacts + '</span></td>';
-    html += '<td class="center"><span style="font-family:\'Bebas Neue\',sans-serif;font-size:1.1rem;color:var(--gold-light)">' + (p && p.topScore ? p.topScore : '-') + '</span></td>';
+    html += '<td class="center"><span class="' + bonsClass(c.bons) + '" style="font-family:\'Bebas Neue\',sans-serif;font-size:1.3rem;">' + c.bons + '</span></td>';
+    html += '<td class="center"><span class="' + exactsClass(c.exacts) + '" style="font-family:\'Bebas Neue\',sans-serif;font-size:1.3rem;">' + c.exacts + '</span></td>';
+    html += topScoreHtml;
     html += '</tr>';
   }
   tbody.innerHTML = html;
@@ -795,10 +868,10 @@ function renderTimeline() {
 
 /* ===== GROUPES ===== */
 var groups = [
-  {letter:"A",matchs:1,teams:[
+  {letter:"A",matchs:2,teams:[
     {flag:"&#127474;&#127485;",name:"Mexique",j:1,g:1,n:0,p:0,bp:2,bc:0,pts:3},
-    {flag:"&#127464;&#127487;",name:"Rep. Tch&#232;que",j:0,g:0,n:0,p:0,bp:0,bc:0,pts:0},
-    {flag:"&#127472;&#127479;",name:"Cor&#233;e du Sud",j:0,g:0,n:0,p:0,bp:0,bc:0,pts:0},
+    {flag:"&#127472;&#127479;",name:"Cor&#233;e du Sud",j:1,g:1,n:0,p:0,bp:2,bc:1,pts:3},
+    {flag:"&#127464;&#127487;",name:"Rep. Tch&#232;que",j:1,g:0,n:0,p:1,bp:1,bc:2,pts:0},
     {flag:"&#127487;&#127462;",name:"Afrique du Sud",j:1,g:0,n:0,p:1,bp:0,bc:2,pts:0}
   ]},
   {letter:"B",matchs:0,teams:[
@@ -921,6 +994,7 @@ function renderHOF() {
 
 /* ===== RADIO ===== */
 var newsData = [
+  {time:"12 juin 2026",type:"drama",text:"Groupe A, match 2 : Cor\u00e9e du Sud s\u2019impose 2-1 face \u00e0 la R\u00e9p. Tch\u00e8que. Le groupe se resserre : Mexique et Cor\u00e9e \u00e0 3 pts chacun, Tch\u00e9quie et Afrique du Sud \u00e0 0. MissionPoutrage s\u2019envole en t\u00eate avec 261 pts, suivi par un trio Bounette / Gros783433 / GuiConstant \u00e0 185 pts. La chasse est ouverte !"},
   {time:"11 juin 2026",type:"exploit",text:"RECORD BATTU ! L'Issmoules Trophy 2026 explose tous les compteurs avec 62 participants — jamais autant de prono-guerriers r\u00e9unis en 10 ans de concours. La cagnotte est ferm\u00e9e \u00e0 600 \u20ac."},
   {time:"11 juin 2026 \u2014 21h00",type:"drama",text:"Le coup d'envoi est donn\u00e9 ! Mexique 2-0 Afrique du Sud. Les prono-guerriers du Groupe A r\u00e9partent avec 69 pts pour les pronos France/Portugal, 49 pts pour les autres vainqueurs. La chasse au classement est ouverte."},
   {time:"Hommage",type:"exploit",text:"Ce tournoi est d\u00e9di\u00e9 \u00e0 Zizounaldo, champion CDM 2022, qui nous a quitt\u00e9s en janvier 2025. Son tr\u00f4ne reste vide — sa l\u00e9gende, elle, est \u00e9ternelle."},
