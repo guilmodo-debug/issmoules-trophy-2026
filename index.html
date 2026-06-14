@@ -65,7 +65,7 @@
 
   /* LAYOUT */
   .main-layout{max-width:1400px;margin:0 auto;padding:2rem;display:grid;grid-template-columns:245px 1fr;gap:2rem;align-items:start;}
-  aside{position:sticky;top:138px;display:flex;flex-direction:column;gap:0.3rem;}
+  aside{position:sticky;top:138px;display:flex;flex-direction:column;gap:0.3rem;max-height:calc(100vh - 160px);overflow-y:auto;padding-right:2px;}
   .nav-btn{display:flex;align-items:center;gap:0.75rem;padding:0.75rem 1rem;border-radius:6px;border:1px solid transparent;background:transparent;color:var(--silver);font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:600;letter-spacing:0.5px;cursor:pointer;transition:all 0.2s;text-align:left;width:100%;}
   .nav-btn:hover{background:rgba(201,168,76,0.06);color:var(--gold-light);border-color:var(--border);}
   .nav-btn.active{background:rgba(201,168,76,0.1);border-color:rgba(201,168,76,0.4);color:var(--gold-light);}
@@ -327,7 +327,7 @@
 
     <!-- CLASSEMENT LIVE -->
     <div class="tab-content active" id="tab-classement">
-      <div class="section-header"><h2>Classement Live</h2><p>Journ&#233;e 2 / 9 &mdash; &#201;tats-Unis 4-1 Paraguay &middot; Canada 1-1 Bosnie &mdash; 64 participants.</p></div>
+      <div class="section-header"><h2>Classement Live</h2><p>Match 6 / 104 &mdash; Qatar 1-1 Suisse &middot; Br&#233;sil 1-1 Maroc &middot; Ha&#239;ti 0-1 &#201;cosse &middot; Australie 2-0 Turquie &mdash; 64 participants.</p></div>
       <div class="card">
         <div class="table-wrap">
           <table>
@@ -348,29 +348,7 @@
     <!-- PRIZEPOOL -->
     <div class="tab-content" id="tab-finance">
       <div class="section-header"><h2>Prizepool</h2><p>Prizepool final arr&#234;t&#233; &mdash; 64 participants &mdash; 600 &#8364; de cagnotte.</p></div>
-      <div class="prize-total-note">&#127942; Prizepool final valid&#233; : <strong>600 &#8364;</strong> &mdash; 72% pour le podium principal (430 &#8364;) &middot; 28% pour les primes annexes (170 &#8364;)</div>
-      <div class="prize-section-title">&#127942; Podium Principal &mdash; 72% &mdash; 430 &#8364;</div>
-      <div class="prize-grid" style="margin-bottom:1.25rem">
-        <div class="prize-card p1"><div class="prize-place">&#129351; 1er &mdash; 37%</div><div class="prize-amount gold">160 &#8364;</div><div class="prize-pct">37% du podium</div></div>
-        <div class="prize-card p2"><div class="prize-place">&#129352; 2e &mdash; 26%</div><div class="prize-amount silver">110 &#8364;</div><div class="prize-pct">26% du podium</div></div>
-        <div class="prize-card p3"><div class="prize-place">&#129353; 3e &mdash; 19%</div><div class="prize-amount bronze">80 &#8364;</div><div class="prize-pct">19% du podium</div></div>
-        <div class="prize-card p4"><div class="prize-place">4e &mdash; 12%</div><div class="prize-amount p4c">50 &#8364;</div><div class="prize-pct">12% du podium</div></div>
-        <div class="prize-card p5"><div class="prize-place">5e &mdash; 7%</div><div class="prize-amount p5c">30 &#8364;</div><div class="prize-pct">7% du podium</div></div>
-      </div>
-      <div class="prize-section-title">&#127919; Primes Annexes &mdash; 28% &mdash; 170 &#8364;</div>
-      <div class="bonus-card" style="border-color:rgba(201,168,76,0.5);background:rgba(201,168,76,0.07);margin-bottom:0.75rem;">
-        <div style="display:flex;align-items:center;gap:0.75rem;flex:1;">
-          <span style="font-size:1.5rem;">&#127919;</span>
-          <div><div class="bonus-name" style="color:var(--gold-bright);font-size:1.05rem;">Plus gros score sur un match</div><div class="bonus-pct">29% des primes annexes &mdash; prime la plus importante</div></div>
-        </div>
-        <div class="bonus-amount" style="font-size:2rem;color:var(--gold-bright);">50 &#8364;</div>
-      </div>
-      <div class="bonus-grid">
-        <div class="bonus-card"><div><div class="bonus-name">Plus grand nombre de bons r&#233;sultats</div><div class="bonus-pct">18% des primes annexes</div></div><div class="bonus-amount">30 &#8364;</div></div>
-        <div class="bonus-card"><div><div class="bonus-name">Plus grand nombre de scores exacts</div><div class="bonus-pct">18% des primes annexes</div></div><div class="bonus-amount">30 &#8364;</div></div>
-        <div class="bonus-card"><div><div class="bonus-name">Vainqueur phase de groupes</div><div class="bonus-pct">18% des primes annexes</div></div><div class="bonus-amount">30 &#8364;</div></div>
-        <div class="bonus-card"><div><div class="bonus-name">Meilleure performance f&#233;minine</div><div class="bonus-pct">18% des primes annexes</div></div><div class="bonus-amount">30 &#8364;</div></div>
-      </div>
+      <div id="prizepool-body"></div>
     </div>
 
     <!-- PARTICIPANTS -->
@@ -497,7 +475,7 @@ var participants = [
   {prenom:"Celine",nom:"Catala",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,pseudo:"APILena",mpp:true,vainqueur:"Espagne",buteur:"Autre",poker:true},
   {prenom:"Clement",nom:"Beauchesne",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,pseudo:"LeKlemant",mpp:true,vainqueur:"France",buteur:"Autre",poker:true},
   {prenom:"Delphine",nom:"Modot",palmares:"2eme",infobulle:"2e Euro 2016",sexe:"F",facebook:true,paye:true,pseudo:"Dedelforever",mpp:true,vainqueur:"Portugal",buteur:"Autre",poker:false},
-  {prenom:"Dessmond",nom:"",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:false,pseudo:"DESS_",mpp:true,vainqueur:"Espagne",buteur:"Mbappe",poker:false},
+  {prenom:"Dessmond",nom:"",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,pseudo:"DESS_",mpp:true,vainqueur:"Espagne",buteur:"Mbappe",poker:false},
   {prenom:"Dyan",nom:"",palmares:"",infobulle:"",sexe:"F",facebook:false,paye:true,pseudo:"MissionPoutrage",mpp:true,vainqueur:"Portugal",buteur:"Mbappe",poker:false},
   {prenom:"Edu",nom:"Martins",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,pseudo:"edurrrrrrr",mpp:true,vainqueur:"Portugal",buteur:"Ronaldo",poker:false},
   {prenom:"Emmanuel",nom:"Heraud",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,pseudo:"Manucaylus",mpp:true,vainqueur:"France",buteur:"Kane",poker:false},
@@ -505,7 +483,7 @@ var participants = [
   {prenom:"Fabrice",nom:"Akpaki",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,pseudo:"Babey94",mpp:true,vainqueur:"France",buteur:"Mbappe",poker:false},
   {prenom:"Fanny",nom:"Tran",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,pseudo:"Bounette",mpp:true,vainqueur:"Portugal",buteur:"Autre",poker:true},
   {prenom:"Florian",nom:"Dutrelot",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,pseudo:"Fiffou07",mpp:true,vainqueur:"France",buteur:"Autre",poker:false},
-  {prenom:"Francisco",nom:"",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:false,pseudo:"cisco118",mpp:true,vainqueur:"Portugal",buteur:"Ronaldo",poker:false},
+  {prenom:"Francisco",nom:"",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,pseudo:"cisco118",mpp:true,vainqueur:"Portugal",buteur:"Ronaldo",poker:false},
   {prenom:"Giovanni",nom:"Becchere",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,pseudo:"Giobeck",mpp:true,vainqueur:"Bresil",buteur:"Haaland",poker:true},
   {prenom:"Greg",nom:"Chouquet",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,pseudo:"Claptou",mpp:true,vainqueur:"Portugal",buteur:"Ronaldo",poker:true},
   {prenom:"Guillaume",nom:"Brun",palmares:"1er",infobulle:"Vainqueur CDM 2018",sexe:"H",facebook:false,paye:true,pseudo:"BobbyWanKenoby",mpp:true,vainqueur:"Espagne",buteur:"Kane",poker:false},
@@ -555,73 +533,73 @@ var participants = [
   {prenom:"Antoine",nom:"",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:false,pseudo:"BIBILEBG2308",mpp:true,vainqueur:"Italie",buteur:"",poker:false}
 ];
 
-/* ===== CLASSEMENT MPP JOURNEE 2 ===== */
-/* Source: Google Sheet CLASSEMENT - mis a jour apres matchs 2,3,4 (13/06/2026) */
+/* ===== CLASSEMENT MPP JOURNEE 6 ===== */
+/* Source: Google Sheet CLASSEMENT - mis a jour apres matchs 3,4,5,6 (14/06/2026) */
 var classementMPP = [
+  {pseudo:"Bounette",pts:631,bons:6,exacts:4},
+  {pseudo:"ClutchK11",pts:620,bons:5,exacts:2},
+  {pseudo:"pacmania",pts:520,bons:5,exacts:2},
+  {pseudo:"SousChomageEnBi1",pts:498,bons:5,exacts:2},
+  {pseudo:"TheRealWill",pts:471,bons:4,exacts:2,topScore:284},
+  {pseudo:"Matt_dmn07",pts:446,bons:5,exacts:2},
+  {pseudo:"Gloub94",pts:441,bons:4,exacts:3},
+  {pseudo:"Integra",pts:422,bons:4,exacts:3},
+  {pseudo:"Waninho",pts:402,bons:4,exacts:2},
+  {pseudo:"Babey94",pts:402,bons:4,exacts:2},
+  {pseudo:"RZKABYLE",pts:400,bons:3,exacts:1},
+  {pseudo:"Sobab",pts:381,bons:4,exacts:2},
   {pseudo:"Soujackinho",pts:381,bons:3,exacts:1},
-  {pseudo:"Bounette",pts:376,bons:4,exacts:2},
-  {pseudo:"ClutchK11",pts:376,bons:4,exacts:2},
-  {pseudo:"MissionPoutrage",pts:335,bons:3,exacts:1,topScore:192},
-  {pseudo:"pacmania",pts:334,bons:3,exacts:1},
-  {pseudo:"JabbaThePunt",pts:330,bons:2,exacts:0},
-  {pseudo:"Waninho",pts:280,bons:3,exacts:2},
-  {pseudo:"Gloub94",pts:280,bons:3,exacts:2},
-  {pseudo:"Integra",pts:280,bons:3,exacts:2},
-  {pseudo:"Babey94",pts:280,bons:3,exacts:2},
-  {pseudo:"GusModot",pts:280,bons:3,exacts:2},
-  {pseudo:"Matt_dmn07",pts:280,bons:3,exacts:2},
-  {pseudo:"SousChomageEnBi1",pts:262,bons:3,exacts:0},
+  {pseudo:"MissionPoutrage",pts:379,bons:4,exacts:1},
+  {pseudo:"Soutizz",pts:377,bons:4,exacts:1},
+  {pseudo:"JabbaThePunt",pts:374,bons:3,exacts:0},
+  {pseudo:"Claptou",pts:367,bons:3,exacts:0},
+  {pseudo:"Marco_Trez",pts:336,bons:4,exacts:0},
+  {pseudo:"PippoZenzaghi",pts:329,bons:4,exacts:2},
+  {pseudo:"Elenou",pts:329,bons:4,exacts:2},
+  {pseudo:"Massyalla",pts:329,bons:4,exacts:2},
+  {pseudo:"GusModot",pts:324,bons:4,exacts:2},
+  {pseudo:"ZEROO",pts:313,bons:4,exacts:1},
+  {pseudo:"ThisIsTheSouz",pts:309,bons:4,exacts:1},
+  {pseudo:"FCZakos",pts:309,bons:4,exacts:1},
+  {pseudo:"Prophane",pts:309,bons:4,exacts:1},
+  {pseudo:"Losogre",pts:309,bons:4,exacts:1},
+  {pseudo:"Gros783433",pts:303,bons:4,exacts:2},
+  {pseudo:"GuiConstant",pts:303,bons:4,exacts:2},
+  {pseudo:"BobbyWanKenoby",pts:294,bons:3,exacts:1},
+  {pseudo:"MidooR2D2",pts:292,bons:3,exacts:0},
+  {pseudo:"LaHyeneIntrepide",pts:284,bons:4,exacts:0},
+  {pseudo:"MathPsg-34",pts:283,bons:4,exacts:1},
+  {pseudo:"Dedelforever",pts:282,bons:3,exacts:1},
+  {pseudo:"Lucas2309",pts:265,bons:3,exacts:1},
+  {pseudo:"edurrrrrrr",pts:263,bons:4,exacts:0},
   {pseudo:"LeonitoDoBraziou",pts:260,bons:3,exacts:1},
-  {pseudo:"Gros783433",pts:259,bons:3,exacts:2},
-  {pseudo:"GuiConstant",pts:259,bons:3,exacts:2},
-  {pseudo:"LaHyeneIntrepide",pts:240,bons:3,exacts:0},
-  {pseudo:"MathPsg-34",pts:239,bons:3,exacts:1},
-  {pseudo:"ZEROO",pts:219,bons:3,exacts:0},
-  {pseudo:"edurrrrrrr",pts:219,bons:3,exacts:0},
-  {pseudo:"Soutizz",pts:211,bons:2,exacts:1},
+  {pseudo:"Madridal",pts:260,bons:3,exacts:1},
+  {pseudo:"Mamshino",pts:237,bons:3,exacts:2},
+  {pseudo:"Lion1008",pts:235,bons:3,exacts:1},
+  {pseudo:"APILena",pts:235,bons:3,exacts:1},
+  {pseudo:"-Zappa-",pts:235,bons:3,exacts:1},
+  {pseudo:"BIBILEBG2308",pts:235,bons:3,exacts:0},
+  {pseudo:"GOAT#U4LT5UTR",pts:216,bons:2,exacts:1},
+  {pseudo:"Doucette45",pts:214,bons:3,exacts:0},
   {pseudo:"Ti-Bordo",pts:191,bons:2,exacts:0},
-  {pseudo:"BIBILEBG2308",pts:191,bons:2,exacts:0},
-  {pseudo:"MidooR2D2",pts:170,bons:2,exacts:0},
-  {pseudo:"Doucette45",pts:170,bons:2,exacts:0},
-  {pseudo:"Marco_Trez",pts:170,bons:2,exacts:0},
-  {pseudo:"Sobab",pts:165,bons:2,exacts:1},
-  {pseudo:"ThisIsTheSouz",pts:143,bons:2,exacts:1},
-  {pseudo:"CoachPepito",pts:143,bons:2,exacts:1},
-  {pseudo:"PippoZenzaghi",pts:143,bons:2,exacts:1},
-  {pseudo:"TheRealWill",pts:143,bons:2,exacts:1},
-  {pseudo:"DESS_",pts:143,bons:2,exacts:1},
-  {pseudo:"Elenou",pts:143,bons:2,exacts:1},
-  {pseudo:"LeP30600",pts:143,bons:2,exacts:1},
-  {pseudo:"Massyalla",pts:143,bons:2,exacts:1},
-  {pseudo:"Lucas2309",pts:143,bons:2,exacts:1},
-  {pseudo:"Patou75015",pts:143,bons:2,exacts:1},
+  {pseudo:"CoachPepito",pts:187,bons:3,exacts:1},
+  {pseudo:"DESS_",pts:187,bons:3,exacts:1},
+  {pseudo:"LeP30600",pts:187,bons:3,exacts:1},
+  {pseudo:"Patou75015",pts:187,bons:3,exacts:1},
+  {pseudo:"LeKlemant",pts:187,bons:3,exacts:1},
+  {pseudo:"Manucaylus",pts:187,bons:3,exacts:1},
+  {pseudo:"cisco118",pts:187,bons:3,exacts:1},
+  {pseudo:"richard#TN6D",pts:186,bons:2,exacts:1},
+  {pseudo:"William#UWN3",pts:167,bons:3,exacts:0},
+  {pseudo:"Giobeck",pts:167,bons:3,exacts:0},
+  {pseudo:"MinouchePoppins",pts:167,bons:3,exacts:0},
+  {pseudo:"Tams972",pts:167,bons:3,exacts:0},
+  {pseudo:"Saymsonite",pts:167,bons:3,exacts:0},
   {pseudo:"Fiffou07",pts:143,bons:2,exacts:1},
-  {pseudo:"LeKlemant",pts:143,bons:2,exacts:1},
-  {pseudo:"Mamshino",pts:143,bons:2,exacts:1},
-  {pseudo:"Manucaylus",pts:143,bons:2,exacts:1},
-  {pseudo:"cisco118",pts:143,bons:2,exacts:1},
-  {pseudo:"RZKABYLE",pts:137,bons:1,exacts:1},
   {pseudo:"Lucy-Owen",pts:123,bons:2,exacts:0},
-  {pseudo:"William#UWN3",pts:123,bons:2,exacts:0},
-  {pseudo:"FCZakos",pts:123,bons:2,exacts:0},
-  {pseudo:"Prophane",pts:123,bons:2,exacts:0},
-  {pseudo:"Giobeck",pts:123,bons:2,exacts:0},
-  {pseudo:"MinouchePoppins",pts:123,bons:2,exacts:0},
-  {pseudo:"Claptou",pts:123,bons:2,exacts:0},
-  {pseudo:"Losogre",pts:123,bons:2,exacts:0},
-  {pseudo:"Tams972",pts:123,bons:2,exacts:0},
-  {pseudo:"Saymsonite",pts:123,bons:2,exacts:0},
-  {pseudo:"Dedelforever",pts:116,bons:1,exacts:1},
-  {pseudo:"GOAT#U4LT5UTR",pts:74,bons:1,exacts:0},
-  {pseudo:"Madridal",pts:74,bons:1,exacts:0},
-  {pseudo:"BobbyWanKenoby",pts:74,bons:1,exacts:0},
-  {pseudo:"APILena",pts:69,bons:1,exacts:1},
-  {pseudo:"Phoenix25",pts:49,bons:1,exacts:0},
-  {pseudo:"Lion1008",pts:49,bons:1,exacts:0},
-  {pseudo:"-Zappa-",pts:49,bons:1,exacts:0},
-  {pseudo:"richard#TN6D",pts:0,bons:0,exacts:0},
-  {pseudo:"JBMJ",pts:0,bons:0,exacts:0},
-  {pseudo:"Drass01",pts:0,bons:0,exacts:0}
+  {pseudo:"Phoenix25",pts:93,bons:2,exacts:0},
+  {pseudo:"JBMJ",pts:44,bons:1,exacts:0},
+  {pseudo:"Drass01",pts:44,bons:1,exacts:0}
 ];
 
 /* Mapping pseudo -> participant */
@@ -645,45 +623,182 @@ function buildPokerHtml(showPoker) {
 }
 
 /* ===== CLASSEMENT ===== */
+/* Tiers: LDC 1-5 | EL 6-10 | CL 11-16 | L1 17-28 | L2 29-42 | District 43+ */
+var tierDefs = [
+  {from:1,to:5,label:"&#127942; Ligue des Champions",style:"background:rgba(201,168,76,0.13);color:var(--gold);border-top:1px solid rgba(201,168,76,0.3);"},
+  {from:6,to:10,label:"&#127945; Europa League",style:"background:rgba(231,76,60,0.08);color:var(--red-accent);border-top:1px solid rgba(231,76,60,0.2);"},
+  {from:11,to:16,label:"&#127944; Conference League",style:"background:rgba(76,175,122,0.07);color:#4caf7a;border-top:1px solid rgba(76,175,122,0.2);"},
+  {from:17,to:28,label:"&#9917; Ligue 1",style:"background:rgba(136,153,187,0.06);color:var(--silver);border-top:1px solid rgba(136,153,187,0.15);"},
+  {from:29,to:42,label:"&#128197; Ligue 2",style:"background:rgba(136,153,187,0.04);color:rgba(136,153,187,0.7);border-top:1px solid rgba(136,153,187,0.1);"},
+  {from:43,to:999,label:"&#127968; District 92",style:"background:rgba(192,57,43,0.04);color:rgba(192,57,43,0.55);border-top:1px solid rgba(192,57,43,0.1);"}
+];
+
+/* ===== CALCUL AUTOMATIQUE DES PRIMES ===== */
+function computePrizeWinners() {
+  /* Top 5 classement MPP */
+  var trueRanksLocal = [], rank = 0, prevPts = -1;
+  for (var i = 0; i < classementMPP.length; i++) {
+    if (classementMPP[i].pts !== prevPts) rank = i + 1;
+    trueRanksLocal.push(rank);
+    prevPts = classementMPP[i].pts;
+  }
+  var top = {};
+  for (var i = 0; i < classementMPP.length; i++) {
+    var r = trueRanksLocal[i];
+    var ps = classementMPP[i].pseudo;
+    if (r === 1) top.top1 = ps;
+    if (r === 2) top.top2 = ps;
+    if (r === 3) top.top3 = ps;
+    if (r === 4) top.top4 = ps;
+    if (r === 5) top.top5 = ps;
+  }
+
+  /* Plus gros score sur un match */
+  var maxScore = -1, maxScorePseudo = null;
+  for (var i = 0; i < classementMPP.length; i++) {
+    if (classementMPP[i].topScore && classementMPP[i].topScore > maxScore) {
+      maxScore = classementMPP[i].topScore;
+      maxScorePseudo = classementMPP[i].pseudo;
+    }
+  }
+  top.plusGrosScore = maxScorePseudo;
+  top.plusGrosScoreVal = maxScore > 0 ? maxScore : null;
+
+  /* Plus de bons résultats */
+  var maxBons = -1, maxBonsPseudo = null;
+  for (var i = 0; i < classementMPP.length; i++) {
+    if (classementMPP[i].bons > maxBons) { maxBons = classementMPP[i].bons; maxBonsPseudo = classementMPP[i].pseudo; }
+  }
+  top.plusBonsRes = maxBonsPseudo;
+  top.plusBonsResVal = maxBons;
+
+  /* Plus d'exacts */
+  var maxExacts = -1, maxExactsPseudo = null;
+  for (var i = 0; i < classementMPP.length; i++) {
+    if (classementMPP[i].exacts > maxExacts) { maxExacts = classementMPP[i].exacts; maxExactsPseudo = classementMPP[i].pseudo; }
+  }
+  top.plusExacts = maxExactsPseudo;
+  top.plusExactsVal = maxExacts;
+
+  /* Leader phase de groupes = leader actuel du classement MPP */
+  top.vainqueurGroupes = top.top1;
+
+  /* Meilleure performance féminine */
+  var bestFemme = null, bestFemmePts = -1;
+  for (var i = 0; i < classementMPP.length; i++) {
+    var part = findParticipant(classementMPP[i].pseudo);
+    if (part && part.sexe === 'F' && classementMPP[i].pts > bestFemmePts) {
+      bestFemmePts = classementMPP[i].pts;
+      bestFemme = classementMPP[i].pseudo;
+    }
+  }
+  top.meilleureFemme = bestFemme;
+  top.meilleureFemmeVal = bestFemmePts;
+
+  return top;
+}
+
+/* Montants des primes */
+var PRIZE_AMOUNTS = {
+  top1:160, top2:110, top3:80, top4:50, top5:30,
+  plusGrosScore:50, plusBonsRes:30, plusExacts:30, vainqueurGroupes:30, meilleureFemme:30
+};
+var PRIZE_LABELS = {
+  top1:"&#129351; 1er — 160&#8364;", top2:"&#129352; 2e — 110&#8364;", top3:"&#129353; 3e — 80&#8364;",
+  top4:"4e — 50&#8364;", top5:"5e — 30&#8364;",
+  plusGrosScore:"&#9889; Score max — 50&#8364;",
+  plusBonsRes:"+ Bons r&#233;s. — 30&#8364;",
+  plusExacts:"+ Exacts — 30&#8364;",
+  vainqueurGroupes:"&#127942; Leader groupes — 30&#8364;",
+  meilleureFemme:"&#10084; Meilleure f&#233;minine — 30&#8364;"
+};
+
+function getGainBadgeHtml(pseudo, prizeWinners) {
+  var gains = [];
+  var total = 0;
+  for (var key in prizeWinners) {
+    if (key.endsWith('Val') || key.endsWith('Pseudo')) continue;
+    if (prizeWinners[key] === pseudo && PRIZE_AMOUNTS[key]) {
+      gains.push({key:key, label:PRIZE_LABELS[key], amount:PRIZE_AMOUNTS[key]});
+      total += PRIZE_AMOUNTS[key];
+    }
+  }
+  if (gains.length === 0) return '';
+
+  /* Construire le tooltip avec le détail */
+  var tooltipLines = gains.map(function(g){ return g.label; }).join('<br>');
+  tooltipLines += '<br><strong style="color:var(--gold-bright)">Total : ' + total + ' &#8364;</strong>';
+
+  /* Couleur principale selon le type de gain */
+  var hasTop3 = gains.some(function(g){ return g.key==='top1'||g.key==='top2'||g.key==='top3'; });
+  var hasGros = gains.some(function(g){ return g.key==='plusGrosScore'; });
+  var coinColor = hasTop3 ? 'var(--gold-bright)' : hasGros ? 'var(--red-accent)' : 'var(--silver)';
+
+  return '<span class="gain-pill" style="position:relative;display:inline-flex;align-items:center;gap:3px;cursor:default;font-family:\'Barlow Condensed\',sans-serif;font-size:0.82rem;font-weight:900;color:' + coinColor + ';background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:4px;padding:2px 6px;margin-top:3px;vertical-align:middle;">'
+    + '&#128176; +' + total + '&#8364;'
+    + '<span class="gain-tooltip" style="display:none;position:absolute;bottom:calc(100% + 6px);left:0;background:rgba(10,15,30,0.98);border:1px solid var(--border);border-radius:7px;padding:0.5rem 0.85rem;font-size:0.82rem;white-space:nowrap;z-index:300;box-shadow:0 4px 20px rgba(0,0,0,0.6);line-height:1.7;color:var(--white);min-width:180px;">' + tooltipLines + '</span>'
+    + '</span>';
+}
+
 function renderClassement() {
   var tbody = document.getElementById('classement-tbody');
   var html = '';
+  var pw = computePrizeWinners();
+
+  /* Pré-calculer les rangs vrais (ex-æquo = même rang) */
+  var trueRanks = [];
   var rank = 0;
   var prevPts = -1;
-  var sameCount = 0;
+  for (var i = 0; i < classementMPP.length; i++) {
+    if (classementMPP[i].pts !== prevPts) { rank = i + 1; }
+    trueRanks.push(rank);
+    prevPts = classementMPP[i].pts;
+  }
 
+  var tierInserted = {};
   for (var i = 0; i < classementMPP.length; i++) {
     var c = classementMPP[i];
+    var r = trueRanks[i];
     var p = findParticipant(c.pseudo);
-    if (c.pts !== prevPts) {
-      rank = i + 1;
-      sameCount = 0;
-    } else {
-      sameCount++;
-    }
-    prevPts = c.pts;
 
-    var rankClass = rank === 1 ? 'rank-1' : (rank === 2 ? 'rank-2' : (rank === 3 ? 'rank-3' : 'rank-other'));
-    var prenom = p ? p.prenom : c.pseudo;
+    /* Insérer séparateur de tier si nécessaire */
+    for (var t = 0; t < tierDefs.length; t++) {
+      var td = tierDefs[t];
+      if (r >= td.from && r <= td.to && !tierInserted[td.from]) {
+        tierInserted[td.from] = true;
+        html += '<tr><td colspan="6" style="padding:0.35rem 1.35rem;font-family:\'Barlow Condensed\',sans-serif;font-size:0.72rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;' + td.style + '">' + td.label + '</td></tr>';
+      }
+    }
+
+    var rankClass = r === 1 ? 'rank-1' : (r === 2 ? 'rank-2' : (r === 3 ? 'rank-3' : 'rank-other'));
+    var prenom = p ? p.prenom : '';
     var nomAffiche = p ? (p.nom ? p.nom : '') : '';
     var isFemme = p && p.sexe === 'F';
     var trophy = p ? buildTrophyHtml(p.palmares, p.infobulle) : '';
     var poker = p ? buildPokerHtml(p.poker) : '';
+    var gainBadge = getGainBadgeHtml(c.pseudo, pw);
+    var isTopScorer = c.topScore ? true : false;
 
     html += '<tr>';
-    html += '<td><span class="rank-num ' + rankClass + '">' + (rank <= 3 ? ['','&#129351;','&#129352;','&#129353;'][rank] : rank) + '</span></td>';
-    html += '<td><div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;">';
-    html += '<div>';
-    html += '<div class="player-name' + (isFemme ? ' femme' : '') + '" style="' + (isFemme ? 'color:var(--rose)' : '') + '">' + c.pseudo + trophy + poker + '</div>';
-    html += '<div class="player-prenom">' + prenom + (nomAffiche ? ' ' + nomAffiche : '') + '</div>';
-    html += '</div></div></td>';
+    html += '<td><span class="rank-num ' + rankClass + '">' + (r <= 3 ? ['','&#129351;','&#129352;','&#129353;'][r] : r) + '</span></td>';
+    html += '<td><div>';
+    html += '<div class="player-name' + (isFemme ? ' femme' : '') + '" style="' + (isFemme ? 'color:var(--rose);' : '') + 'display:flex;align-items:center;gap:4px;flex-wrap:wrap;">' + c.pseudo + trophy + poker + gainBadge + '</div>';
+    if (prenom || nomAffiche) html += '<div class="player-prenom">' + prenom + (nomAffiche ? ' ' + nomAffiche : '') + '</div>';
+    html += '</div></td>';
     html += '<td class="center"><span class="pts">' + c.pts + '</span></td>';
-    html += '<td class="center"><span class="pronostics-count">' + c.bons + '</span></td>';
-    html += '<td class="center"><span class="exact-badge">' + c.exacts + '</span></td>';
-    html += '<td class="center"><span style="font-family:\'Bebas Neue\',sans-serif;font-size:1.1rem;color:var(--gold-light)">' + (c.topScore ? c.topScore : '-') + '</span></td>';
+    html += '<td class="center"><span class="pronostics-count" style="' + (c.bons >= 5 ? 'color:var(--gold-bright);font-weight:900;' : c.bons >= 3 ? 'color:var(--green-ok);' : '') + '">' + c.bons + '</span></td>';
+    html += '<td class="center"><span class="exact-badge" style="' + (c.exacts >= 3 ? 'background:rgba(201,168,76,0.25);color:var(--gold-bright);' : '') + '">' + c.exacts + '</span></td>';
+    html += '<td class="center"><span style="font-family:\'Bebas Neue\',sans-serif;font-size:1.1rem;color:' + (isTopScorer ? 'var(--gold-bright)' : 'var(--silver)') + '">' + (c.topScore ? '&#127942; ' + c.topScore : '-') + '</span></td>';
     html += '</tr>';
   }
   tbody.innerHTML = html;
+
+  /* Activer les tooltips gains au survol */
+  tbody.querySelectorAll('.gain-pill').forEach(function(pill) {
+    var tip = pill.querySelector('.gain-tooltip');
+    pill.addEventListener('mouseenter', function(){ tip.style.display = 'block'; });
+    pill.addEventListener('mouseleave', function(){ tip.style.display = 'none'; });
+  });
 }
 
 /* ===== PARTICIPANTS ===== */
@@ -799,28 +914,28 @@ function renderTimeline() {
 
 /* ===== GROUPES ===== */
 var groups = [
-  {letter:"A",matchs:1,teams:[
+  {letter:"A",matchs:2,teams:[
     {flag:"&#127474;&#127485;",name:"Mexique",j:1,g:1,n:0,p:0,bp:2,bc:0,pts:3},
-    {flag:"&#127464;&#127487;",name:"Rep. Tch&#232;que",j:0,g:0,n:0,p:0,bp:0,bc:0,pts:0},
-    {flag:"&#127472;&#127479;",name:"Cor&#233;e du Sud",j:0,g:0,n:0,p:0,bp:0,bc:0,pts:0},
+    {flag:"&#127472;&#127479;",name:"Cor&#233;e du Sud",j:1,g:1,n:0,p:0,bp:2,bc:1,pts:3},
+    {flag:"&#127464;&#127487;",name:"Rep. Tch&#232;que",j:1,g:0,n:0,p:1,bp:1,bc:2,pts:0},
     {flag:"&#127487;&#127462;",name:"Afrique du Sud",j:1,g:0,n:0,p:1,bp:0,bc:2,pts:0}
   ]},
-  {letter:"B",matchs:1,teams:[
+  {letter:"B",matchs:2,teams:[
+    {flag:"&#127464;&#127469;",name:"Suisse",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1},
     {flag:"&#127464;&#127462;",name:"Canada",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1},
-    {flag:"&#127463;&#127462;",name:"Bosnie-Herz.",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1},
-    {flag:"&#127464;&#127469;",name:"Suisse",j:0,g:0,n:0,p:0,bp:0,bc:0,pts:0},
-    {flag:"&#127478;&#127462;",name:"Qatar",j:0,g:0,n:0,p:0,bp:0,bc:0,pts:0}
+    {flag:"&#127478;&#127462;",name:"Qatar",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1},
+    {flag:"&#127463;&#127462;",name:"Bosnie-Herz.",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1}
   ]},
-  {letter:"C",matchs:0,teams:[
-    {flag:"&#127463;&#127479;",name:"Br&#233;sil",j:0,g:0,n:0,p:0,bp:0,bc:0,pts:0},
-    {flag:"&#127474;&#127462;",name:"Maroc",j:0,g:0,n:0,p:0,bp:0,bc:0,pts:0},
-    {flag:"&#127987;",name:"Ecosse",j:0,g:0,n:0,p:0,bp:0,bc:0,pts:0},
-    {flag:"&#127469;&#127481;",name:"Ha&#239;ti",j:0,g:0,n:0,p:0,bp:0,bc:0,pts:0}
+  {letter:"C",matchs:2,teams:[
+    {flag:"&#127987;&#65039;&#8205;&#127988;",name:"Ecosse",j:1,g:1,n:0,p:0,bp:1,bc:0,pts:3},
+    {flag:"&#127474;&#127462;",name:"Maroc",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1},
+    {flag:"&#127463;&#127479;",name:"Br&#233;sil",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1},
+    {flag:"&#127469;&#127481;",name:"Ha&#239;ti",j:1,g:0,n:0,p:1,bp:0,bc:1,pts:0}
   ]},
-  {letter:"D",matchs:1,teams:[
+  {letter:"D",matchs:2,teams:[
     {flag:"&#127482;&#127480;",name:"Etats-Unis",j:1,g:1,n:0,p:0,bp:4,bc:1,pts:3},
-    {flag:"&#127481;&#127479;",name:"Turquie",j:0,g:0,n:0,p:0,bp:0,bc:0,pts:0},
-    {flag:"&#127462;&#127482;",name:"Australie",j:0,g:0,n:0,p:0,bp:0,bc:0,pts:0},
+    {flag:"&#127462;&#127482;",name:"Australie",j:1,g:1,n:0,p:0,bp:2,bc:0,pts:3},
+    {flag:"&#127481;&#127479;",name:"Turquie",j:1,g:0,n:0,p:1,bp:0,bc:2,pts:0},
     {flag:"&#127477;&#127486;",name:"Paraguay",j:1,g:0,n:0,p:1,bp:1,bc:4,pts:0}
   ]},
   {letter:"E",matchs:0,teams:[
@@ -925,6 +1040,7 @@ function renderHOF() {
 
 /* ===== RADIO ===== */
 var newsData = [
+  {time:"14 juin 2026",type:"drama",text:"JOURNEE 6 COMPLETE \u2014 Qatar 1-1 Suisse, Br\u00e9sil 1-1 Maroc, Ha\u00efti 0-1 \u00c9cosse, Australie 2-0 Turquie. La surprise du chef : l'\u00c9cosse prend la t\u00eate du Groupe C devant les Br\u00e9siliens, et l'Australie \u00e9crase la Turquie ! Bounette (Fanny) s'envole en t\u00eate du classement avec 631 pts."},
   {time:"13 juin 2026",type:"drama",text:"\u00c9TATS-UNIS 4-1 PARAGUAY \u2014 Les Am\u00e9ricains d\u00e9marrent en trombe \u00e0 domicile ! Ben Hamadache s\u2019envole en t\u00eate du classement avec 381 pts. Nouvelle hi\u00e9rarchie, nouvelle tension."},
   {time:"13 juin 2026",type:"info",text:"CANADA 1-1 BOSNIE \u2014 Match nul au Groupe B. \u00c9galit\u00e9 parfaite entre les deux \u00e9quipes, Suisse et Qatar n\u2019ont pas encore jou\u00e9."},
   {time:"11 juin 2026",type:"exploit",text:"RECORD BATTU ! L\u2019Issmoules Trophy 2026 explose tous les compteurs avec 64 participants \u2014 jamais autant de prono-guerriers r\u00e9unis en 10 ans de concours. La cagnotte est ferm\u00e9e \u00e0 600 \u20ac."},
@@ -973,6 +1089,84 @@ function showNotification(msg) {
   setTimeout(function() { n.classList.remove('show'); }, 2800);
 }
 
+/* ===== PRIZEPOOL DYNAMIQUE ===== */
+function renderPrizepool() {
+  var pw = computePrizeWinners();
+
+  /* Helpers */
+  function pseudoDisplay(pseudo) {
+    if (!pseudo) return '&mdash;';
+    var p = findParticipant(pseudo);
+    var name = p ? (p.prenom + (p.nom ? ' ' + p.nom : '')) : pseudo;
+    var isFemme = p && p.sexe === 'F';
+    return '<span style="font-weight:900;color:' + (isFemme ? 'var(--rose)' : 'var(--gold-light)') + '">' + pseudo + '</span>'
+      + '<span style="color:var(--silver);font-size:0.78rem;margin-left:5px;">(' + name + ')</span>';
+  }
+
+  var podiumDefs = [
+    {key:'top1', place:'&#129351; 1er', pct:'37%', amount:160, amtClass:'gold'},
+    {key:'top2', place:'&#129352; 2e',  pct:'26%', amount:110, amtClass:'silver'},
+    {key:'top3', place:'&#129353; 3e',  pct:'19%', amount:80,  amtClass:'bronze'},
+    {key:'top4', place:'4e',            pct:'12%', amount:50,  amtClass:'p4c'},
+    {key:'top5', place:'5e',            pct:'7%',  amount:30,  amtClass:'p5c'}
+  ];
+
+  var html = '';
+  html += '<div class="prize-total-note">&#127942; Prizepool final valid&#233; : <strong>600 &#8364;</strong> &mdash; 72% pour le podium principal (430 &#8364;) &middot; 28% pour les primes annexes (170 &#8364;)</div>';
+  html += '<div class="prize-section-title">&#127942; Podium Principal &mdash; 72% &mdash; 430 &#8364;</div>';
+  html += '<div class="prize-grid" style="margin-bottom:1.25rem">';
+  for (var i = 0; i < podiumDefs.length; i++) {
+    var pd = podiumDefs[i];
+    html += '<div class="prize-card p' + (i+1) + '">'
+      + '<div class="prize-place">' + pd.place + ' &mdash; ' + pd.pct + '</div>'
+      + '<div class="prize-amount ' + pd.amtClass + '">' + pd.amount + ' &#8364;</div>'
+      + '<div class="prize-pct" style="margin-top:6px;font-family:\'Barlow Condensed\',sans-serif;font-size:0.88rem;">' + pseudoDisplay(pw[pd.key]) + '</div>'
+      + '</div>';
+  }
+  html += '</div>';
+  html += '<div style="background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.15);border-radius:7px;padding:0.65rem 1rem;margin-bottom:1.25rem;font-family:\'Barlow Condensed\',sans-serif;font-size:0.82rem;color:var(--silver);">&#128161; Classement provisoire &mdash; en cours de comp&#233;tition. Les primes s\u2019attribuent en fin de tournoi.</div>';
+
+  /* Annexes */
+  html += '<div class="prize-section-title">&#127919; Primes Annexes &mdash; 28% &mdash; 170 &#8364;</div>';
+
+  /* Plus gros score */
+  html += '<div class="bonus-card" style="border-color:rgba(201,168,76,0.5);background:rgba(201,168,76,0.07);margin-bottom:0.75rem;">'
+    + '<div style="display:flex;align-items:center;gap:0.75rem;flex:1;">'
+    + '<span style="font-size:1.5rem;">&#9889;</span>'
+    + '<div><div class="bonus-name" style="color:var(--gold-bright);font-size:1.05rem;">Plus gros score sur un match</div>'
+    + '<div class="bonus-pct">29% des primes annexes &mdash; prime la plus importante</div>'
+    + '<div style="margin-top:5px;font-family:\'Barlow Condensed\',sans-serif;font-size:0.9rem;">'
+    + (pw.plusGrosScore ? pseudoDisplay(pw.plusGrosScore) + (pw.plusGrosScoreVal ? ' &mdash; <strong style="color:var(--gold-bright)">' + pw.plusGrosScoreVal + ' pts</strong>' : '') : '<span style="color:var(--silver)">Aucune donn&#233;e</span>')
+    + '</div></div></div>'
+    + '<div class="bonus-amount" style="font-size:2rem;color:var(--gold-bright);">50 &#8364;</div>'
+    + '</div>';
+
+  /* Grille 4 bonus */
+  var bonusDefs = [
+    {key:'plusBonsRes', label:'Plus grand nombre de bons r&#233;sultats', pct:'18%',
+     detail: pw.plusBonsRes ? pseudoDisplay(pw.plusBonsRes) + (pw.plusBonsResVal ? ' &mdash; <strong>' + pw.plusBonsResVal + ' bons r&#233;s.</strong>' : '') : '&mdash;', color:'var(--silver)'},
+    {key:'plusExacts', label:'Plus grand nombre de scores exacts', pct:'18%',
+     detail: pw.plusExacts ? pseudoDisplay(pw.plusExacts) + (pw.plusExactsVal ? ' &mdash; <strong>' + pw.plusExactsVal + ' exacts</strong>' : '') : '&mdash;', color:'var(--silver)'},
+    {key:'vainqueurGroupes', label:'Leader phase de groupes', pct:'18%',
+     detail: pw.vainqueurGroupes ? pseudoDisplay(pw.vainqueurGroupes) + ' &mdash; <strong>leader actuel</strong>' : '&#9203; Phase de groupes en cours&hellip;', color:'var(--silver)'},
+    {key:'meilleureFemme', label:'Meilleure performance f&#233;minine', pct:'18%',
+     detail: pw.meilleureFemme ? pseudoDisplay(pw.meilleureFemme) + (pw.meilleureFemmeVal ? ' &mdash; <strong>' + pw.meilleureFemmeVal + ' pts</strong>' : '') : '&mdash;', color:'var(--rose)'}
+  ];
+
+  html += '<div class="bonus-grid">';
+  for (var i = 0; i < bonusDefs.length; i++) {
+    var bd = bonusDefs[i];
+    html += '<div class="bonus-card"><div>'
+      + '<div class="bonus-name">' + bd.label + '</div>'
+      + '<div class="bonus-pct">' + bd.pct + ' des primes annexes</div>'
+      + '<div style="margin-top:5px;font-family:\'Barlow Condensed\',sans-serif;font-size:0.88rem;color:' + bd.color + ';">' + bd.detail + '</div>'
+      + '</div><div class="bonus-amount">30 &#8364;</div></div>';
+  }
+  html += '</div>';
+
+  document.getElementById('prizepool-body').innerHTML = html;
+}
+
 /* ===== INIT ===== */
 renderTimeline();
 renderGroups();
@@ -980,6 +1174,7 @@ renderHOF();
 renderNews();
 renderParticipants();
 renderClassement();
+renderPrizepool();
 renderStats();
 </script>
 </body>
