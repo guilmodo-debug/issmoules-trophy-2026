@@ -97,28 +97,71 @@
   tbody tr{border-bottom:1px solid rgba(255,255,255,0.03);transition:background 0.15s;}
   tbody tr:hover{background:rgba(201,168,76,0.04);}
   td{padding:0.9rem 1.35rem;font-size:1rem;}
-  .rank-num{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;line-height:1;}
+  /* ===== LEADERBOARD REDESIGN ===== */
+  .rank-num{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;line-height:1;}
   .rank-1{color:var(--gold-bright);}.rank-2{color:#b8c8d8;}.rank-3{color:#cd7f32;}.rank-other{color:var(--silver);}
-  .player-name{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);}
+  .player-name{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;color:var(--white);}
   .player-prenom{font-size:0.82rem;color:var(--silver);font-family:'Barlow Condensed',sans-serif;margin-top:2px;}
   .prize-badge{display:inline-block;font-size:0.72rem;font-weight:900;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;padding:0.2rem 0.5rem;border-radius:3px;margin-top:4px;margin-right:3px;}
   .badge-gold{background:rgba(201,168,76,0.15);color:var(--gold-light);border:1px solid rgba(201,168,76,0.4);}
   .badge-silver{background:rgba(184,200,216,0.12);color:#b8c8d8;border:1px solid rgba(184,200,216,0.3);}
   .badge-bronze{background:rgba(205,127,50,0.12);color:#cd7f32;border:1px solid rgba(205,127,50,0.3);}
   .pts{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:var(--white);}
-  .pronostics-count{font-size:0.88rem;color:var(--silver);font-family:'Barlow Condensed',sans-serif;}
-  .exact-badge{display:inline-block;background:rgba(201,168,76,0.12);color:var(--gold-light);font-size:0.78rem;font-weight:700;padding:0.15rem 0.42rem;border-radius:3px;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;}
+  .pronostics-count{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;color:var(--white);}
+  .exact-badge{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;color:var(--white);font-weight:700;}
   .section-row td{padding:0.4rem 1.35rem;font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;}
   .section-podium td{background:rgba(201,168,76,0.07);color:var(--gold);border-top:1px solid rgba(201,168,76,0.25);}
   .section-chasse td{background:rgba(255,255,255,0.03);color:var(--silver);border-top:1px solid rgba(255,255,255,0.06);}
   .section-milieu td{background:rgba(255,255,255,0.02);color:rgba(136,153,187,0.6);border-top:1px solid rgba(255,255,255,0.04);}
   .section-fin td{background:rgba(192,57,43,0.04);color:rgba(192,57,43,0.6);border-top:1px solid rgba(192,57,43,0.1);}
 
-  /* JETON POKER */
+  /* Tier headers */
+  .tier-ldc td{background:linear-gradient(90deg,rgba(201,168,76,0.18),rgba(201,168,76,0.06));color:var(--gold-bright);border-top:2px solid rgba(201,168,76,0.5);border-bottom:1px solid rgba(201,168,76,0.2);}
+  .tier-el  td{background:linear-gradient(90deg,rgba(231,76,60,0.15),rgba(231,76,60,0.04));color:#ff7b6e;border-top:2px solid rgba(231,76,60,0.45);border-bottom:1px solid rgba(231,76,60,0.15);}
+  .tier-cl  td{background:linear-gradient(90deg,rgba(76,175,122,0.14),rgba(76,175,122,0.03));color:#6dd9a0;border-top:2px solid rgba(76,175,122,0.4);border-bottom:1px solid rgba(76,175,122,0.12);}
+  .tier-l1  td{background:linear-gradient(90deg,rgba(100,140,255,0.12),rgba(100,140,255,0.03));color:#90b4ff;border-top:2px solid rgba(100,140,255,0.35);border-bottom:1px solid rgba(100,140,255,0.1);}
+  .tier-l2  td{background:linear-gradient(90deg,rgba(136,153,187,0.1),rgba(136,153,187,0.02));color:rgba(136,153,187,0.85);border-top:2px solid rgba(136,153,187,0.25);border-bottom:1px solid rgba(136,153,187,0.08);}
+  .tier-d92 td{background:linear-gradient(90deg,rgba(192,57,43,0.1),rgba(192,57,43,0.02));color:rgba(255,120,100,0.7);border-top:2px solid rgba(192,57,43,0.3);border-bottom:1px solid rgba(192,57,43,0.1);}
+
+  /* Row styles par tier */
+  .row-ldc{background:rgba(201,168,76,0.035);}
+  .row-ldc:hover{background:rgba(201,168,76,0.08) !important;}
+  .row-el{background:rgba(231,76,60,0.025);}
+  .row-el:hover{background:rgba(231,76,60,0.07) !important;}
+  .row-cl{background:rgba(76,175,122,0.025);}
+  .row-cl:hover{background:rgba(76,175,122,0.07) !important;}
+  .row-l1,.row-l2,.row-d92{background:transparent;}
+
+  /* Séparation lignes */
+  #classement-tbody tr.data-row td{border-bottom:1px solid rgba(255,255,255,0.055);padding-top:0.75rem;padding-bottom:0.75rem;}
+  #classement-tbody tr.data-row:last-child td{border-bottom:none;}
+
+  /* Accentuation left border par tier */
+  #classement-tbody tr.row-ldc td:first-child{border-left:3px solid rgba(201,168,76,0.7);}
+  #classement-tbody tr.row-el  td:first-child{border-left:3px solid rgba(231,76,60,0.6);}
+  #classement-tbody tr.row-cl  td:first-child{border-left:3px solid rgba(76,175,122,0.5);}
+  #classement-tbody tr.row-l1  td:first-child{border-left:3px solid rgba(100,140,255,0.35);}
+  #classement-tbody tr.row-l2  td:first-child{border-left:3px solid rgba(136,153,187,0.25);}
+  #classement-tbody tr.row-d92 td:first-child{border-left:3px solid rgba(192,57,43,0.3);}
+
+  /* Tooltip infobulle — position relative au parent, collé à l'élément */
   .poker-token{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#111;border:2px solid #333;font-size:11px;cursor:default;position:relative;vertical-align:middle;margin-left:4px;flex-shrink:0;}
-  .poker-token .tooltip{display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(10,15,30,0.97);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.75rem;font-size:0.8rem;font-family:'Barlow Condensed',sans-serif;color:var(--gold-light);white-space:nowrap;z-index:200;letter-spacing:0.5px;box-shadow:0 4px 16px rgba(0,0,0,0.5);pointer-events:none;}
-  .poker-token .tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:rgba(201,168,76,0.3);}
-  .poker-token:hover .tooltip{display:block;}
+  .has-tooltip{position:relative;display:inline-flex;align-items:center;}
+  .tip{display:none;position:absolute;bottom:calc(100% + 7px);left:50%;transform:translateX(-50%);background:rgba(10,15,30,0.98);border:1px solid rgba(201,168,76,0.35);border-radius:7px;padding:0.42rem 0.8rem;font-size:0.8rem;font-family:'Barlow Condensed',sans-serif;color:var(--gold-light);white-space:nowrap;z-index:9000;box-shadow:0 4px 18px rgba(0,0,0,0.7);pointer-events:none;line-height:1.6;}
+  .tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:rgba(201,168,76,0.35);}
+  .tip-right{left:auto;right:0;transform:none;}
+  .tip-right::after{left:auto;right:10px;transform:none;}
+  .has-tooltip:hover .tip{display:block;}
+  /* Poker token hérite */
+  .poker-token .tip{bottom:calc(100% + 7px);left:50%;transform:translateX(-50%);}
+  .poker-token:hover .tip{display:block;}
+  /* Trophy */
+  .trophy-item{position:relative;display:inline-flex;cursor:default;}
+  .trophy-item:hover .tip{display:block;}
+  /* Badge X2 */
+  .x2-badge{display:inline-flex;align-items:center;justify-content:center;background:rgba(231,76,60,0.18);border:1px solid rgba(231,76,60,0.5);border-radius:4px;font-family:'Bebas Neue',sans-serif;font-size:0.78rem;color:var(--red-accent);padding:1px 5px;margin-left:4px;flex-shrink:0;vertical-align:middle;letter-spacing:1px;}
+
+
 
   /* PRIZEPOOL */
   .prize-section-title{font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);margin:1.25rem 0 0.75rem;}
@@ -332,12 +375,13 @@
         <div class="table-wrap">
           <table>
             <thead><tr>
-              <th style="width:50px">#</th>
+              <th style="width:52px">#</th>
               <th>Joueur</th>
               <th class="center">Points</th>
               <th class="center">Bons r&#233;s.</th>
               <th class="center">Exacts</th>
               <th class="center">Top score</th>
+              <th class="center" style="color:var(--red-accent);">X2</th>
             </tr></thead>
             <tbody id="classement-tbody"></tbody>
           </table>
@@ -503,7 +547,7 @@ var participants = [
   {prenom:"Marc",nom:"Paillot",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,pseudo:"Marco_Trez",mpp:true,vainqueur:"France",buteur:"Mbappe",poker:false},
   {prenom:"Mathieu",nom:"Le Brun",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,pseudo:"MathPsg-34",mpp:true,vainqueur:"France",buteur:"Kane",poker:false},
   {prenom:"Matthew",nom:"Domain",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,pseudo:"Matt_dmn07",mpp:true,vainqueur:"Portugal",buteur:"Autre",poker:false},
-  {prenom:"Maugan",nom:"",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,pseudo:"SousChomageEnBi1",mpp:true,vainqueur:"France",buteur:"Autre",poker:false},
+  {prenom:"Maugan",nom:"",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,pseudo:"SousChomageEnBi1",mpp:true,vainqueur:"France",buteur:"Autre",poker:true},
   {prenom:"Minouche",nom:"Poppins",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,pseudo:"MinouchePoppins",mpp:true,vainqueur:"France",buteur:"Lukaku",poker:false},
   {prenom:"Mohamed",nom:"Amine Bouzid",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,pseudo:"Madridal",mpp:true,vainqueur:"France",buteur:"Mbappe",poker:true},
   {prenom:"Morgan",nom:"Charles",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,pseudo:"GOAT#U4LT5UTR",mpp:true,vainqueur:"Portugal",buteur:"Kane",poker:true},
@@ -511,7 +555,7 @@ var participants = [
   {prenom:"Olivia",nom:"Ouakkal",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,pseudo:"Doucette45",mpp:true,vainqueur:"France",buteur:"Mbappe",poker:false},
   {prenom:"Pat",nom:"Modot",palmares:"2eme",infobulle:"2e Euro 2020",sexe:"F",facebook:true,paye:true,pseudo:"Patou75015",mpp:true,vainqueur:"Espagne",buteur:"Autre",poker:false},
   {prenom:"Paul",nom:"",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:false,pseudo:"LeP30600",mpp:true,vainqueur:"France",buteur:"Autre",poker:false},
-  {prenom:"Philippe",nom:"Platret",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:false,pseudo:"",mpp:false,vainqueur:"",buteur:"",poker:false},
+
   {prenom:"Remy",nom:"de Souza",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,pseudo:"ThisIsTheSouz",mpp:true,vainqueur:"France",buteur:"Kane",poker:false},
   {prenom:"Richard",nom:"Perie",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,pseudo:"richard#TN6D",mpp:true,vainqueur:"Italie",buteur:"Autre",poker:true},
   {prenom:"Sandra",nom:"Cath",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,pseudo:"Drass01",mpp:true,vainqueur:"France",buteur:"Mbappe",poker:false},
@@ -537,22 +581,22 @@ var participants = [
 /* Source: Google Sheet CLASSEMENT - mis a jour apres matchs 3,4,5,6 (14/06/2026) */
 var classementMPP = [
   {pseudo:"Bounette",pts:631,bons:6,exacts:4},
-  {pseudo:"ClutchK11",pts:620,bons:5,exacts:2},
-  {pseudo:"pacmania",pts:520,bons:5,exacts:2},
+  {pseudo:"ClutchK11",pts:620,bons:5,exacts:2,x2:true},
+  {pseudo:"pacmania",pts:520,bons:5,exacts:2,x2:true},
   {pseudo:"SousChomageEnBi1",pts:498,bons:5,exacts:2},
-  {pseudo:"TheRealWill",pts:471,bons:4,exacts:2,topScore:284},
+  {pseudo:"TheRealWill",pts:471,bons:4,exacts:2,topScore:284,x2:true},
   {pseudo:"Matt_dmn07",pts:446,bons:5,exacts:2},
   {pseudo:"Gloub94",pts:441,bons:4,exacts:3},
   {pseudo:"Integra",pts:422,bons:4,exacts:3},
-  {pseudo:"Waninho",pts:402,bons:4,exacts:2},
+  {pseudo:"Waninho",pts:402,bons:4,exacts:2,x2:true},
   {pseudo:"Babey94",pts:402,bons:4,exacts:2},
   {pseudo:"RZKABYLE",pts:400,bons:3,exacts:1},
   {pseudo:"Sobab",pts:381,bons:4,exacts:2},
-  {pseudo:"Soujackinho",pts:381,bons:3,exacts:1},
-  {pseudo:"MissionPoutrage",pts:379,bons:4,exacts:1},
+  {pseudo:"Soujackinho",pts:381,bons:3,exacts:1,x2:true},
+  {pseudo:"MissionPoutrage",pts:379,bons:4,exacts:1,x2:true},
   {pseudo:"Soutizz",pts:377,bons:4,exacts:1},
-  {pseudo:"JabbaThePunt",pts:374,bons:3,exacts:0},
-  {pseudo:"Claptou",pts:367,bons:3,exacts:0},
+  {pseudo:"JabbaThePunt",pts:374,bons:3,exacts:0,x2:true},
+  {pseudo:"Claptou",pts:367,bons:3,exacts:0,x2:true},
   {pseudo:"Marco_Trez",pts:336,bons:4,exacts:0},
   {pseudo:"PippoZenzaghi",pts:329,bons:4,exacts:2},
   {pseudo:"Elenou",pts:329,bons:4,exacts:2},
@@ -580,25 +624,25 @@ var classementMPP = [
   {pseudo:"-Zappa-",pts:235,bons:3,exacts:1},
   {pseudo:"BIBILEBG2308",pts:235,bons:3,exacts:0},
   {pseudo:"GOAT#U4LT5UTR",pts:216,bons:2,exacts:1},
-  {pseudo:"Doucette45",pts:214,bons:3,exacts:0},
+  {pseudo:"Doucette45",pts:214,bons:3,exacts:0,x2:true},
   {pseudo:"Ti-Bordo",pts:191,bons:2,exacts:0},
   {pseudo:"CoachPepito",pts:187,bons:3,exacts:1},
   {pseudo:"DESS_",pts:187,bons:3,exacts:1},
-  {pseudo:"LeP30600",pts:187,bons:3,exacts:1},
+  {pseudo:"LeP30600",pts:187,bons:3,exacts:1,x2:true},
   {pseudo:"Patou75015",pts:187,bons:3,exacts:1},
   {pseudo:"LeKlemant",pts:187,bons:3,exacts:1},
   {pseudo:"Manucaylus",pts:187,bons:3,exacts:1},
   {pseudo:"cisco118",pts:187,bons:3,exacts:1},
-  {pseudo:"richard#TN6D",pts:186,bons:2,exacts:1},
-  {pseudo:"William#UWN3",pts:167,bons:3,exacts:0},
+  {pseudo:"richard#TN6D",pts:186,bons:2,exacts:1,x2:true},
+  {pseudo:"William#UWN3",pts:167,bons:3,exacts:0,x2:true},
   {pseudo:"Giobeck",pts:167,bons:3,exacts:0},
   {pseudo:"MinouchePoppins",pts:167,bons:3,exacts:0},
   {pseudo:"Tams972",pts:167,bons:3,exacts:0},
   {pseudo:"Saymsonite",pts:167,bons:3,exacts:0},
-  {pseudo:"Fiffou07",pts:143,bons:2,exacts:1},
+  {pseudo:"Fiffou07",pts:143,bons:2,exacts:1,x2:true},
   {pseudo:"Lucy-Owen",pts:123,bons:2,exacts:0},
   {pseudo:"Phoenix25",pts:93,bons:2,exacts:0},
-  {pseudo:"JBMJ",pts:44,bons:1,exacts:0},
+  {pseudo:"JBMJ",pts:44,bons:1,exacts:0,x2:true},
   {pseudo:"Drass01",pts:44,bons:1,exacts:0}
 ];
 
@@ -614,25 +658,20 @@ var palmaresIcons = {"1er":"&#129351;","1er x2":"&#129351;&#129351;","2eme":"&#1
 
 function buildTrophyHtml(palmares, infobulle) {
   if (!palmares || !palmaresIcons[palmares]) return '';
-  return '<span class="trophy-wrap"><span class="trophy-item">' + palmaresIcons[palmares] + '<span class="tooltip">' + infobulle + '</span></span></span>';
+  return '<span class="trophy-item has-tooltip">' + palmaresIcons[palmares] + '<span class="tip">' + infobulle + '</span></span>';
 }
 
 function buildPokerHtml(showPoker) {
   if (!showPoker) return '';
-  return '<span class="poker-token">&#9827;<span class="tooltip">Joueur API Poker</span></span>';
+  return '<span class="poker-token has-tooltip">&#9827;<span class="tip">API Poker</span></span>';
+}
+
+function buildX2Html() {
+  return '<span class="x2-badge has-tooltip">x2<span class="tip tip-right">Bonus x2 d\u00e9j\u00e0 utilis\u00e9</span></span>';
 }
 
 /* ===== CLASSEMENT ===== */
 /* Tiers: LDC 1-5 | EL 6-10 | CL 11-16 | L1 17-28 | L2 29-42 | District 43+ */
-var tierDefs = [
-  {from:1,to:5,label:"&#127942; Ligue des Champions",style:"background:rgba(201,168,76,0.13);color:var(--gold);border-top:1px solid rgba(201,168,76,0.3);"},
-  {from:6,to:10,label:"&#127945; Europa League",style:"background:rgba(231,76,60,0.08);color:var(--red-accent);border-top:1px solid rgba(231,76,60,0.2);"},
-  {from:11,to:16,label:"&#127944; Conference League",style:"background:rgba(76,175,122,0.07);color:#4caf7a;border-top:1px solid rgba(76,175,122,0.2);"},
-  {from:17,to:28,label:"&#9917; Ligue 1",style:"background:rgba(136,153,187,0.06);color:var(--silver);border-top:1px solid rgba(136,153,187,0.15);"},
-  {from:29,to:42,label:"&#128197; Ligue 2",style:"background:rgba(136,153,187,0.04);color:rgba(136,153,187,0.7);border-top:1px solid rgba(136,153,187,0.1);"},
-  {from:43,to:999,label:"&#127968; District 92",style:"background:rgba(192,57,43,0.04);color:rgba(192,57,43,0.55);border-top:1px solid rgba(192,57,43,0.1);"}
-];
-
 /* ===== CALCUL AUTOMATIQUE DES PRIMES ===== */
 function computePrizeWinners() {
   /* Top 5 classement MPP */
@@ -734,9 +773,9 @@ function getGainBadgeHtml(pseudo, prizeWinners) {
   var hasGros = gains.some(function(g){ return g.key==='plusGrosScore'; });
   var coinColor = hasTop3 ? 'var(--gold-bright)' : hasGros ? 'var(--red-accent)' : 'var(--silver)';
 
-  return '<span class="gain-pill" style="position:relative;display:inline-flex;align-items:center;gap:3px;cursor:default;font-family:\'Barlow Condensed\',sans-serif;font-size:0.82rem;font-weight:900;color:' + coinColor + ';background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:4px;padding:2px 6px;margin-top:3px;vertical-align:middle;">'
+  return '<span class="gain-pill has-tooltip" style="display:inline-flex;align-items:center;gap:3px;cursor:default;font-family:\'Barlow Condensed\',sans-serif;font-size:0.82rem;font-weight:900;color:' + coinColor + ';background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:4px;padding:2px 6px;margin-left:4px;flex-shrink:0;vertical-align:middle;">'
     + '&#128176; +' + total + '&#8364;'
-    + '<span class="gain-tooltip" style="display:none;position:absolute;bottom:calc(100% + 6px);left:0;background:rgba(10,15,30,0.98);border:1px solid var(--border);border-radius:7px;padding:0.5rem 0.85rem;font-size:0.82rem;white-space:nowrap;z-index:300;box-shadow:0 4px 20px rgba(0,0,0,0.6);line-height:1.7;color:var(--white);min-width:180px;">' + tooltipLines + '</span>'
+    + '<span class="tip tip-right" style="min-width:180px;white-space:nowrap;line-height:1.8;">' + tooltipLines + '</span>'
     + '</span>';
 }
 
@@ -755,19 +794,38 @@ function renderClassement() {
     prevPts = classementMPP[i].pts;
   }
 
+  /* Tier mapping : classe CSS row + classe tier header */
+  var tierMap = [
+    {from:1,  to:5,  rowCls:'row-ldc', hdrCls:'tier-ldc', icon:'&#127942;', label:'Ligue des Champions', count:'Top 5'},
+    {from:6,  to:10, rowCls:'row-el',  hdrCls:'tier-el',  icon:'&#127945;', label:'Europa League',       count:'6\u200810'},
+    {from:11, to:16, rowCls:'row-cl',  hdrCls:'tier-cl',  icon:'&#127944;', label:'Conference League',    count:'11\u201316'},
+    {from:17, to:28, rowCls:'row-l1',  hdrCls:'tier-l1',  icon:'&#9917;',   label:'Ligue 1',             count:'17\u201328'},
+    {from:29, to:42, rowCls:'row-l2',  hdrCls:'tier-l2',  icon:'&#128197;', label:'Ligue 2',             count:'29\u201342'},
+    {from:43, to:999,rowCls:'row-d92', hdrCls:'tier-d92', icon:'&#127968;', label:'District 92',         count:'43+'}
+  ];
+
+  function getTierForRank(r) {
+    for (var t = 0; t < tierMap.length; t++) {
+      if (r >= tierMap[t].from && r <= tierMap[t].to) return tierMap[t];
+    }
+    return tierMap[tierMap.length-1];
+  }
+
   var tierInserted = {};
   for (var i = 0; i < classementMPP.length; i++) {
     var c = classementMPP[i];
     var r = trueRanks[i];
     var p = findParticipant(c.pseudo);
+    var tier = getTierForRank(r);
 
-    /* Insérer séparateur de tier si nécessaire */
-    for (var t = 0; t < tierDefs.length; t++) {
-      var td = tierDefs[t];
-      if (r >= td.from && r <= td.to && !tierInserted[td.from]) {
-        tierInserted[td.from] = true;
-        html += '<tr><td colspan="6" style="padding:0.35rem 1.35rem;font-family:\'Barlow Condensed\',sans-serif;font-size:0.72rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;' + td.style + '">' + td.label + '</td></tr>';
-      }
+    /* Insérer séparateur de tier */
+    if (!tierInserted[tier.from]) {
+      tierInserted[tier.from] = true;
+      html += '<tr class="' + tier.hdrCls + '">'
+        + '<td colspan="7" style="padding:0.45rem 1.2rem;font-family:\'Barlow Condensed\',sans-serif;font-size:0.72rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;">'
+        + '<span style="margin-right:6px;">' + tier.icon + '</span>' + tier.label
+        + '<span style="margin-left:8px;opacity:0.55;font-size:0.65rem;letter-spacing:2px;">' + tier.count + '</span>'
+        + '</td></tr>';
     }
 
     var rankClass = r === 1 ? 'rank-1' : (r === 2 ? 'rank-2' : (r === 3 ? 'rank-3' : 'rank-other'));
@@ -777,28 +835,30 @@ function renderClassement() {
     var trophy = p ? buildTrophyHtml(p.palmares, p.infobulle) : '';
     var poker = p ? buildPokerHtml(p.poker) : '';
     var gainBadge = getGainBadgeHtml(c.pseudo, pw);
-    var isTopScorer = c.topScore ? true : false;
+    var isTopScorer = !!c.topScore;
 
-    html += '<tr>';
-    html += '<td><span class="rank-num ' + rankClass + '">' + (r <= 3 ? ['','&#129351;','&#129352;','&#129353;'][r] : r) + '</span></td>';
-    html += '<td><div>';
-    html += '<div class="player-name' + (isFemme ? ' femme' : '') + '" style="' + (isFemme ? 'color:var(--rose);' : '') + 'display:flex;align-items:center;gap:4px;flex-wrap:wrap;">' + c.pseudo + trophy + poker + gainBadge + '</div>';
+    var bonsColor = c.bons >= 5 ? 'color:var(--gold-bright);' : c.bons >= 3 ? 'color:var(--white);' : 'color:rgba(255,255,255,0.5);';
+    var exactsColor = c.exacts >= 3 ? 'color:var(--gold-bright);' : c.exacts > 0 ? 'color:var(--white);' : 'color:rgba(255,255,255,0.35);';
+
+    html += '<tr class="data-row ' + tier.rowCls + '">';
+    html += '<td style="padding-left:1rem;width:52px;text-align:center;">'
+      + '<span class="rank-num ' + rankClass + '">' + (r <= 3 ? ['','&#129351;','&#129352;','&#129353;'][r] : r) + '</span>'
+      + '</td>';
+    html += '<td style="padding-left:0.75rem;">';
+    html += '<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
+    html += '<div class="player-name' + (isFemme ? ' femme' : '') + '" style="' + (isFemme ? 'color:var(--rose);' : '') + '">' + c.pseudo + '</div>';
+    html += trophy + poker + gainBadge;
+    html += '</div>';
     if (prenom || nomAffiche) html += '<div class="player-prenom">' + prenom + (nomAffiche ? ' ' + nomAffiche : '') + '</div>';
-    html += '</div></td>';
+    html += '</td>';
     html += '<td class="center"><span class="pts">' + c.pts + '</span></td>';
-    html += '<td class="center"><span class="pronostics-count" style="' + (c.bons >= 5 ? 'color:var(--gold-bright);font-weight:900;' : c.bons >= 3 ? 'color:var(--green-ok);' : '') + '">' + c.bons + '</span></td>';
-    html += '<td class="center"><span class="exact-badge" style="' + (c.exacts >= 3 ? 'background:rgba(201,168,76,0.25);color:var(--gold-bright);' : '') + '">' + c.exacts + '</span></td>';
-    html += '<td class="center"><span style="font-family:\'Bebas Neue\',sans-serif;font-size:1.1rem;color:' + (isTopScorer ? 'var(--gold-bright)' : 'var(--silver)') + '">' + (c.topScore ? '&#127942; ' + c.topScore : '-') + '</span></td>';
+    html += '<td class="center"><span class="pronostics-count" style="' + bonsColor + '">' + c.bons + '</span></td>';
+    html += '<td class="center"><span class="exact-badge" style="' + exactsColor + '">' + c.exacts + '</span></td>';
+    html += '<td class="center"><span style="font-family:\'Bebas Neue\',sans-serif;font-size:1.1rem;color:' + (isTopScorer ? 'var(--gold-bright)' : 'rgba(255,255,255,0.2)') + '">' + (c.topScore ? '&#127942; ' + c.topScore : '&mdash;') + '</span></td>';
+    html += '<td class="center">' + (c.x2 ? buildX2Html() : '<span style="color:rgba(255,255,255,0.15);font-size:0.8rem;">—</span>') + '</td>';
     html += '</tr>';
   }
   tbody.innerHTML = html;
-
-  /* Activer les tooltips gains au survol */
-  tbody.querySelectorAll('.gain-pill').forEach(function(pill) {
-    var tip = pill.querySelector('.gain-tooltip');
-    pill.addEventListener('mouseenter', function(){ tip.style.display = 'block'; });
-    pill.addEventListener('mouseleave', function(){ tip.style.display = 'none'; });
-  });
 }
 
 /* ===== PARTICIPANTS ===== */
