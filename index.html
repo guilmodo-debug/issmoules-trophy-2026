@@ -370,7 +370,7 @@
 
     <!-- CLASSEMENT LIVE -->
     <div class="tab-content active" id="tab-classement">
-      <div class="section-header"><h2>Classement Live</h2><p>Match 44 / 104 &mdash; France 3-0 Irak &middot; Norv&egrave;ge 4-2 S&eacute;n&eacute;gal &middot; Argentine 2-0 Jordanie &middot; Alg&eacute;rie 2-1 Autriche &mdash; 64 participants.</p></div>
+      <div class="section-header"><h2>Classement Live</h2><p>Match 48 / 104 &mdash; J2 Groupes K&amp;L : Colombie 5-1 Ouzb&#233;kistan, Portugal 4-1 RD Congo, Angleterre 1-1 Ghana, Croatie 2-0 Panama &mdash; J3 phase de groupes en cours &mdash; 64 participants.</p></div>
       <div class="card">
         <div class="table-wrap">
           <table>
@@ -429,17 +429,17 @@
 
     <!-- GROUPES -->
     <div class="tab-content" id="tab-groupes">
-      <div class="section-header"><h2>Groupes Mondial 2026</h2><p>12 groupes de 4 &#233;quipes. Les 2 premiers + 8 meilleurs 3es se qualifient pour les 32&#232;mes.</p></div>
+      <div class="section-header"><h2>Groupes Mondial 2026</h2><p>12 groupes de 4 &#233;quipes. Les 2 premiers + 8 meilleurs 3es se qualifient pour les 16&#232;mes.</p></div>
       <div class="groups-grid" id="groups-grid"></div>
     </div>
 
     <!-- CALENDRIER -->
     <div class="tab-content" id="tab-tableau">
       <div class="section-header"><h2>Calendrier</h2><p>Phase &#224; &#233;limination directe &mdash; &#224; partir du 29 juin 2026.</p></div>
-      <div class="bracket-note">&#9917; <strong>Phase de groupes</strong> en cours (11-27 juin). Le tableau se d&#233;voile &#224; l'issue des 72 matchs. Nouveau format 2026 : <strong>32&#232;mes de finale</strong> avant les huiti&#232;mes.</div>
+      <div class="bracket-note">&#9917; <strong>Phase de groupes</strong> en cours (11-27 juin). Le tableau se d&#233;voile &#224; l'issue des 72 matchs. Nouveau format 2026 : <strong>16&#232;mes de finale</strong> avant les huiti&#232;mes.</div>
       <div class="phases-timeline">
         <div class="phase-block" style="border-color:rgba(201,168,76,0.5);background:rgba(201,168,76,0.06)"><div class="phase-icon">&#9917;</div><div class="phase-info"><h3>Phase de Groupes</h3><p>12 groupes de 4 &mdash; 72 matchs</p></div><div class="phase-date" style="color:var(--red-accent)">EN COURS</div></div>
-        <div class="phase-block"><div class="phase-icon">&#9876;</div><div class="phase-info"><h3>32&#232;mes de Finale</h3><p>32 &#233;quipes &mdash; 16 matchs</p></div><div class="phase-date">29 JUIN &mdash; 3 JUIL</div></div>
+        <div class="phase-block"><div class="phase-icon">&#9876;</div><div class="phase-info"><h3>16&#232;mes de Finale</h3><p>32 &#233;quipes &mdash; 16 matchs</p></div><div class="phase-date">29 JUIN &mdash; 3 JUIL</div></div>
         <div class="phase-block"><div class="phase-icon">&#127919;</div><div class="phase-info"><h3>Huiti&#232;mes de Finale</h3><p>16 &#233;quipes &mdash; 8 matchs</p></div><div class="phase-date">4 &mdash; 7 JUIL</div></div>
         <div class="phase-block"><div class="phase-icon">&#128165;</div><div class="phase-info"><h3>Quarts de Finale</h3><p>8 &#233;quipes &mdash; 4 matchs</p></div><div class="phase-date">9 &mdash; 12 JUIL</div></div>
         <div class="phase-block"><div class="phase-icon">&#128293;</div><div class="phase-info"><h3>Demi-Finales</h3><p>4 &#233;quipes &mdash; 2 matchs</p></div><div class="phase-date">14 &mdash; 15 JUIL</div></div>
@@ -474,7 +474,7 @@
           <div class="rule-row"><span class="label">Egalite buteurs</span><span class="val val-white">Meilleur buteur officiel FIFA</span></div>
         </div>
         <div class="rule-card"><h3>Prolongations &amp; Tiebreak</h3>
-          <div class="rule-row"><span class="label">Prolongations</span><span class="val val-white">A partir des 32&#232;mes</span></div>
+          <div class="rule-row"><span class="label">Prolongations</span><span class="val val-white">A partir des 16&#232;mes</span></div>
           <div class="rule-row"><span class="label">R&#233;sultat apr&#232;s 120 min</span><span class="val val-white">Compte (pas les TAB)</span></div>
           <div class="rule-row"><span class="label">Ex : 1-1 puis 3-1 ap</span><span class="val val-white">2-1 victoire OK</span></div>
           <div class="rule-row"><span class="label">Ex : 1-1 puis 3-1 ap</span><span class="val val-red">1-1 = 0 point</span></div>
@@ -580,72 +580,71 @@ var participants = [
 /* ===== CLASSEMENT MPP JOURNEE 6 ===== */
 /* Source: Google Sheet CLASSEMENT - mis a jour apres matchs 3,4,5,6 (14/06/2026) */
 var classementMPP = [
-  {pseudo:"Matt_dmn07",pts:2325,bons:31,exacts:6,x2:true},
-  {pseudo:"Sobab",pts:2152,bons:29,exacts:6,x2:true},
-  {pseudo:"Gloub94",pts:2148,bons:24,exacts:8,x2:true},
-  {pseudo:"MathPsg-34",pts:2113,bons:31,exacts:5},
-  {pseudo:"GuiConstant",pts:1995,bons:29,exacts:9},
-  {pseudo:"ClutchK11",pts:1980,bons:28,exacts:5,x2:true},
-  {pseudo:"LeP30600",pts:1953,bons:28,exacts:8,x2:true},
-  {pseudo:"Waninho",pts:1919,bons:21,exacts:7,x2:true},
-  {pseudo:"Mamshino",pts:1814,bons:27,exacts:6,x2:true},
-  {pseudo:"Bounette",pts:1810,bons:25,exacts:7,x2:true},
-  {pseudo:"ThisIsTheSouz",pts:1787,bons:27,exacts:5,x2:true},
-  {pseudo:"LeKlemant",pts:1780,bons:24,exacts:5,x2:true},
-  {pseudo:"Losogre",pts:1752,bons:25,exacts:3,x2:true},
-  {pseudo:"LeonitoDoBraziou",pts:1712,bons:24,exacts:4},
-  {pseudo:"pacmania",pts:1707,bons:25,exacts:7,x2:true},
-  {pseudo:"TheRealWill",pts:1689,bons:23,exacts:6,x2:true},
-  {pseudo:"Integra",pts:1688,bons:21,exacts:7,x2:true},
-  {pseudo:"CoachPepito",pts:1687,bons:26,exacts:6},
-  {pseudo:"Babey94",pts:1660,bons:20,exacts:4,topScore:320,x2:true},
-  {pseudo:"Massyalla",pts:1639,bons:25,exacts:6,x2:true},
-  {pseudo:"Patou75015",pts:1638,bons:26,exacts:4,x2:true},
-  {pseudo:"ZEROO",pts:1637,bons:25,exacts:4,x2:true},
-  {pseudo:"MissionPoutrage",pts:1635,bons:22,exacts:5,x2:true},
+  {pseudo:"Matt_dmn07",pts:2462,bons:34,exacts:6,x2:true},
+  {pseudo:"Sobab",pts:2339,bons:32,exacts:7,x2:true},
+  {pseudo:"Gloub94",pts:2285,bons:27,exacts:8,x2:true},
+  {pseudo:"MathPsg-34",pts:2250,bons:34,exacts:5},
+  {pseudo:"GuiConstant",pts:2132,bons:32,exacts:9},
+  {pseudo:"ClutchK11",pts:2117,bons:31,exacts:5,x2:true},
+  {pseudo:"Waninho",pts:2096,bons:22,exacts:8,x2:true},
+  {pseudo:"LeP30600",pts:2090,bons:31,exacts:8,x2:true},
+  {pseudo:"Mamshino",pts:1951,bons:30,exacts:6,x2:true},
+  {pseudo:"LeonitoDoBraziou",pts:1899,bons:27,exacts:5},
+  {pseudo:"ThisIsTheSouz",pts:1897,bons:29,exacts:6,x2:true},
+  {pseudo:"ZEROO",pts:1874,bons:28,exacts:6,x2:true},
+  {pseudo:"Bounette",pts:1870,bons:27,exacts:7,x2:true},
+  {pseudo:"SousChomageEnBi1",pts:1849,bons:27,exacts:6},
+  {pseudo:"LeKlemant",pts:1840,bons:26,exacts:5,x2:true},
+  {pseudo:"Patou75015",pts:1825,bons:29,exacts:5,x2:true},
+  {pseudo:"CoachPepito",pts:1824,bons:29,exacts:6},
+  {pseudo:"Losogre",pts:1812,bons:27,exacts:3,x2:true},
+  {pseudo:"Fiffou07",pts:1809,bons:26,exacts:5,x2:true},
+  {pseudo:"Integra",pts:1789,bons:23,exacts:7,x2:true},
+  {pseudo:"Massyalla",pts:1776,bons:28,exacts:6,x2:true},
+  {pseudo:"pacmania",pts:1767,bons:27,exacts:7,x2:true},
+  {pseudo:"TheRealWill",pts:1749,bons:25,exacts:6,x2:true},
+  {pseudo:"Prophane",pts:1749,bons:27,exacts:4,x2:true},
+  {pseudo:"Phoenix25",pts:1740,bons:28,exacts:6,x2:true},
+  {pseudo:"PippoZenzaghi",pts:1740,bons:23,exacts:6},
+  {pseudo:"Marco_Trez",pts:1721,bons:27,exacts:2,x2:true},
+  {pseudo:"Babey94",pts:1720,bons:22,exacts:4,topScore:320,x2:true},
+  {pseudo:"APILena",pts:1716,bons:28,exacts:4},
+  {pseudo:"Doucette45",pts:1701,bons:26,exacts:3,x2:true},
+  {pseudo:"JBMJ",pts:1681,bons:27,exacts:3,x2:true},
+  {pseudo:"Lucas2309",pts:1663,bons:22,exacts:9},
+  {pseudo:"MissionPoutrage",pts:1659,bons:23,exacts:5,x2:true},
+  {pseudo:"MidooR2D2",pts:1647,bons:20,exacts:6,x2:true},
+  {pseudo:"LaHyeneIntrepide",pts:1633,bons:25,exacts:3},
+  {pseudo:"Madridal",pts:1621,bons:25,exacts:4},
   {pseudo:"Lion1008",pts:1618,bons:24,exacts:6},
-  {pseudo:"Prophane",pts:1612,bons:24,exacts:4,x2:true},
-  {pseudo:"SousChomageEnBi1",pts:1612,bons:24,exacts:4},
-  {pseudo:"Phoenix25",pts:1603,bons:25,exacts:6,x2:true},
-  {pseudo:"Doucette45",pts:1600,bons:24,exacts:3,x2:true},
-  {pseudo:"Marco_Trez",pts:1584,bons:24,exacts:2,x2:true},
-  {pseudo:"APILena",pts:1579,bons:25,exacts:4},
-  {pseudo:"Madridal",pts:1561,bons:23,exacts:4},
-  {pseudo:"Gros783433",pts:1546,bons:18,exacts:5,x2:true},
-  {pseudo:"JBMJ",pts:1544,bons:24,exacts:3,x2:true},
-  {pseudo:"LaHyeneIntrepide",pts:1496,bons:22,exacts:3},
-  {pseudo:"Fiffou07",pts:1495,bons:22,exacts:4,x2:true},
-  {pseudo:"DESS_",pts:1484,bons:24,exacts:5},
-  {pseudo:"Lucy-Owen",pts:1472,bons:20,exacts:5},
-  {pseudo:"RZKABYLE",pts:1470,bons:16,exacts:4},
-  {pseudo:"MidooR2D2",pts:1460,bons:17,exacts:5,x2:true},
-  {pseudo:"Elenou",pts:1450,bons:23,exacts:5,x2:true},
-  {pseudo:"edurrrrrrr",pts:1437,bons:22,exacts:4,x2:true},
-  {pseudo:"GusModot",pts:1436,bons:23,exacts:5},
-  {pseudo:"PippoZenzaghi",pts:1426,bons:19,exacts:5},
-  {pseudo:"FCZakos",pts:1410,bons:20,exacts:2,x2:true},
-  {pseudo:"Lucas2309",pts:1406,bons:19,exacts:7},
-  {pseudo:"BobbyWanKenoby",pts:1389,bons:22,exacts:4,x2:true},
-  {pseudo:"GOAT#U4LT5UTR",pts:1389,bons:21,exacts:3,x2:true},
-  {pseudo:"Saymsonite",pts:1377,bons:22,exacts:3},
-  {pseudo:"William#UWN3",pts:1349,bons:24,exacts:1,x2:true},
-  {pseudo:"MinouchePoppins",pts:1331,bons:23,exacts:2,x2:true},
+  {pseudo:"FCZakos",pts:1597,bons:23,exacts:2,x2:true},
+  {pseudo:"Gros783433",pts:1582,bons:19,exacts:5,x2:true},
+  {pseudo:"Elenou",pts:1580,bons:25,exacts:6,x2:true},
+  {pseudo:"GusModot",pts:1573,bons:26,exacts:5},
+  {pseudo:"Claptou",pts:1545,bons:23,exacts:3,x2:true},
+  {pseudo:"Lucy-Owen",pts:1532,bons:22,exacts:5},
+  {pseudo:"BobbyWanKenoby",pts:1526,bons:25,exacts:4,x2:true},
+  {pseudo:"Saymsonite",pts:1514,bons:25,exacts:3},
+  {pseudo:"DESS_",pts:1508,bons:25,exacts:5},
+  {pseudo:"edurrrrrrr",pts:1497,bons:24,exacts:4,x2:true},
+  {pseudo:"RZKABYLE",pts:1494,bons:17,exacts:4},
+  {pseudo:"cisco118",pts:1466,bons:26,exacts:3,x2:true},
+  {pseudo:"GOAT#U4LT5UTR",pts:1449,bons:23,exacts:3,x2:true},
+  {pseudo:"William#UWN3",pts:1409,bons:26,exacts:1,x2:true},
+  {pseudo:"MinouchePoppins",pts:1391,bons:25,exacts:2,x2:true},
+  {pseudo:"Tams972",pts:1330,bons:24,exacts:4,x2:true},
   {pseudo:"Ti-Bordo",pts:1324,bons:17,exacts:0},
-  {pseudo:"cisco118",pts:1293,bons:23,exacts:3},
-  {pseudo:"Claptou",pts:1281,bons:19,exacts:3,x2:true},
-  {pseudo:"Tams972",pts:1270,bons:22,exacts:4,x2:true},
-  {pseudo:"Drass01",pts:1260,bons:20,exacts:1,x2:true},
-  {pseudo:"BIBILEBG2308",pts:1217,bons:20,exacts:2},
-  {pseudo:"Soutizz",pts:1153,bons:13,exacts:2},
-  {pseudo:"Manucaylus",pts:1141,bons:21,exacts:3,x2:true},
-  {pseudo:"Giobeck",pts:1109,bons:18,exacts:3},
+  {pseudo:"Drass01",pts:1320,bons:22,exacts:1,x2:true},
+  {pseudo:"Soutizz",pts:1280,bons:14,exacts:2},
+  {pseudo:"Manucaylus",pts:1278,bons:24,exacts:3,x2:true},
+  {pseudo:"BIBILEBG2308",pts:1277,bons:22,exacts:2},
+  {pseudo:"Soujackinho",pts:1141,bons:17,exacts:2,x2:true},
+  {pseudo:"Giobeck",pts:1133,bons:19,exacts:3},
+  {pseudo:"Dedelforever",pts:1102,bons:14,exacts:3},
   {pseudo:"JabbaThePunt",pts:1072,bons:16,exacts:0,x2:true},
-  {pseudo:"Soujackinho",pts:1040,bons:15,exacts:2,x2:true},
-  {pseudo:"Dedelforever",pts:975,bons:13,exacts:3},
   {pseudo:"richard#TN6D",pts:908,bons:12,exacts:3,x2:true},
   {pseudo:"-Zappa-",pts:791,bons:13,exacts:2}
 ];
-
 
 /* Mapping pseudo -> participant */
 function findParticipant(pseudo) {
@@ -953,7 +952,7 @@ function renderStats() {
 var timelinePhases = [
   {label:"Inscriptions",status:"done"},
   {label:"Groupes",status:"active"},
-  {label:"32&#232;mes",status:"upcoming"},
+  {label:"16&#232;mes",status:"upcoming"},
   {label:"8&#232;mes",status:"upcoming"},
   {label:"Quarts",status:"upcoming"},
   {label:"Demis",status:"upcoming"},
@@ -998,53 +997,53 @@ var groups = [
     {flag:"&#127477;&#127486;",name:"Paraguay",j:2,g:1,n:0,p:1,bp:2,bc:4,pts:3},
     {flag:"&#127481;&#127479;",name:"Turquie",j:2,g:0,n:0,p:2,bp:0,bc:3,pts:0}
   ]},
-  {letter:"E",matchs:4,teams:[
-    {flag:"&#127465;&#127466;",name:"Allemagne",j:2,g:2,n:0,p:0,bp:9,bc:2,pts:6},
-    {flag:"&#127464;&#127470;",name:"C&#244;te d&#39;Ivoire",j:2,g:1,n:0,p:1,bp:2,bc:2,pts:3},
-    {flag:"&#127466;&#127464;",name:"Equateur",j:2,g:0,n:1,p:1,bp:0,bc:1,pts:1},
-    {flag:"&#127464;&#127484;",name:"Curacao",j:2,g:0,n:1,p:1,bp:1,bc:7,pts:1}
+  {letter:"E",matchs:2,teams:[
+    {flag:"&#127465;&#127466;",name:"Allemagne",j:1,g:1,n:0,p:0,bp:7,bc:1,pts:3},
+    {flag:"&#127464;&#127470;",name:"C&#244;te d&#39;Ivoire",j:1,g:1,n:0,p:0,bp:1,bc:0,pts:3},
+    {flag:"&#127466;&#127464;",name:"Equateur",j:1,g:0,n:0,p:1,bp:0,bc:1,pts:0},
+    {flag:"&#127464;&#127484;",name:"Curacao",j:1,g:0,n:0,p:1,bp:1,bc:7,pts:0}
   ]},
-  {letter:"F",matchs:4,teams:[
-    {flag:"&#127475;&#127473;",name:"Pays-Bas",j:2,g:1,n:1,p:0,bp:7,bc:3,pts:4},
-    {flag:"&#127471;&#127477;",name:"Japon",j:2,g:1,n:1,p:0,bp:6,bc:2,pts:4},
-    {flag:"&#127480;&#127466;",name:"Su&#232;de",j:2,g:1,n:0,p:1,bp:6,bc:6,pts:3},
-    {flag:"&#127481;&#127475;",name:"Tunisie",j:2,g:0,n:0,p:2,bp:1,bc:9,pts:0}
+  {letter:"F",matchs:2,teams:[
+    {flag:"&#127480;&#127466;",name:"Su&#232;de",j:1,g:1,n:0,p:0,bp:5,bc:1,pts:3},
+    {flag:"&#127471;&#127477;",name:"Japon",j:1,g:0,n:1,p:0,bp:2,bc:2,pts:1},
+    {flag:"&#127475;&#127473;",name:"Pays-Bas",j:1,g:0,n:1,p:0,bp:2,bc:2,pts:1},
+    {flag:"&#127481;&#127475;",name:"Tunisie",j:1,g:0,n:0,p:1,bp:1,bc:5,pts:0}
   ]},
-  {letter:"G",matchs:4,teams:[
-    {flag:"&#127466;&#127468;",name:"Egypte",j:2,g:1,n:1,p:0,bp:4,bc:2,pts:4},
-    {flag:"&#127470;&#127479;",name:"Iran",j:2,g:0,n:2,p:0,bp:2,bc:2,pts:2},
-    {flag:"&#127463;&#127466;",name:"Belgique",j:2,g:0,n:2,p:0,bp:1,bc:1,pts:2},
-    {flag:"&#127475;&#127487;",name:"Nouvelle-Z&#233;lande",j:2,g:0,n:1,p:1,bp:3,bc:5,pts:1}
+  {letter:"G",matchs:2,teams:[
+    {flag:"&#127475;&#127487;",name:"Nouvelle-Z&#233;lande",j:1,g:0,n:1,p:0,bp:2,bc:2,pts:1},
+    {flag:"&#127470;&#127479;",name:"Iran",j:1,g:0,n:1,p:0,bp:2,bc:2,pts:1},
+    {flag:"&#127463;&#127466;",name:"Belgique",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1},
+    {flag:"&#127466;&#127468;",name:"Egypte",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1}
   ]},
-  {letter:"H",matchs:4,teams:[
-    {flag:"&#127466;&#127480;",name:"Espagne",j:2,g:1,n:1,p:0,bp:4,bc:0,pts:4},
-    {flag:"&#127482;&#127486;",name:"Uruguay",j:2,g:0,n:2,p:0,bp:3,bc:3,pts:2},
-    {flag:"&#127464;&#127483;",name:"Cap-Vert",j:2,g:0,n:2,p:0,bp:2,bc:2,pts:2},
-    {flag:"&#127480;&#127462;",name:"Arabie Saoudite",j:2,g:0,n:1,p:1,bp:1,bc:5,pts:1}
+  {letter:"H",matchs:2,teams:[
+    {flag:"&#127482;&#127486;",name:"Uruguay",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1},
+    {flag:"&#127480;&#127462;",name:"Arabie Saoudite",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1},
+    {flag:"&#127466;&#127480;",name:"Espagne",j:1,g:0,n:1,p:0,bp:0,bc:0,pts:1},
+    {flag:"&#127464;&#127483;",name:"Cap-Vert",j:1,g:0,n:1,p:0,bp:0,bc:0,pts:1}
   ]},
-  {letter:"I",matchs:4,teams:[
-    {flag:"&#127467;&#127479;",name:"France",j:2,g:2,n:0,p:0,bp:6,bc:1,pts:6},
-    {flag:"&#127475;&#127476;",name:"Norv&#232;ge",j:2,g:2,n:0,p:0,bp:7,bc:3,pts:6},
-    {flag:"&#127480;&#127475;",name:"S&#233;n&#233;gal",j:2,g:0,n:0,p:2,bp:3,bc:6,pts:0},
-    {flag:"&#127470;&#127478;",name:"Irak",j:2,g:0,n:0,p:2,bp:1,bc:7,pts:0}
+  {letter:"I",matchs:2,teams:[
+    {flag:"&#127475;&#127476;",name:"Norv&#232;ge",j:1,g:1,n:0,p:0,bp:4,bc:1,pts:3},
+    {flag:"&#127467;&#127479;",name:"France",j:1,g:1,n:0,p:0,bp:3,bc:1,pts:3},
+    {flag:"&#127480;&#127475;",name:"S&#233;n&#233;gal",j:1,g:0,n:0,p:1,bp:1,bc:3,pts:0},
+    {flag:"&#127470;&#127478;",name:"Irak",j:1,g:0,n:0,p:1,bp:1,bc:4,pts:0}
   ]},
-  {letter:"J",matchs:4,teams:[
-    {flag:"&#127462;&#127479;",name:"Argentine",j:2,g:2,n:0,p:0,bp:5,bc:0,pts:6},
-    {flag:"&#127462;&#127481;",name:"Autriche",j:2,g:1,n:0,p:1,bp:3,bc:3,pts:3},
-    {flag:"&#127465;&#127487;",name:"Alg&#233;rie",j:2,g:1,n:0,p:1,bp:2,bc:4,pts:3},
-    {flag:"&#127471;&#127476;",name:"Jordanie",j:2,g:0,n:0,p:2,bp:2,bc:5,pts:0}
+  {letter:"J",matchs:2,teams:[
+    {flag:"&#127462;&#127479;",name:"Argentine",j:1,g:1,n:0,p:0,bp:3,bc:0,pts:3},
+    {flag:"&#127462;&#127481;",name:"Autriche",j:1,g:1,n:0,p:0,bp:3,bc:1,pts:3},
+    {flag:"&#127471;&#127476;",name:"Jordanie",j:1,g:0,n:0,p:1,bp:1,bc:3,pts:0},
+    {flag:"&#127465;&#127487;",name:"Alg&#233;rie",j:1,g:0,n:0,p:1,bp:0,bc:3,pts:0}
   ]},
-  {letter:"K",matchs:2,teams:[
-    {flag:"&#127464;&#127476;",name:"Colombie",j:1,g:1,n:0,p:0,bp:3,bc:1,pts:3},
-    {flag:"&#127464;&#127465;",name:"RD Congo",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1},
-    {flag:"&#127477;&#127481;",name:"Portugal",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1},
-    {flag:"&#127482;&#127487;",name:"Ouzb&#233;kistan",j:1,g:0,n:0,p:1,bp:1,bc:3,pts:0}
+  {letter:"K",matchs:4,teams:[
+    {flag:"&#127464;&#127476;",name:"Colombie",j:2,g:2,n:0,p:0,bp:8,bc:2,pts:6},
+    {flag:"&#127477;&#127481;",name:"Portugal",j:2,g:1,n:1,p:0,bp:5,bc:2,pts:4},
+    {flag:"&#127464;&#127465;",name:"RD Congo",j:2,g:0,n:1,p:1,bp:2,bc:5,pts:1},
+    {flag:"&#127482;&#127487;",name:"Ouzb&#233;kistan",j:2,g:0,n:0,p:2,bp:2,bc:8,pts:0}
   ]},
-  {letter:"L",matchs:2,teams:[
-    {flag:"&#127988;",name:"Angleterre",j:1,g:1,n:0,p:0,bp:4,bc:2,pts:3},
-    {flag:"&#127468;&#127469;",name:"Ghana",j:1,g:1,n:0,p:0,bp:1,bc:0,pts:3},
-    {flag:"&#127477;&#127462;",name:"Panama",j:1,g:0,n:0,p:1,bp:0,bc:1,pts:0},
-    {flag:"&#127469;&#127479;",name:"Croatie",j:1,g:0,n:0,p:1,bp:2,bc:4,pts:0}
+  {letter:"L",matchs:4,teams:[
+    {flag:"&#127988;",name:"Angleterre",j:2,g:1,n:1,p:0,bp:5,bc:3,pts:4},
+    {flag:"&#127468;&#127469;",name:"Ghana",j:2,g:1,n:1,p:0,bp:2,bc:1,pts:4},
+    {flag:"&#127469;&#127479;",name:"Croatie",j:2,g:1,n:0,p:1,bp:4,bc:5,pts:3},
+    {flag:"&#127477;&#127462;",name:"Panama",j:2,g:0,n:0,p:2,bp:0,bc:2,pts:0}
   ]}
 ];
 
@@ -1100,7 +1099,8 @@ function renderHOF() {
 
 /* ===== RADIO ===== */
 var newsData = [
-  {time:"23 juin 2026",type:"exploit",text:"MATCHS 41-44 &#8212; La France &#233;crase l&#8217;Irak 3-0 et la Norv&#232;ge &#233;limine le S&#233;n&#233;gal 4-2 : groupes I qualifi&#233;s ! L&#8217;Argentine confirme sa domination (2-0 face &#224; la Jordanie), l&#8217;Alg&#233;rie cr&#233;e la surprise en battant l&#8217;Autriche 2-1. Au classement Issmoules, Matt_dmn07 (Matthew) s&#8217;envole &#224; 2325 pts &#8212; le nouveau record du concours ! Gloub94 (Steven) et Sobab (S&#233;bastien) se disputent la 2e place dans un mouchoir. La phase de groupes touche &#224; sa fin !"},{time:"22 juin 2026",type:"drama",text:"MATCHS 33-40 &#8212; L&#8217;Allemagne d&#233;roule encore (9 buts en 2 matchs !), le Japon explose la Tunisie 4-0, l&#8217;Egypte cr&#233;e la surprise en t&#234;te du groupe G. L&#8217;Espagne &#233;crase l&#8217;Arabie Saoudite 4-0 et prend la t&#234;te du groupe H. Au classement Issmoules, Matt_dmn07 (Matthew) s&#8217;envole &#224; 2143 pts avec une avance confortable. Gloub94 (Steven) et MathPsg-34 (Mathieu) se disputent la 2e place &#224; quelques petits points !"},
+  {time:"24 juin 2026",type:"drama",text:"JOURNÉES 45-48 — J2 des groupes K &amp; L : la Colombie écrase l'Ouzbékistan 5-1 et file vers les 16èmes, le Portugal s'impose 4-1 face à la RD Congo. Angleterre et Ghana se neutralisent (1-1), la Croatie relance ses chances en battant Panama 2-0. La J3 commence aujourd'hui — tout peut encore basculer !"},
+  {time:"20 juin 2026",type:"drama",text:"JOURN&#201;ES 29-32 &#8212; Le Br&#233;sil se r&#233;veille et &#233;crase Ha&#239;ti 3-0, Maroc &#233;limine l&#8217;&#201;cosse 1-0 (adieu les Tartans !). Dans le groupe D, les &#201;tats-Unis sont d&#233;j&#224; qualifi&#233;s (6 pts) apr&#232;s leur 2e victoire face &#224; la Turquie 2-0. L&#8217;Australie bat le Paraguay 2-1 dans un duel haletant. Au classement Issmoules, Matt_dmn07 (Matthew) reste en t&#234;te &#224; 1463 pts &#8212; mais les poursuivants ne l&#226;chent pas !"},
   {time:"14 juin 2026",type:"drama",text:"JOURNEE 6 COMPLETE \u2014 Qatar 1-1 Suisse, Br\u00e9sil 1-1 Maroc, Ha\u00efti 0-1 \u00c9cosse, Australie 2-0 Turquie. La surprise du chef : l'\u00c9cosse prend la t\u00eate du Groupe C devant les Br\u00e9siliens, et l'Australie \u00e9crase la Turquie ! Bounette (Fanny) s'envole en t\u00eate du classement avec 631 pts."},
   {time:"13 juin 2026",type:"drama",text:"\u00c9TATS-UNIS 4-1 PARAGUAY \u2014 Les Am\u00e9ricains d\u00e9marrent en trombe \u00e0 domicile ! Ben Hamadache s\u2019envole en t\u00eate du classement avec 381 pts. Nouvelle hi\u00e9rarchie, nouvelle tension."},
   {time:"13 juin 2026",type:"info",text:"CANADA 1-1 BOSNIE \u2014 Match nul au Groupe B. \u00c9galit\u00e9 parfaite entre les deux \u00e9quipes, Suisse et Qatar n\u2019ont pas encore jou\u00e9."},
