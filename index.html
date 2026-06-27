@@ -245,9 +245,43 @@
   .team-stat{text-align:center;min-width:20px;}
   .team-stat.pts-stat{color:var(--gold-light);font-weight:700;}
 
-  /* BRACKET / CALENDRIER */
+  /* TOURNOI — sous-onglets */
+  .tour-tabs{display:flex;gap:0.5rem;margin-bottom:1.5rem;border-bottom:1px solid var(--border);padding-bottom:0.75rem;}
+  .tour-tab-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:0.45rem 1.1rem;font-family:'Barlow Condensed',sans-serif;font-size:0.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);cursor:pointer;transition:all 0.2s;}
+  .tour-tab-btn.active,.tour-tab-btn:hover{background:rgba(201,168,76,0.1);border-color:rgba(201,168,76,0.5);color:var(--gold-light);}
+  .tour-panel{display:none;}.tour-panel.active{display:block;}
+
+  /* BRACKET / TABLEAU ELIMINATOIRE */
   .bracket-note{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:1.1rem 1.5rem;margin-bottom:1.5rem;font-family:'Barlow Condensed',sans-serif;font-size:0.95rem;color:var(--silver);}
   .bracket-note strong{color:var(--gold-light);}
+  .bracket-wrapper{overflow-x:auto;padding-bottom:1rem;}
+  .bracket{display:flex;gap:0;min-width:900px;}
+  .bracket-col{display:flex;flex-direction:column;flex:1;min-width:160px;}
+  .bracket-col-header{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:3px;color:var(--gold);text-align:center;padding:0.6rem 0.5rem;border-bottom:1px solid rgba(201,168,76,0.25);margin-bottom:0.5rem;background:rgba(201,168,76,0.04);}
+  .bracket-matches{display:flex;flex-direction:column;justify-content:space-around;flex:1;padding:0.5rem 0.3rem;gap:0;}
+  .bracket-match{display:flex;flex-direction:column;gap:2px;margin:auto 0;padding:6px 4px;position:relative;}
+  .bracket-team{display:flex;align-items:center;gap:5px;background:var(--navy-card);border:1px solid var(--border);border-radius:4px;padding:5px 8px;font-family:'Barlow Condensed',sans-serif;font-size:0.82rem;font-weight:600;color:var(--white);min-width:130px;transition:border-color 0.2s;}
+  .bracket-team:hover{border-color:rgba(201,168,76,0.3);}
+  .bracket-team.tbd{color:var(--silver);font-style:italic;background:rgba(255,255,255,0.02);}
+  .bracket-team.winner{border-color:rgba(201,168,76,0.6);background:rgba(201,168,76,0.08);color:var(--gold-light);}
+  .bracket-flag{font-size:1rem;flex-shrink:0;}
+  .bracket-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .bracket-score{font-family:'Bebas Neue',sans-serif;font-size:0.95rem;color:var(--gold);min-width:18px;text-align:right;flex-shrink:0;}
+  .bracket-connector{display:flex;align-items:center;justify-content:center;height:24px;}
+  .bracket-connector-line{width:2px;height:100%;background:rgba(201,168,76,0.2);}
+  .bracket-date{font-size:0.7rem;color:var(--silver);font-family:'Barlow Condensed',sans-serif;text-align:center;margin-top:3px;letter-spacing:0.5px;}
+  /* Final col */
+  .bracket-col.final-col .bracket-matches{justify-content:center;}
+  .bracket-col.final-col .bracket-team{min-width:145px;font-size:0.9rem;padding:8px 10px;}
+  .bracket-col.final-col .bracket-team.winner{border-color:var(--gold);border-width:2px;font-size:1rem;}
+  .trophy-icon{font-size:1.4rem;text-align:center;margin:0.5rem 0 0.25rem;}
+  /* 3e place */
+  .third-place-box{margin-top:1.5rem;background:rgba(136,153,187,0.05);border:1px solid var(--border);border-radius:8px;padding:1rem 1.5rem;}
+  .third-place-box h4{font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--silver);margin-bottom:0.75rem;}
+  .third-place-teams{display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;}
+  .vs-sep{font-family:'Bebas Neue',sans-serif;color:var(--silver);font-size:1.1rem;}
+
+  /* BRACKET / CALENDRIER (legacy) */
   .phases-timeline{display:flex;flex-direction:column;gap:0.85rem;}
   .phase-block{background:var(--navy-card);border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1.5rem;}
   .phase-icon{font-size:1.9rem;flex-shrink:0;width:46px;text-align:center;}
@@ -356,8 +390,7 @@
     <button class="nav-btn" onclick="switchTab('finance')" id="nav-finance"><span class="nav-icon">&#128176;</span> Prizepool</button>
     <button class="nav-btn" onclick="switchTab('participants')" id="nav-participants"><span class="nav-icon">&#128101;</span> Participants</button>
     <button class="nav-btn" onclick="switchTab('stats')" id="nav-stats"><span class="nav-icon">&#128302;</span> Statistiques</button>
-    <button class="nav-btn" onclick="switchTab('groupes')" id="nav-groupes"><span class="nav-icon">&#9917;</span> Groupes CM2026</button>
-    <button class="nav-btn" onclick="switchTab('tableau')" id="nav-tableau"><span class="nav-icon">&#128197;</span> Calendrier</button>
+    <button class="nav-btn" onclick="switchTab('groupes')" id="nav-groupes"><span class="nav-icon">&#127942;</span> Tableau du Tournoi</button>
     <button class="nav-btn" onclick="switchTab('regles')" id="nav-regles"><span class="nav-icon">&#128203;</span> Regles du jeu</button>
     <button class="nav-btn" onclick="switchTab('hof')" id="nav-hof"><span class="nav-icon">&#11088;</span> Hall of Fame</button>
     <button class="nav-btn" onclick="switchTab('radio')" id="nav-radio"><span class="nav-icon">&#128251;</span> Radio Vestiaire</button>
@@ -429,21 +462,20 @@
 
     <!-- GROUPES -->
     <div class="tab-content" id="tab-groupes">
-      <div class="section-header"><h2>Groupes Mondial 2026</h2><p>12 groupes de 4 &#233;quipes. Les 2 premiers + 8 meilleurs 3es se qualifient pour les 32&#232;mes.</p></div>
-      <div class="groups-grid" id="groups-grid"></div>
-    </div>
-
-    <!-- CALENDRIER -->
-    <div class="tab-content" id="tab-tableau">
-      <div class="section-header"><h2>Calendrier</h2><p>Phase &#224; &#233;limination directe &mdash; &#224; partir du 29 juin 2026.</p></div>
-      <div class="bracket-note">&#9917; <strong>Phase de groupes</strong> en cours (11-27 juin). Le tableau se d&#233;voile &#224; l'issue des 72 matchs. Nouveau format 2026 : <strong>32&#232;mes de finale</strong> avant les huiti&#232;mes.</div>
-      <div class="phases-timeline">
-        <div class="phase-block" style="border-color:rgba(201,168,76,0.5);background:rgba(201,168,76,0.06)"><div class="phase-icon">&#9917;</div><div class="phase-info"><h3>Phase de Groupes</h3><p>12 groupes de 4 &mdash; 72 matchs</p></div><div class="phase-date" style="color:var(--red-accent)">EN COURS</div></div>
-        <div class="phase-block"><div class="phase-icon">&#9876;</div><div class="phase-info"><h3>32&#232;mes de Finale</h3><p>32 &#233;quipes &mdash; 16 matchs</p></div><div class="phase-date">29 JUIN &mdash; 3 JUIL</div></div>
-        <div class="phase-block"><div class="phase-icon">&#127919;</div><div class="phase-info"><h3>Huiti&#232;mes de Finale</h3><p>16 &#233;quipes &mdash; 8 matchs</p></div><div class="phase-date">4 &mdash; 7 JUIL</div></div>
-        <div class="phase-block"><div class="phase-icon">&#128165;</div><div class="phase-info"><h3>Quarts de Finale</h3><p>8 &#233;quipes &mdash; 4 matchs</p></div><div class="phase-date">9 &mdash; 12 JUIL</div></div>
-        <div class="phase-block"><div class="phase-icon">&#128293;</div><div class="phase-info"><h3>Demi-Finales</h3><p>4 &#233;quipes &mdash; 2 matchs</p></div><div class="phase-date">14 &mdash; 15 JUIL</div></div>
-        <div class="phase-block" style="border-color:rgba(201,168,76,0.5);background:rgba(201,168,76,0.06)"><div class="phase-icon">&#127942;</div><div class="phase-info"><h3>FINALE</h3><p>MetLife Stadium &mdash; New York / New Jersey</p></div><div class="phase-date" style="color:var(--gold-bright)">19 JUILLET</div></div>
+      <div class="section-header"><h2>Tableau du Tournoi</h2><p>Phase de groupes termin&#233;e &mdash; 16&#232;mes de finale en cours &mdash; 12 groupes &middot; 48 &#233;quipes.</p></div>
+      <div class="tour-tabs">
+        <button class="tour-tab-btn active" onclick="switchTourTab('groupes-panel')">&#9917; Classements des Groupes</button>
+        <button class="tour-tab-btn" onclick="switchTourTab('bracket-panel')">&#127942; Tableau &#201;liminatoire</button>
+      </div>
+      <div class="tour-panel active" id="groupes-panel">
+        <div class="groups-grid" id="groups-grid"></div>
+      </div>
+      <div class="tour-panel" id="bracket-panel">
+        <div class="bracket-note">&#9917; <strong>Phase de groupes termin&#233;e</strong> &mdash; Les 32 qualifi&#233;s sont connus. Les 16&#232;mes de finale sont en cours (29 juin &ndash; 3 juillet). Tableau mis &#224; jour au fil des r&#233;sultats.</div>
+        <div class="bracket-wrapper">
+          <div class="bracket" id="bracket-container"></div>
+        </div>
+        <div class="third-place-box" id="third-place-box"></div>
       </div>
     </div>
 
@@ -973,23 +1005,23 @@ function renderTimeline() {
 
 /* ===== GROUPES ===== */
 var groups = [
-  {letter:"A",matchs:4,teams:[
-    {flag:"&#127474;&#127485;",name:"Mexique",j:2,g:2,n:0,p:0,bp:3,bc:0,pts:6},
-    {flag:"&#127472;&#127479;",name:"Cor&#233;e du Sud",j:2,g:1,n:0,p:1,bp:2,bc:2,pts:3},
-    {flag:"&#127464;&#127487;",name:"Rep. Tch&#232;que",j:2,g:0,n:1,p:1,bp:2,bc:3,pts:1},
-    {flag:"&#127487;&#127462;",name:"Afrique du Sud",j:2,g:0,n:1,p:1,bp:1,bc:3,pts:1}
+  {letter:"A",matchs:6,teams:[
+    {flag:"&#127474;&#127485;",name:"Mexique",j:3,g:3,n:0,p:0,bp:6,bc:0,pts:9},
+    {flag:"&#127487;&#127462;",name:"Afrique du Sud",j:3,g:1,n:1,p:1,bp:2,bc:3,pts:4},
+    {flag:"&#127472;&#127479;",name:"Cor&#233;e du Sud",j:3,g:1,n:0,p:2,bp:2,bc:3,pts:3},
+    {flag:"&#127464;&#127487;",name:"R&#233;p. Tch&#232;que",j:3,g:0,n:1,p:2,bp:2,bc:6,pts:1}
   ]},
-  {letter:"B",matchs:4,teams:[
-    {flag:"&#127464;&#127462;",name:"Canada",j:2,g:1,n:1,p:0,bp:7,bc:1,pts:4},
-    {flag:"&#127464;&#127469;",name:"Suisse",j:2,g:1,n:1,p:0,bp:5,bc:2,pts:4},
-    {flag:"&#127463;&#127462;",name:"Bosnie-Herz.",j:2,g:0,n:1,p:1,bp:2,bc:5,pts:1},
-    {flag:"&#127478;&#127462;",name:"Qatar",j:2,g:0,n:1,p:1,bp:1,bc:7,pts:1}
+  {letter:"B",matchs:6,teams:[
+    {flag:"&#127464;&#127469;",name:"Suisse",j:3,g:2,n:1,p:0,bp:7,bc:3,pts:7},
+    {flag:"&#127464;&#127462;",name:"Canada",j:3,g:1,n:1,p:1,bp:8,bc:3,pts:4},
+    {flag:"&#127463;&#127462;",name:"Bosnie-Herz.",j:3,g:1,n:1,p:1,bp:5,bc:6,pts:4},
+    {flag:"&#127478;&#127462;",name:"Qatar",j:3,g:0,n:1,p:2,bp:2,bc:10,pts:1}
   ]},
-  {letter:"C",matchs:4,teams:[
-    {flag:"&#127463;&#127479;",name:"Br&#233;sil",j:2,g:1,n:1,p:0,bp:4,bc:1,pts:4},
-    {flag:"&#127474;&#127462;",name:"Maroc",j:2,g:1,n:1,p:0,bp:2,bc:1,pts:4},
-    {flag:"&#127987;&#65039;&#8205;&#127988;",name:"Ecosse",j:2,g:1,n:0,p:1,bp:1,bc:1,pts:3},
-    {flag:"&#127469;&#127481;",name:"Ha&#239;ti",j:2,g:0,n:0,p:2,bp:0,bc:4,pts:0}
+  {letter:"C",matchs:6,teams:[
+    {flag:"&#127463;&#127479;",name:"Br&#233;sil",j:3,g:2,n:1,p:0,bp:7,bc:1,pts:7},
+    {flag:"&#127474;&#127462;",name:"Maroc",j:3,g:2,n:1,p:0,bp:6,bc:3,pts:7},
+    {flag:"&#127987;&#65039;&#8205;&#127988;",name:"Ecosse",j:3,g:1,n:0,p:2,bp:1,bc:4,pts:3},
+    {flag:"&#127469;&#127481;",name:"Ha&#239;ti",j:3,g:0,n:0,p:3,bp:2,bc:8,pts:0}
   ]},
   {letter:"D",matchs:6,teams:[
     {flag:"&#127482;&#127480;",name:"Etats-Unis",j:3,g:2,n:0,p:1,bp:8,bc:4,pts:6},
@@ -1009,43 +1041,156 @@ var groups = [
     {flag:"&#127480;&#127466;",name:"Su&#232;de",j:3,g:1,n:1,p:1,bp:7,bc:7,pts:4},
     {flag:"&#127481;&#127475;",name:"Tunisie",j:3,g:0,n:0,p:3,bp:2,bc:12,pts:0}
   ]},
-  {letter:"G",matchs:2,teams:[
-    {flag:"&#127475;&#127487;",name:"Nouvelle-Z&#233;lande",j:1,g:0,n:1,p:0,bp:2,bc:2,pts:1},
-    {flag:"&#127470;&#127479;",name:"Iran",j:1,g:0,n:1,p:0,bp:2,bc:2,pts:1},
-    {flag:"&#127463;&#127466;",name:"Belgique",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1},
-    {flag:"&#127466;&#127468;",name:"Egypte",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1}
+  {letter:"G",matchs:6,teams:[
+    {flag:"&#127463;&#127466;",name:"Belgique",j:3,g:1,n:2,p:0,bp:6,bc:2,pts:5},
+    {flag:"&#127466;&#127468;",name:"Egypte",j:3,g:1,n:2,p:0,bp:5,bc:3,pts:5},
+    {flag:"&#127470;&#127479;",name:"Iran",j:3,g:0,n:3,p:0,bp:3,bc:3,pts:3},
+    {flag:"&#127475;&#127487;",name:"Nouvelle-Z&#233;lande",j:3,g:0,n:1,p:2,bp:4,bc:10,pts:1}
   ]},
-  {letter:"H",matchs:2,teams:[
-    {flag:"&#127482;&#127486;",name:"Uruguay",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1},
-    {flag:"&#127480;&#127462;",name:"Arabie Saoudite",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1},
-    {flag:"&#127466;&#127480;",name:"Espagne",j:1,g:0,n:1,p:0,bp:0,bc:0,pts:1},
-    {flag:"&#127464;&#127483;",name:"Cap-Vert",j:1,g:0,n:1,p:0,bp:0,bc:0,pts:1}
+  {letter:"H",matchs:6,teams:[
+    {flag:"&#127466;&#127480;",name:"Espagne",j:3,g:2,n:1,p:0,bp:5,bc:0,pts:7},
+    {flag:"&#127464;&#127483;",name:"Cap-Vert",j:3,g:0,n:3,p:0,bp:2,bc:2,pts:3},
+    {flag:"&#127482;&#127486;",name:"Uruguay",j:3,g:0,n:2,p:1,bp:3,bc:4,pts:2},
+    {flag:"&#127480;&#127462;",name:"Arabie Saoudite",j:3,g:0,n:2,p:1,bp:1,bc:5,pts:2}
   ]},
-  {letter:"I",matchs:2,teams:[
-    {flag:"&#127475;&#127476;",name:"Norv&#232;ge",j:1,g:1,n:0,p:0,bp:4,bc:1,pts:3},
-    {flag:"&#127467;&#127479;",name:"France",j:1,g:1,n:0,p:0,bp:3,bc:1,pts:3},
-    {flag:"&#127480;&#127475;",name:"S&#233;n&#233;gal",j:1,g:0,n:0,p:1,bp:1,bc:3,pts:0},
-    {flag:"&#127470;&#127478;",name:"Irak",j:1,g:0,n:0,p:1,bp:1,bc:4,pts:0}
+  {letter:"I",matchs:6,teams:[
+    {flag:"&#127467;&#127479;",name:"France",j:3,g:3,n:0,p:0,bp:10,bc:2,pts:9},
+    {flag:"&#127475;&#127476;",name:"Norv&#232;ge",j:3,g:2,n:0,p:1,bp:8,bc:7,pts:6},
+    {flag:"&#127480;&#127475;",name:"S&#233;n&#233;gal",j:3,g:1,n:0,p:2,bp:8,bc:6,pts:3},
+    {flag:"&#127470;&#127478;",name:"Irak",j:3,g:0,n:0,p:3,bp:1,bc:12,pts:0}
   ]},
-  {letter:"J",matchs:2,teams:[
-    {flag:"&#127462;&#127479;",name:"Argentine",j:1,g:1,n:0,p:0,bp:3,bc:0,pts:3},
-    {flag:"&#127462;&#127481;",name:"Autriche",j:1,g:1,n:0,p:0,bp:3,bc:1,pts:3},
-    {flag:"&#127471;&#127476;",name:"Jordanie",j:1,g:0,n:0,p:1,bp:1,bc:3,pts:0},
-    {flag:"&#127465;&#127487;",name:"Alg&#233;rie",j:1,g:0,n:0,p:1,bp:0,bc:3,pts:0}
+  {letter:"J",matchs:4,teams:[
+    {flag:"&#127462;&#127479;",name:"Argentine",j:2,g:2,n:0,p:0,bp:5,bc:0,pts:6},
+    {flag:"&#127462;&#127481;",name:"Autriche",j:2,g:1,n:0,p:1,bp:3,bc:3,pts:3},
+    {flag:"&#127465;&#127487;",name:"Alg&#233;rie",j:2,g:1,n:0,p:1,bp:2,bc:4,pts:3},
+    {flag:"&#127471;&#127476;",name:"Jordanie",j:2,g:0,n:0,p:2,bp:2,bc:5,pts:0}
   ]},
-  {letter:"K",matchs:2,teams:[
-    {flag:"&#127464;&#127476;",name:"Colombie",j:1,g:1,n:0,p:0,bp:3,bc:1,pts:3},
-    {flag:"&#127464;&#127465;",name:"RD Congo",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1},
-    {flag:"&#127477;&#127481;",name:"Portugal",j:1,g:0,n:1,p:0,bp:1,bc:1,pts:1},
-    {flag:"&#127482;&#127487;",name:"Ouzb&#233;kistan",j:1,g:0,n:0,p:1,bp:1,bc:3,pts:0}
+  {letter:"K",matchs:4,teams:[
+    {flag:"&#127464;&#127476;",name:"Colombie",j:2,g:2,n:0,p:0,bp:4,bc:1,pts:6},
+    {flag:"&#127477;&#127481;",name:"Portugal",j:2,g:1,n:1,p:0,bp:6,bc:1,pts:4},
+    {flag:"&#127464;&#127465;",name:"RD Congo",j:2,g:0,n:1,p:1,bp:1,bc:2,pts:1},
+    {flag:"&#127482;&#127487;",name:"Ouzb&#233;kistan",j:2,g:0,n:0,p:2,bp:1,bc:8,pts:0}
   ]},
-  {letter:"L",matchs:2,teams:[
-    {flag:"&#127988;",name:"Angleterre",j:1,g:1,n:0,p:0,bp:4,bc:2,pts:3},
-    {flag:"&#127468;&#127469;",name:"Ghana",j:1,g:1,n:0,p:0,bp:1,bc:0,pts:3},
-    {flag:"&#127477;&#127462;",name:"Panama",j:1,g:0,n:0,p:1,bp:0,bc:1,pts:0},
-    {flag:"&#127469;&#127479;",name:"Croatie",j:1,g:0,n:0,p:1,bp:2,bc:4,pts:0}
+  {letter:"L",matchs:4,teams:[
+    {flag:"&#127988;",name:"Angleterre",j:2,g:1,n:1,p:0,bp:4,bc:2,pts:4},
+    {flag:"&#127468;&#127469;",name:"Ghana",j:2,g:1,n:1,p:0,bp:1,bc:0,pts:4},
+    {flag:"&#127469;&#127479;",name:"Croatie",j:2,g:1,n:0,p:1,bp:3,bc:4,pts:3},
+    {flag:"&#127477;&#127462;",name:"Panama",j:2,g:0,n:0,p:2,bp:0,bc:2,pts:0}
   ]}
 ];
+
+function switchTourTab(id) {
+  var panels = document.querySelectorAll('.tour-panel');
+  for (var i = 0; i < panels.length; i++) panels[i].classList.remove('active');
+  document.getElementById(id).classList.add('active');
+  var btns = document.querySelectorAll('.tour-tab-btn');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.toggle('active', btns[i].getAttribute('onclick').indexOf(id) !== -1);
+  }
+  if (id === 'bracket-panel') renderBracket();
+}
+
+/* ========= TABLEAU ELIMINATOIRE ========= */
+/* Données : 32 qualifiés + 16èmes connus selon captures MPP */
+var bracketData = {
+  r16: [
+    /* Paire 1 : Allemagne vs Paraguay (04.07 Philadelphia) */
+    {h:{f:"&#127465;&#127466;",n:"Allemagne"},a:{f:"&#127477;&#127486;",n:"Paraguay"},date:"04.07"},
+    /* Paire 2 : France vs Suède (04.07 Philadelphia) */
+    {h:{f:"&#127467;&#127479;",n:"France"},a:{f:"&#127480;&#127466;",n:"Su&#232;de"},date:"04.07"},
+    /* Paire 3 : Afrique du Sud vs Canada (04.07 Houston) */
+    {h:{f:"&#127487;&#127462;",n:"Afrique du Sud"},a:{f:"&#127464;&#127462;",n:"Canada"},date:"04.07"},
+    /* Paire 4 : Pays-Bas vs Maroc (04.07 Houston) */
+    {h:{f:"&#127475;&#127473;",n:"Pays-Bas"},a:{f:"&#127474;&#127462;",n:"Maroc"},date:"04.07"},
+    /* Paire 5 : Espagne vs 2e Gr.J (02.07 Inglewood) */
+    {h:{f:"&#127466;&#127480;",n:"Espagne"},a:{f:"",n:"Autriche"},date:"02.07"},
+    /* Paire 6 : États-Unis vs Bosnie (07.07 Seattle) */
+    {h:{f:"&#127482;&#127480;",n:"Etats-Unis"},a:{f:"&#127463;&#127462;",n:"Bosnie-Herz."},date:"07.07"},
+    /* Paire 7 : Belgique vs 3e (A3/E3/H3/I3/J3) (01.07 Seattle) */
+    {h:{f:"&#127463;&#127466;",n:"Belgique"},a:{f:"",n:"Iran / 3e"},date:"01.07"},
+    /* Paire 8 : Brésil vs Japon (05.07 East Rutherford) */
+    {h:{f:"&#127463;&#127479;",n:"Br&#233;sil"},a:{f:"&#127471;&#127477;",n:"Japon"},date:"05.07"},
+    /* Paire 9 : Côte d'Ivoire vs Norvège */
+    {h:{f:"&#127464;&#127470;",n:"C&#244;te d&#39;Ivoire"},a:{f:"&#127475;&#127476;",n:"Norv&#232;ge"},date:"05.07"},
+    /* Paire 10 : Mexique vs 3e (C3/E3/F3/H3/I3) (01.07 Mexico) */
+    {h:{f:"&#127474;&#127485;",n:"Mexique"},a:{f:"",n:"3e qualifi&#233;"},date:"01.07"},
+    /* Paire 11 : (L1) vs 3e (E3/H3/I3/J3/K3) (01.07 Atlanta) */
+    {h:{f:"&#127988;",n:"Angleterre"},a:{f:"",n:"3e qualifi&#233;"},date:"01.07"},
+    /* Paire 12 : Argentine vs Cap-Vert (07.07 Atlanta) */
+    {h:{f:"&#127462;&#127479;",n:"Argentine"},a:{f:"&#127464;&#127483;",n:"Cap-Vert"},date:"07.07"},
+    /* Paire 13 : Australie vs Égypte (07.07 Atlanta) */
+    {h:{f:"&#127462;&#127482;",n:"Australie"},a:{f:"&#127466;&#127468;",n:"Egypte"},date:"07.07"},
+    /* Paire 14 : Suisse vs 3e (E3/F3/G3/I3/J3) (03.07 Vancouver) */
+    {h:{f:"&#127464;&#127469;",n:"Suisse"},a:{f:"",n:"S&#233;n&#233;gal / 3e"},date:"03.07"},
+    /* Paire 15 : (K1) vs (D3/E3/I3/J3/L3) (04.07 Kansas City) */
+    {h:{f:"&#127464;&#127476;",n:"Colombie"},a:{f:"",n:"3e qualifi&#233;"},date:"04.07"},
+    /* Paire 16 : Portugal vs 3e (02.07) — à confirmer */
+    {h:{f:"&#127477;&#127481;",n:"Portugal"},a:{f:"",n:"3e qualifi&#233;"},date:"02.07"}
+  ],
+  qf: [{},{},{},{}],
+  sf: [{},{}],
+  final: [{}],
+  third: {}
+};
+
+function makeBracketTeam(t, isWinner) {
+  if (!t || !t.n) return '<div class="bracket-team tbd"><span class="bracket-name">&#8212; &#224; d&#233;terminer &#8212;</span></div>';
+  return '<div class="bracket-team' + (isWinner ? ' winner' : '') + '">'
+    + (t.f ? '<span class="bracket-flag">' + t.f + '</span>' : '')
+    + '<span class="bracket-name">' + t.n + '</span>'
+    + '</div>';
+}
+
+function renderBracket() {
+  var r16 = bracketData.r16;
+  /* Colonnes : 32èmes (16 matchs groupés par 2 pour alimenter les 8èmes), 8èmes, QF, SF, Finale */
+  var r16Html = '';
+  for (var i = 0; i < r16.length; i++) {
+    var m = r16[i];
+    r16Html += '<div class="bracket-match">'
+      + makeBracketTeam(m.h, false)
+      + makeBracketTeam(m.a, false)
+      + (m.date ? '<div class="bracket-date">' + m.date + '</div>' : '')
+      + '</div>';
+  }
+
+  var html = '<div class="bracket-col" style="min-width:170px">'
+    + '<div class="bracket-col-header">16&#232;mes de Finale</div>'
+    + '<div class="bracket-matches" style="gap:0.4rem">' + r16Html + '</div>'
+    + '</div>'
+
+    + '<div class="bracket-col">'
+    + '<div class="bracket-col-header">8&#232;mes &mdash; 4-7 Juil</div>'
+    + '<div class="bracket-matches" style="gap:1.2rem">'
+    + Array(8).fill('<div class="bracket-match">' + makeBracketTeam(null) + makeBracketTeam(null) + '</div>').join('')
+    + '</div></div>'
+
+    + '<div class="bracket-col">'
+    + '<div class="bracket-col-header">Quarts &mdash; 9-12 Juil</div>'
+    + '<div class="bracket-matches" style="gap:3rem">'
+    + Array(4).fill('<div class="bracket-match">' + makeBracketTeam(null) + makeBracketTeam(null) + '</div>').join('')
+    + '</div></div>'
+
+    + '<div class="bracket-col">'
+    + '<div class="bracket-col-header">Demi-Finales &mdash; 14-15 Juil</div>'
+    + '<div class="bracket-matches" style="gap:8rem">'
+    + Array(2).fill('<div class="bracket-match">' + makeBracketTeam(null) + makeBracketTeam(null) + '</div>').join('')
+    + '</div></div>'
+
+    + '<div class="bracket-col final-col">'
+    + '<div class="bracket-col-header">&#127942; Finale &mdash; 19 Juil</div>'
+    + '<div class="bracket-matches"><div class="bracket-match">'
+    + '<div class="trophy-icon">&#127942;</div>'
+    + makeBracketTeam(null) + makeBracketTeam(null)
+    + '<div class="bracket-date">East Rutherford, NJ</div>'
+    + '</div></div></div>';
+
+  document.getElementById('bracket-container').innerHTML = html;
+  document.getElementById('third-place-box').innerHTML = '<h4>&#129353; Match pour la 3e Place &mdash; 18 Juil &mdash; Miami Gardens</h4>'
+    + '<div class="third-place-teams">'
+    + makeBracketTeam(null) + '<span class="vs-sep">VS</span>' + makeBracketTeam(null)
+    + '</div>';
+}
 
 function renderGroups() {
   var grid = document.getElementById('groups-grid');
