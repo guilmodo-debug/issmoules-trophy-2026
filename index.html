@@ -264,6 +264,7 @@
   .bracket-team:hover{border-color:rgba(201,168,76,0.3);}
   .bracket-team.tbd{color:var(--silver);font-style:italic;background:rgba(255,255,255,0.02);}
   .bracket-team.winner{border-color:rgba(201,168,76,0.6);background:rgba(201,168,76,0.08);color:var(--gold-light);}
+  .bracket-team.elim{opacity:0.4;text-decoration:line-through;}
   .bracket-flag{font-size:1rem;flex-shrink:0;}
   .bracket-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .bracket-score{font-family:'Bebas Neue',sans-serif;font-size:0.95rem;color:var(--gold);min-width:18px;text-align:right;flex-shrink:0;}
@@ -367,7 +368,7 @@
 
     <div class="live-badge">
       <div class="live-dot"></div>
-      LIVE &mdash; PHASE DE GROUPES
+      LIVE &mdash; 16&#200;MES DE FINALE
     </div>
 
     <div class="radio-badge" onclick="switchTab('radio')">
@@ -457,6 +458,23 @@
         <div class="chart-container">
           <div class="bar-chart" id="chart-buteur"></div>
         </div>
+      </div>
+          <div class="stats-section">
+        <div class="stats-section-title">&#9889; Bonus X2 &mdash; Utilisation</div>
+        <div id="chart-x2"><div style="display:flex;gap:2rem;align-items:center;flex-wrap:wrap;padding:0.5rem 0">
+          <div style="flex:1;min-width:200px">
+            <div style="font-family:var(--font-cond,sans-serif);font-size:0.85rem;color:var(--silver);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:1px">D&#233;j&#224; utilis&#233;s</div>
+            <div style="background:rgba(255,255,255,0.05);border-radius:6px;overflow:hidden;height:32px">
+              <div style="height:100%;width:77%;background:var(--red-accent);display:flex;align-items:center;padding-left:10px;font-family:'Bebas Neue',sans-serif;font-size:1.05rem;color:#fff">49 joueurs (77%)</div>
+            </div>
+          </div>
+          <div style="flex:1;min-width:200px">
+            <div style="font-family:var(--font-cond,sans-serif);font-size:0.85rem;color:var(--silver);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:1px">Encore disponibles</div>
+            <div style="background:rgba(255,255,255,0.05);border-radius:6px;overflow:hidden;height:32px">
+              <div style="height:100%;width:23%;background:rgba(201,168,76,0.55);display:flex;align-items:center;padding-left:10px;font-family:'Bebas Neue',sans-serif;font-size:1.05rem;color:#fff">15 joueurs (23%)</div>
+            </div>
+          </div>
+        </div></div>
       </div>
     </div>
 
@@ -556,7 +574,7 @@ var participants = [
   {prenom:"Edu",nom:"Martins",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,pseudo:"edurrrrrrr",mpp:true,vainqueur:"Portugal",buteur:"Ronaldo",poker:false},
   {prenom:"Emmanuel",nom:"Heraud",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,pseudo:"Manucaylus",mpp:true,vainqueur:"France",buteur:"Kane",poker:false},
   {prenom:"Erwan",nom:"Mazieres",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,pseudo:"Waninho",mpp:true,vainqueur:"France",buteur:"Mbappe",poker:false},
-  {prenom:"Fabrice",nom:"Akpaki",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,pseudo:"Babey94",mpp:true,vainqueur:"France",buteur:"Mbappe",poker:false},
+  {prenom:"Fabrice",nom:"Akpaki",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,pseudo:"Babey94",mpp:true,vainqueur:"France",buteur:"Mbappe",poker:true},
   {prenom:"Fanny",nom:"Tran",palmares:"",infobulle:"",sexe:"F",facebook:true,paye:true,pseudo:"Bounette",mpp:true,vainqueur:"Portugal",buteur:"Autre",poker:true},
   {prenom:"Florian",nom:"Dutrelot",palmares:"",infobulle:"",sexe:"H",facebook:true,paye:true,pseudo:"Fiffou07",mpp:true,vainqueur:"France",buteur:"Autre",poker:false},
   {prenom:"Francisco",nom:"",palmares:"",infobulle:"",sexe:"H",facebook:false,paye:true,pseudo:"cisco118",mpp:true,vainqueur:"Portugal",buteur:"Ronaldo",poker:false},
@@ -978,13 +996,15 @@ function renderStats() {
 
   buildBarChart(vv, vn, [], 'chart-vainqueur');
   buildBarChart(bv, bn, bAutre, 'chart-buteur');
+
+  // X2 stats
 }
 
 /* ===== TIMELINE ===== */
 var timelinePhases = [
   {label:"Inscriptions",status:"done"},
-  {label:"Groupes",status:"active"},
-  {label:"32&#232;mes",status:"upcoming"},
+  {label:"Groupes",status:"done"},
+  {label:"16&#232;mes",status:"active"},
   {label:"8&#232;mes",status:"upcoming"},
   {label:"Quarts",status:"upcoming"},
   {label:"Demis",status:"upcoming"},
@@ -1098,8 +1118,8 @@ var bracketData = {
     {h:{f:"&#127465;&#127466;",n:"Allemagne"},a:{f:"&#127477;&#127486;",n:"Paraguay"},date:"04.07"},
     /* Paire 2 : France vs Suède (04.07 Philadelphia) */
     {h:{f:"&#127467;&#127479;",n:"France"},a:{f:"&#127480;&#127466;",n:"Su&#232;de"},date:"04.07"},
-    /* Paire 3 : Afrique du Sud vs Canada (04.07 Houston) */
-    {h:{f:"&#127487;&#127462;",n:"Afrique du Sud"},a:{f:"&#127464;&#127462;",n:"Canada"},date:"04.07"},
+    /* Paire 3 : Afrique du Sud vs Canada — Canada qualifié (0-1) */
+    {h:{f:"&#127487;&#127462;",n:"Afrique du Sud",elim:true},a:{f:"&#127464;&#127462;",n:"Canada",winner:true},score:"0-1",date:"29.06"},
     /* Paire 4 : Pays-Bas vs Maroc (04.07 Houston) */
     {h:{f:"&#127475;&#127473;",n:"Pays-Bas"},a:{f:"&#127474;&#127462;",n:"Maroc"},date:"04.07"},
     /* Paire 5 : Espagne vs 2e Gr.J (02.07 Inglewood) */
@@ -1127,7 +1147,7 @@ var bracketData = {
     /* Paire 16 : Portugal vs 3e (02.07) — à confirmer */
     {h:{f:"&#127477;&#127481;",n:"Portugal"},a:{f:"",n:"3e qualifi&#233;"},date:"02.07"}
   ],
-  qf: [{},{},{},{}],
+  qf: [{h:{f:"&#127464;&#127462;",n:"Canada"},a:{f:"",n:"&#224; d&#233;terminer"}},{},{},{}],
   sf: [{},{}],
   final: [{}],
   third: {}
